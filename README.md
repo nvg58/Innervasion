@@ -1,7 +1,7 @@
-IC15
+Lina Rescue
 =================================
 
-A 2d game called "IC15"
+A 2d game called "Lina Rescue" that is made to join Imagine Cup Competition (Microsoft)
 
 We will make the coolest game ever!
 
@@ -16,3 +16,5 @@ Please follow the below workflow
 See the example in [Team's Google Spreadsheets](https://docs.google.com/spreadsheets/d/1eyge4Om2QlHr3VhOefvnvySQaoNwSJ_r0VSb4eixdYA)
 
 Nice works :)
+
+BREACH Studio.
