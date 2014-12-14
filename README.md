@@ -1,7 +1,7 @@
-Lina Rescue
+Rescue Lina
 =================================
 
-A 2d game called "Lina Rescue" that is made to join Imagine Cup Competition (Microsoft)
+A 2d game called "Rescue Lina" that is made to join Imagine Cup Competition (Microsoft)
 
 We will make the coolest game ever!
 
