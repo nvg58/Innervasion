@@ -183,7 +183,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -706,6 +706,10 @@ Prefab:
     - target: {fileID: 11400000, guid: ec02d7812c61c4d26a6bda74b3fa7108, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: ec02d7812c61c4d26a6bda74b3fa7108, type: 2}
+      propertyPath: orthographic size
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec02d7812c61c4d26a6bda74b3fa7108, type: 2}
