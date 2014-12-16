@@ -2,15 +2,8 @@
  
 var acceleration : float;
 var maxMagnitudeMHCanSuffer : float;
-private var myGravity: ConstantForce;
 
 
-function Start(){
-	rigidbody.useGravity = false; // forget about physics default gravity
-	myGravity = gameObject.AddComponent(ConstantForce); // add a ConstantForce component
-	SetGravity(9.81 * Vector3.down); // set regular gravity
-}
- 
 function FixedUpdate ()
 {
     var xIndex : float = Input.GetAxis("Horizontal") * acceleration;
@@ -29,8 +22,3 @@ function OnCollisionEnter2D( col : Collision2D )
 	}  
  }  
  
-function SetGravity(g: Vector3){
-	// calculate the necessary force to produce the desired gravity:
-	myGravity.force = rigidbody.mass * g; 
-}
-
