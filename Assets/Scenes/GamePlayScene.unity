@@ -719,9 +719,9 @@ EdgeCollider2D:
   - {x: 1.66067803, y: -3.77680564}
   - {x: 1.63495541, y: -3.84746671}
   - {x: 1.58342838, y: -3.5917058}
-  - {x: 1.51040149, y: -2.84866118}
-  - {x: 1.92966056, y: -2.82336402}
-  - {x: 2.38634133, y: -2.36602926}
+  - {x: 1.49060428, y: -2.84866118}
+  - {x: 1.92306149, y: -2.81676483}
+  - {x: 2.37663102, y: -2.3792274}
   - {x: 6.32016325, y: -2.38350511}
   - {x: 6.26312971, y: -.0980782807}
   - {x: 3.16055727, y: -.00981656741}
@@ -761,8 +761,8 @@ EdgeCollider2D:
   - {x: -3.15955949, y: -.044511497}
   - {x: -6.27117062, y: -.0215585828}
   - {x: -6.27174759, y: -2.41369796}
-  - {x: -2.29895139, y: -2.38500619}
-  - {x: -1.8773365, y: -2.89113069}
+  - {x: -2.36859655, y: -2.392519}
+  - {x: -1.85481989, y: -2.85153627}
   - {x: .807195365, y: -2.87729788}
   - {x: .717606783, y: -3.43005896}
   - {x: .596947432, y: -3.85700035}
@@ -772,8 +772,8 @@ EdgeCollider2D:
   - {x: -4.66320992, y: -4.19512606}
   - {x: -4.31706953, y: -4.58121538}
   - {x: -2.5948472, y: -4.64164591}
-  - {x: -2.62503576, y: -6.30254555}
-  - {x: 2.61765647, y: -6.30951595}
+  - {x: -2.62503576, y: -6.2724967}
+  - {x: 2.62767267, y: -6.26945114}
   - {x: 2.58811116, y: -4.62104607}
   - {x: 4.31728745, y: -4.6423974}
   - {x: 4.62635708, y: -4.24903011}
@@ -859,8 +859,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .472126961, y: 1.01678312}
-  m_Center: {x: 1.71287608, y: -3.31702662}
+  m_Size: {x: .472126961, y: .971686244}
+  m_Center: {x: 1.71287608, y: -3.33957481}
 --- !u!61 &420371374
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -870,8 +870,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.3783617, y: 1.04921496}
-  m_Center: {x: -.35501191, y: -3.37200046}
+  m_Size: {x: 2.3783617, y: 1.01916409}
+  m_Center: {x: -.35501191, y: -3.38702559}
 --- !u!61 &420371375
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1008,7 +1008,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 542188503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.889999986, y: -.629999995, z: 0}
+  m_LocalPosition: {x: -1.046, y: -.624000013, z: 0}
   m_LocalScale: {x: .150000006, y: .150000006, z: .200000003}
   m_Children: []
   m_Father: {fileID: 1054839349}
@@ -1388,8 +1388,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .0515405834, y: .563933492}
-  m_Center: {x: .00669974089, y: .089969635}
+  m_Size: {x: .0556067005, y: .464312077}
+  m_Center: {x: .000600576401, y: .139779806}
 --- !u!1 &782198698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,8 +1451,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .058660537, y: 1.13268101}
-  m_Center: {x: -.00680413842, y: .0850511789}
+  m_Size: {x: .0748639107, y: 1.09501553}
+  m_Center: {x: .00129756331, y: .103883862}
 --- !u!1 &792718120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,7 +1788,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1054839348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.869000018, y: -.165000007, z: 0}
+  m_LocalPosition: {x: -.869000018, y: -.169, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 542188505}
@@ -1831,8 +1831,8 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .0799999982
-  m_Center: {x: -.894999981, y: -.720000029}
+  m_Radius: .0562846661
+  m_Center: {x: -1.04999995, y: -.74000001}
 --- !u!61 &1054839353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1842,8 +1842,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .166829228, y: .237098277}
-  m_Center: {x: -.894231498, y: -.595504522}
+  m_Size: {x: .144737244, y: .253934771}
+  m_Center: {x: -1.05149937, y: -.587086201}
 --- !u!1 &1057360390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,8 +2899,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .0515407324, y: .592014313}
-  m_Center: {x: .00223320723, y: .089328289}
+  m_Size: {x: .0515407324, y: .48023212}
+  m_Center: {x: .00223320723, y: .145219326}
 --- !u!1 &1914091270
 GameObject:
   m_ObjectHideFlags: 0
