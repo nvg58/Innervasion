@@ -10,13 +10,13 @@ public class PlayerControl : MonoBehaviour
 
 		void Start ()
 		{
+				MH = GameObject.FindGameObjectWithTag ("MH");
 				PV = gameObject.GetComponent <PhotonView> ();
 		}
 
 		void FixedUpdate ()
 		{
 				if (PV.isMine) {
-
 						if (Input.GetAxis ("Horizontal") > 0)
 								transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
 						if (Input.GetAxis ("Horizontal") < 0)
@@ -46,9 +46,11 @@ public class PlayerControl : MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D other)
 		{
+				Debug.Log (other.name);
 				if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
-						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
 						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
+						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
+						
 				}
 
 				if (other.name == "Ladder" || other.name == "Elevator") {
@@ -58,10 +60,13 @@ public class PlayerControl : MonoBehaviour
 		}
 	
 		void OnTriggerStay2D (Collider2D other)
-		{
+		{				
 				if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
-						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
 						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
+						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;	
+						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
+						Debug.Log (PhotonNetwork.playerName);
+						
 				}
 				if (other.name == "Ladder" || other.name == "Elevator") {
 						canClimb = true;

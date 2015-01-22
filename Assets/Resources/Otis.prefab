@@ -11,11 +11,11 @@ GameObject:
   - 212: {fileID: 21200000}
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
-  - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Milo
+  m_Name: Otis
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.91499996, y: -.791000009, z: 0}
+  m_LocalPosition: {x: -5.19999981, y: .709999979, z: 0}
   m_LocalScale: {x: .150000006, y: .150000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,8 +57,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1.3694526, y: 2.26457119}
-  m_Center: {x: -.0450380631, y: .0225194283}
+  m_Size: {x: 2.39943933, y: 2.27353525}
+  m_Center: {x: -.0552797318, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,11 +67,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b024dd9591b154fbe8aac604f013e8, type: 3}
+  m_Script: {fileID: 11500000, guid: afbf4f7fa7e5e4836b881af8ba9a08b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  MH: {fileID: 100074, guid: c96fe28b18e50438ab8ddbe19b2307a2, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,7 +90,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 11400004}
+  - {fileID: 11400000}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -105,9 +103,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afbf4f7fa7e5e4836b881af8ba9a08b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 89b024dd9591b154fbe8aac604f013e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  MH: {fileID: 100074, guid: c96fe28b18e50438ab8ddbe19b2307a2, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -128,7 +128,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 720bafed85d6a3f41aa4369847a559c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e715eca5f1fa8644b62bd190d4b1ef1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

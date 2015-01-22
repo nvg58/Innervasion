@@ -36,14 +36,21 @@ public  class  NetworkManager: Photon.MonoBehaviour
 		void  OnJoinedRoom ()
 		{
 				Debug.Log ("I was successful to participate in the Room");
-				Vector3 SpawnPosition = new  Vector3 (0, 2, 0); // generate position
+//				Vector3 SpawnPosition = new  Vector3 (0, 2, 0); // generate position
 				// Quaternion.identity means "no rotation"
-				PhotonNetwork.Instantiate ("Milo", SpawnPosition, Quaternion.identity, 0); 
+				if (PhotonNetwork.countOfPlayers > 1) {
+						PhotonNetwork.Instantiate ("Milo", new  Vector3 (-1, 0, 0), Quaternion.identity, 0);
+//						PhotonNetwork.playerName = "Milo";
+				} else {
+						PhotonNetwork.Instantiate ("Otis", new Vector3 (1, 2, 0), Quaternion.identity, 0); 
+//						PhotonNetwork.playerName = "Otis";
+				}
+				PhotonNetwork.playerName = "Player";
 		}
 	
 		void  OnGUI ()
 		{
 				// Display the connection status of the server to the GUI
-				GUILayout.Label (PhotonNetwork.connectionStateDetailed.ToString ());
+				GUILayout.Label (PhotonNetwork.countOfPlayers + PhotonNetwork.connectionStateDetailed.ToString ());		
 		}
 }
