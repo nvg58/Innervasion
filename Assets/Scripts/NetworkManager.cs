@@ -1,60 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NetworkManager : MonoBehaviour {
-
-	public GameObject playerPrefab;
-	private const string roomName = "RoomName";
-	private RoomInfo[] roomsList;
-
-	// Use this for initialization
-	void Start () {
-		PhotonNetwork.ConnectUsingSettings("0.1");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
-	void OnGUI()
-	{
-		if (!PhotonNetwork.connected)
+public  class  NetworkManager: Photon.MonoBehaviour
+{
+		void  Awake ()
 		{
-			GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
-		}
-		else if (PhotonNetwork.room == null)
-		{
-			// Create Room
-			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
-				PhotonNetwork.CreateRoom(roomName + System.Guid.NewGuid().ToString("N"), true, true, 2 );
+				// Seconds transmission rate the set (initial value 15)
+//				PhotonNetwork.sendRate = 1;
+//				PhotonNetwork.sendRateOnSerialize = 1;
 
-			// Join Room
-			if (roomsList != null)
-			{
-				for (int i = 0; i < roomsList.Length; i++)
-				{
-					if (GUI.Button(new Rect(100, 250 + (110 * i), 250, 100), "Join " + roomsList[i].name))
-						PhotonNetwork.JoinRoom(roomsList[i].name);
-
-					Debug.Log(roomsList[i].name);
-				}
-			}
-			else {
-				Debug.Log("Yes. Null");
-			}
+				// Connect to the master server
+				PhotonNetwork.ConnectUsingSettings ("v0.1");
 		}
-	}
 	
-	void OnReceivedRoomListUpdate()
-	{
-		roomsList = PhotonNetwork.GetRoomList();
-	}
-	void OnJoinedRoom()
-	{
-		Debug.Log("Connected to Room");
-		// Spawn player
-		PhotonNetwork.Instantiate(playerPrefab.name, Vector3.up * 5, Quaternion.identity, 0);
-	}
-
+		void  Update ()
+		{
+		}
+	
+		// Callback when lobby participation success
+		void  OnJoinedLobby ()
+		{
+				// Randomly join the Room
+				PhotonNetwork.JoinRandomRoom ();
+		}
+	
+		// Room participation failure callback
+		void  OnPhotonRandomJoinFailed ()
+		{
+				Debug.Log ("I failed to participate in the Room");
+				// Create an unnamed Room
+				PhotonNetwork.CreateRoom (null);
+		}
+	
+		// Room callback when participation success
+		void  OnJoinedRoom ()
+		{
+				Debug.Log ("I was successful to participate in the Room");
+				Vector3 SpawnPosition = new  Vector3 (0, 2, 0); // generate position
+				// Quaternion.identity means "no rotation"
+				PhotonNetwork.Instantiate ("Milo", SpawnPosition, Quaternion.identity, 0); 
+		}
+	
+		void  OnGUI ()
+		{
+				// Display the connection status of the server to the GUI
+				GUILayout.Label (PhotonNetwork.connectionStateDetailed.ToString ());
+		}
 }

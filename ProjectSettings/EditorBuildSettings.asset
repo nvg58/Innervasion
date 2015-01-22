@@ -32,4 +32,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Photon Unity Networking/Demos/MarcoPolo-Tutorial/MarcoPolo-Scene.unity
   - enabled: 1
-    path: Assets/Scenes/PhotonNetworkRealtme.unity
+    path: Assets/Scenes/GamePlayScene.unity
