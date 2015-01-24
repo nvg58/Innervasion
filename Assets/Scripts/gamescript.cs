@@ -9,6 +9,7 @@ public class gamescript : MonoBehaviour {
 	private bool sent = false;
 	private int numberOfClientReady = 0;
 	private bool twoPlayerConnected = false;
+	private int numberOfClient = 0;
 	
 	void  Awake (){
 		//RE-enable the network messages now we've loaded the right level
@@ -19,7 +20,6 @@ public class gamescript : MonoBehaviour {
 			MultiplayerFunctions.SP.RegisterHost(GameSettings.serverTitle, GameSettings.description);
 		}
 	}
-	
 	
 	void  OnGUI (){
 		
@@ -97,6 +97,8 @@ public class gamescript : MonoBehaviour {
 	//Server functions called by Unity
 	void  OnPlayerConnected ( NetworkPlayer player  ){
 		Debug.Log("Player connected from: " + player.ipAddress +":" + player.port);
+		numberOfClient = numberOfClient + 1;
+		PlayerPrefs.SetString("Player " + numberOfClient.ToString() + " ip" , player.ipAddress);
 	}
 	
 	void  OnPlayerDisconnected ( NetworkPlayer player  ){
