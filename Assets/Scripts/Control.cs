@@ -85,70 +85,14 @@ public class Control : MonoBehaviour {
 					MH.transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
 				}							
 			}
-
 		}
+	}
 		
-		// Get input from client
-		if (Network.peerType == NetworkPeerType.Client){
-			VCAnalogJoystickBase moveJoystick = VCAnalogJoystickBase.GetInstance("MoveJoyStick");
-			VCButtonBase actionButton = VCButtonBase.GetInstance("Action");
-			VCButtonBase fireButton = VCButtonBase.GetInstance("Fire");
-			Vector2 directionVector = new Vector2(moveJoystick.AxisX, moveJoystick.AxisY);
-			if (directionVector != Vector2.zero){
-				// Get the length of the directon vector and then normalize it
-				// Dividing by the length is cheaper than normalizing when we already have the length anyway
-				var directionLength = directionVector.magnitude;
-				directionVector = directionVector / directionLength;
-				
-				// Make sure the length is no bigger than 1
-				directionLength = Mathf.Min(1.0f, directionLength);
-				
-				// Make the input vector more sensitive towards the extremes and less sensitive in the middle
-				// This makes it easier to control slow speeds when using analog sticks
-				directionLength = directionLength * directionLength;
-				
-				// Multiply the normalized direction vector by the modified length
-				directionVector = directionVector * directionLength;
-			}
-			networkView.RPC("SendInput", RPCMode.Server, directionVector.x, directionVector.y, 
-			                actionButton.Pressed, fireButton.Pressed);
-			
-			//			VCDPadBase dpad = VCDPadBase.GetInstance("dpad");
-			//			if (dpad){
-			//			
-			//				if (dpad.Left)
-			//					networkView.RPC("Press", RPCMode.Server, -1, 0); 
-			//				if (dpad.Right)
-			//					networkView.RPC("Press", RPCMode.Server, 1, 0); 
-			//				if (canClimb){
-			//					if (dpad.Up)
-			//						networkView.RPC("Press", RPCMode.Server, 0, 1); 
-			//					if (dpad.Down)
-			//						networkView.RPC("Press", RPCMode.Server, 0, -1); 
-			//				}
-			//			}			
-		}	
-	}
-	
-	void OnCollisionEnter2D(Collision2D other){
-		//Debug.Log("Enter collision");
-		if (other.gameObject.name == "Body"){
-			//rigidbody2D.gravityScale = 0;
-		}
-	}
-	
 	void OnCollisionStay2D(Collision2D other){
 		//Debug.Log("Enter collision");
 		if (other.gameObject.name == "Body"){
 			rigidbody2D.velocity = Vector2.zero;
 			//rigidbody2D.gravityScale = 0;
-		}
-	}
-	
-	void OnCollisionExit2D(Collision2D other){
-		if (other.gameObject.name == "Body"){
-			//Debug.Log("Exit collision");
-			//rigidbody2D.gravityScale = 1;
 		}
 	}
 	

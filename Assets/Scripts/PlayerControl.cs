@@ -48,38 +48,38 @@ public class PlayerControl : MonoBehaviour {
 					Press(0, -1);
 					}
 		}
-		if (Network.peerType == NetworkPeerType.Client){
-			VCAnalogJoystickBase moveJoystick = VCAnalogJoystickBase.GetInstance("MoveJoyStick");
-			Vector2 directionVector = new Vector2(moveJoystick.AxisX, moveJoystick.AxisY);
-			if (directionVector != Vector2.zero){
-				// Get the length of the directon vector and then normalize it
-				// Dividing by the length is cheaper than normalizing when we already have the length anyway
-				var directionLength = directionVector.magnitude;
-				directionVector = directionVector / directionLength;
-				
-				// Make sure the length is no bigger than 1
-				directionLength = Mathf.Min(1.0f, directionLength);
-				
-				// Make the input vector more sensitive towards the extremes and less sensitive in the middle
-				// This makes it easier to control slow speeds when using analog sticks
-				directionLength = directionLength * directionLength;
-				
-				// Multiply the normalized direction vector by the modified length
-				directionVector = directionVector * directionLength;
-				
-				if (Mathf.Abs(directionVector.x) > Mathf.Abs(directionVector.y) || canClimb == false){
-					if (directionVector.x < 0)
-						networkView.RPC("Press", RPCMode.Server, -1, 0);
-					if (directionVector.x > 0)
-						networkView.RPC("Press", RPCMode.Server, 1, 0);					
-				}
-				if (Mathf.Abs(directionVector.x) <= Mathf.Abs(directionVector.y) && canClimb == true){
-					if (directionVector.y < 0)
-						networkView.RPC("Press", RPCMode.Server, 0, -1);
-					if (directionVector.y > 0)
-						networkView.RPC("Press", RPCMode.Server, 0, 1);					
-				}
-			}
+//		if (Network.peerType == NetworkPeerType.Client){
+//			VCAnalogJoystickBase moveJoystick = VCAnalogJoystickBase.GetInstance("MoveJoyStick");
+//			Vector2 directionVector = new Vector2(moveJoystick.AxisX, moveJoystick.AxisY);
+//			if (directionVector != Vector2.zero){
+//				// Get the length of the directon vector and then normalize it
+//				// Dividing by the length is cheaper than normalizing when we already have the length anyway
+//				var directionLength = directionVector.magnitude;
+//				directionVector = directionVector / directionLength;
+//				
+//				// Make sure the length is no bigger than 1
+//				directionLength = Mathf.Min(1.0f, directionLength);
+//				
+//				// Make the input vector more sensitive towards the extremes and less sensitive in the middle
+//				// This makes it easier to control slow speeds when using analog sticks
+//				directionLength = directionLength * directionLength;
+//				
+//				// Multiply the normalized direction vector by the modified length
+//				directionVector = directionVector * directionLength;
+//				
+//				if (Mathf.Abs(directionVector.x) > Mathf.Abs(directionVector.y) || canClimb == false){
+//					if (directionVector.x < 0)
+//						networkView.RPC("Press", RPCMode.Server, -1, 0);
+//					if (directionVector.x > 0)
+//						networkView.RPC("Press", RPCMode.Server, 1, 0);					
+//				}
+//				if (Mathf.Abs(directionVector.x) <= Mathf.Abs(directionVector.y) && canClimb == true){
+//					if (directionVector.y < 0)
+//						networkView.RPC("Press", RPCMode.Server, 0, -1);
+//					if (directionVector.y > 0)
+//						networkView.RPC("Press", RPCMode.Server, 0, 1);					
+//				}
+//			}
 
 //			VCDPadBase dpad = VCDPadBase.GetInstance("dpad");
 //			if (dpad){
@@ -95,7 +95,7 @@ public class PlayerControl : MonoBehaviour {
 //						networkView.RPC("Press", RPCMode.Server, 0, -1); 
 //				}
 //			}			
-		}	
+//		}	
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
