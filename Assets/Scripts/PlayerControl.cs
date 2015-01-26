@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControl : MonoBehaviour {
+public class PlayerControl : Photon.MonoBehaviour {
 	public float speed = 1f;
 	public GameObject MH;
 	public GameObject map;
@@ -9,7 +9,14 @@ public class PlayerControl : MonoBehaviour {
 	private int PLAYERpos ,TOUCHpos;
 	private BoxCollider2D[] boxs;
 	private int[][] gameMap;
+	
+	private PhotonView PV;
+	
 	void Start(){
+		MH = GameObject.FindGameObjectWithTag ("MH");
+		map = GameObject.Find("map"); 
+		//PV = gameObject.GetComponent <PhotonView> ();
+		PV = gameObject.GetPhotonView();
 		//isGetGoal = false;
 		boxs = new BoxCollider2D[52];
 		foreach (Transform kidlette in map.transform) {
@@ -18,6 +25,7 @@ public class PlayerControl : MonoBehaviour {
 		makeMap ();
 		PLAYERpos = 1;
 		TOUCHpos = 1;
+		
 	}
 
 	void makeMap(){
@@ -75,6 +83,8 @@ public class PlayerControl : MonoBehaviour {
 	//}
 
 	void FixedUpdate() {
+		if (!PV) Debug.Log("Hehe");
+		if (photonView.isMine) {
 		if (Input.touchCount > 0){
 			Touch touch = Input.GetTouch(0);
 			for(int i=1;i<=51;i++)
@@ -134,7 +144,7 @@ public class PlayerControl : MonoBehaviour {
 			//if (Input.GetAxis("Vertical") < 0)
 				if (dir == 3)
 				transform.Translate (new Vector3 (0, -speed*Time.deltaTime, 0));
-
+			}
 	}
 
 	// can make constant array instead of doing this
@@ -165,47 +175,65 @@ public class PlayerControl : MonoBehaviour {
 		return 0;
 	}
 
-	void OnCollisionEnter2D(Collision2D other){
-		if (other.gameObject.name == "Body"){
-			rigidbody2D.gravityScale = 0;
+		void OnCollisionEnter2D (Collision2D other)
+		{
+				if (other.gameObject.name == "Body") {
+						rigidbody2D.gravityScale = 0;
+				}
 		}
-	}
+		
+		void OnCollisionStay2D (Collision2D other)
+		{
+			if (other.gameObject.name == "Body") {
+				rigidbody2D.velocity = Vector2.zero;
+				rigidbody2D.gravityScale = 0;
+			}
+		}	
+		
+		void OnCollisionExit2D (Collision2D other)
+		{
+				if (other.gameObject.name == "Body") {
+						rigidbody2D.gravityScale = 1;
+				}
+		}
+
+		void OnTriggerEnter2D (Collider2D other)
+		{
+				Debug.Log (other.name);
+				if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
+						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
+						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
+						
+				}
+
+				if (other.name == "Ladder" || other.name == "Elevator") {
+						canClimb = true;
+						rigidbody2D.isKinematic = true;
+				}
+		}
 	
-	void OnCollisionExit2D(Collision2D other){
-		if (other.gameObject.name == "Body"){
-			rigidbody2D.gravityScale = 1;
+		void OnTriggerStay2D (Collider2D other)
+		{				
+				if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
+						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
+						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;	
+						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
+						Debug.Log (PhotonNetwork.playerName);
+						
+				}
+				if (other.name == "Ladder" || other.name == "Elevator") {
+						canClimb = true;
+						rigidbody2D.isKinematic = true;
+				}
 		}
-	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
-			(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
-			(MH.GetComponent("MHControl") as MonoBehaviour).enabled = true;
+		void OnTriggerExit2D (Collider2D other)
+		{
+				if (other.name == "Ladder" || other.name == "Elevator") {
+						canClimb = false;
+						rigidbody2D.isKinematic = false;
+						rigidbody2D.gravityScale = 1;
+				}
 		}
-
-		if (other.name == "Ladder" || other.name == "Elevator") {
-			canClimb = true;
-			rigidbody2D.isKinematic = true;
-		}
-	}
-	
-	void OnTriggerStay2D(Collider2D other){
-		if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
-			(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
-			(MH.GetComponent("MHControl") as MonoBehaviour).enabled = true;
-		}
-		if (other.name == "Ladder" || other.name == "Elevator") {
-			canClimb = true;
-			rigidbody2D.isKinematic = true;
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D other){
-		if (other.name == "Ladder" || other.name == "Elevator") {
-			canClimb = false;
-			rigidbody2D.isKinematic = false;
-			rigidbody2D.gravityScale = 1;
-		}
-	}
 }
 

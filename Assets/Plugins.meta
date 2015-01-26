@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f826d96889511904c8cf244e78db13a9
+=======
+guid: 05023a3205d5d6f468bf58a2596afc2e
+>>>>>>> origin/15-photon-realtime-multiplayer
 folderAsset: yes
 DefaultImporter:
   userData: 
