@@ -75,6 +75,21 @@ public class PlayerControl : MonoBehaviour {
 	//}
 
 	void FixedUpdate() {
+		if (Input.touchCount > 0){
+			Touch touch = Input.GetTouch(0);
+			for(int i=1;i<=51;i++)
+			{
+				Vector3 wp = Camera.main.ScreenToWorldPoint(touch.position);
+				Vector2 convertWp = new Vector2(wp.x,wp.y);
+				if(boxs[i].bounds.Contains(convertWp))
+				{
+					TOUCHpos = i;
+					//print("touchPos "+i+" "+convertWp);
+					break;
+				}	
+			}			
+		}
+		
 		if (Input.GetMouseButtonDown (0)) {
 			Vector2 touch = Input.mousePosition;
 			for(int i=1;i<=51;i++)
