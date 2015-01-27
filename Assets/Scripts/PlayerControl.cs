@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControl : MonoBehaviour {
+public class PlayerControl : Photon.MonoBehaviour {
 	public GameObject MH;
 	public GameObject map;
 	bool canClimb = false;
 	private int PLAYERpos, TOUCHpos;
 	private BoxCollider2D[] boxs;
 	private int[][] gameMap;
-	private PhotonView PV;
 	
 	// movement config
 	public float gravity = -25;
@@ -39,7 +38,6 @@ public class PlayerControl : MonoBehaviour {
 	{
 		MH = GameObject.FindGameObjectWithTag ("MH");
 		map = GameObject.Find("Map"); 
-		PV = gameObject.GetPhotonView();
 		boxs = new BoxCollider2D[62];
 		foreach (Transform kidlette in map.transform) {
 			boxs[int.Parse(kidlette.name)] = kidlette.gameObject.collider2D as BoxCollider2D;
@@ -178,7 +176,7 @@ public class PlayerControl : MonoBehaviour {
 	// the Update loop contains a very simple example of moving the character around and controlling the animation
 	void Update()
 	{
-		//if (photonView.isMine) 
+		if (photonView.isMine) 
 		{		
 			if (Input.touchCount > 0){
 				Touch touch = Input.GetTouch(0);
