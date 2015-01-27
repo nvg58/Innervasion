@@ -16,7 +16,7 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Charecters
-  User Layer 9: 
+  User Layer 9: Trigger
   User Layer 10: 
   User Layer 11: 
   User Layer 12: 
@@ -43,4 +43,12 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Trigger
+    userID: 2
+    uniqueID: 1392466547
+    locked: 0
+  - name: Character
+    userID: 1
+    uniqueID: 1836240499
     locked: 0
