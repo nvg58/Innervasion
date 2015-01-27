@@ -2,63 +2,135 @@
 using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
-	public float speed = 1f;
 	public GameObject MH;
 	bool canClimb = false;
-
+	// movement config
+	public float gravity = -25;
+	public float runSpeed = 1f;
+	public float groundDamping = 20f; // how fast do we change direction? higher means faster
+	public float inAirDamping = 5f;
+	public float jumpHeight = 3f;
+	
+	[HideInInspector]
+	private float normalizedHorizontalSpeed = 0;
+	
+	private CharacterController2D _controller;
+	//private Animator _animator;
+	private RaycastHit2D _lastControllerColliderHit;
+	private Vector3 _velocity;
+	
+	void Awake()
+	{
+		//_animator = GetComponent<Animator>();
+		_controller = GetComponent<CharacterController2D>();
+		
+		// listen to some events for illustration purposes
+		_controller.onControllerCollidedEvent += onControllerCollider;
+		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
+		_controller.onTriggerExitEvent += onTriggerExitEvent;
+	}
+	
+	#region Event Listeners
+	
+	void onControllerCollider( RaycastHit2D hit )
+	{
+		// bail out on plain old ground hits cause they arent very interesting
+		if( hit.normal.y == 1f )
+			return;
+		
+		// logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
+		//Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
+	}
+	
+	
+	void onTriggerEnterEvent( Collider2D col )
+	{
+		Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
+	}
+	
+	
+	void onTriggerExitEvent( Collider2D col )
+	{
+		Debug.Log( "onTriggerExitEvent: " + col.gameObject.name );
+	}
+	
+	#endregion
+	
+	
+	// the Update loop contains a very simple example of moving the character around and controlling the animation
+	void Update()
+	{
+		// grab our current _velocity to use as a base for all calculations
+		_velocity = _controller.velocity;
+		
+		if( _controller.isGrounded )
+			_velocity.y = 0;
+		
+		if( Input.GetKey( KeyCode.RightArrow ) )
+		{
+			normalizedHorizontalSpeed = 1;
+			if( transform.localScale.x < 0f )
+				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
+			
+//			if( _controller.isGrounded )
+//				_animator.Play( Animator.StringToHash( "Run" ) );
+		}
+		else if( Input.GetKey( KeyCode.LeftArrow ) )
+		{
+			normalizedHorizontalSpeed = -1;
+			if( transform.localScale.x > 0f )
+				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
+			
+//			if( _controller.isGrounded )
+//				_animator.Play( Animator.StringToHash( "Run" ) );
+		}
+		else
+		{
+			normalizedHorizontalSpeed = 0;
+			
+//			if( _controller.isGrounded )
+//				_animator.Play( Animator.StringToHash( "Idle" ) );
+		}
+		
+		
+		if (canClimb == true){
+			if (Input.GetKey( KeyCode.UpArrow )){
+				_velocity.y = 1;
+			}
+			else if (Input.GetKey( KeyCode.DownArrow )){
+				_velocity.y = -1;
+			}
+			else{
+				_velocity.y = 0;
+			}
+		}
+		
+		
+		// apply horizontal speed smoothing it
+		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
+		_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
+		
+		// apply gravity before moving
+		_velocity.y += gravity * Time.deltaTime;
+		_controller.move( _velocity * Time.deltaTime );
+		if (_velocity.y > 0)
+			Debug.Log(_velocity);
+	}
+	
 	void FixedUpdate() {
-		if (Input.GetAxis("Horizontal") > 0)
-			transform.Translate (new Vector3 (speed*Time.deltaTime, 0, 0));
-		if (Input.GetAxis("Horizontal") < 0)
-			transform.Translate (new Vector3 (-speed*Time.deltaTime, 0, 0));
-		if (canClimb == true) {
-			if (Input.GetAxis("Vertical") > 0)
-				transform.Translate (new Vector3 (0, speed*Time.deltaTime, 0));
-			if (Input.GetAxis("Vertical") < 0)
-				transform.Translate (new Vector3 (0, -speed*Time.deltaTime, 0));
-		}
 	}
-
-	void OnCollisionEnter2D(Collision2D other){
-		if (other.gameObject.name == "Body"){
-			rigidbody2D.gravityScale = 0;
+	
+	void OnTriggerStay2D(Collider2D other) {
+		if (other.name == "Ladder" || other.name == "Elevator"){
+			canClimb = true;
+			gravity = 0;
 		}
 	}
 	
-	void OnCollisionExit2D(Collision2D other){
-		if (other.gameObject.name == "Body"){
-			rigidbody2D.gravityScale = 1;
-		}
-	}
-
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
-			(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
-			(MH.GetComponent("MHControl") as MonoBehaviour).enabled = true;
-		}
-
-		if (other.name == "Ladder" || other.name == "Elevator") {
-			canClimb = true;
-			rigidbody2D.isKinematic = true;
-		}
-	}
-	
-	void OnTriggerStay2D(Collider2D other){
-		if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
-			(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;
-			(MH.GetComponent("MHControl") as MonoBehaviour).enabled = true;
-		}
-		if (other.name == "Ladder" || other.name == "Elevator") {
-			canClimb = true;
-			rigidbody2D.isKinematic = true;
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D other){
-		if (other.name == "Ladder" || other.name == "Elevator") {
+	void OnTriggerExit2D(Collider2D other) {
+		if (other.name == "Ladder" || other.name == "Elevator"){
 			canClimb = false;
-			rigidbody2D.isKinematic = false;
-			rigidbody2D.gravityScale = 1;
+			gravity = -25;
 		}
 	}
 }
