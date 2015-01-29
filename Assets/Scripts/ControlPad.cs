@@ -4,7 +4,6 @@ public class ControlPad : MonoBehaviour
 {
 		public MHControl		MHControl;
 		public TouchController	ctrl;
-		public Camera				cam;
 		public GUISkin			guiSkin;
 	
 		// Controller constants

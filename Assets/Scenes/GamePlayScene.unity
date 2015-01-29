@@ -2859,8 +2859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abd2f9f62482455591fa0c3ed2411d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perspectiveZoomSpeed: .5
-  orthoZoomSpeed: .5
 --- !u!4 &981152847
 Transform:
   m_ObjectHideFlags: 0
@@ -4006,8 +4004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abd2f9f62482455591fa0c3ed2411d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perspectiveZoomSpeed: .5
-  orthoZoomSpeed: .5
 --- !u!1 &1617795988
 GameObject:
   m_ObjectHideFlags: 0
