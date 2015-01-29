@@ -52,11 +52,10 @@ public  class  NetworkManager: Photon.MonoBehaviour
 				}
 				PhotonNetwork.playerName = "Player";
 				
-		}
+		}	
 
-		void  OnGUI ()
-		{
-				// Display the connection status of the server to the GUI
-				GUILayout.Label (PhotonNetwork.countOfPlayers + PhotonNetwork.connectionStateDetailed.ToString ());								
-		}
+//		void OnGUI () 
+//		{
+//			GUI.Label (new Rect (10, 10, 10, 10), PhotonNetwork.countOfPlayers + PhotonNetwork.connectionStateDetailed);
+//		}
 }

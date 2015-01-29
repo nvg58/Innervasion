@@ -19,8 +19,10 @@ public class ShowStatusWhenConnecting : MonoBehaviour
 
         GUILayout.BeginArea( centeredRect, GUI.skin.box );
         {
+
             GUILayout.Label( "Connecting" + GetConnectingDots(), GUI.skin.customStyles[ 0 ] );
             GUILayout.Label( "Status: " + PhotonNetwork.connectionStateDetailed );
+			GUILayout.Label( "PlayerCount: " + PhotonNetwork.countOfPlayers);
         }
         GUILayout.EndArea();
 

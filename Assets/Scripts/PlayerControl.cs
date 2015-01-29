@@ -12,9 +12,8 @@ public class PlayerControl : Photon.MonoBehaviour
 		private BoxCollider2D[] boxs;
 		private int[][] gameMap;
 		private PhotonView PV;
-
 		private GameObject Pad;
-	
+		
 		void Start ()
 		{
 				MH = GameObject.FindGameObjectWithTag ("MH");
@@ -85,17 +84,24 @@ public class PlayerControl : Photon.MonoBehaviour
 				gameMap [46] [33] = 4;
 		}
 
-		//void Update(){
-		//
-		//}
+		void Update ()
+		{
+				Debug.Log (SwitchView.GetCamMode ());
+				if (SwitchView.GetCamMode () == SwitchView.CHARACTER_VIEW) {
+						Pad.SetActive (false);
+				} else if (SwitchView.GetCamMode () == SwitchView.WORLD_VIEW) {
+						Pad.SetActive (true);
+				}
+		}
 
 		void FixedUpdate ()
 		{
 //				if (!PV)
-//						Debug.Log ("Hehe");
+//						Debug.Log ("Hehe");				
 				if (photonView.isMine) {
 						if (Input.touchCount > 0) {
 								Touch touch = Input.GetTouch (0);
+								TOUCHpos = 0;
 								for (int i=1; i<=51; i++) {
 										Vector3 wp = Camera.main.ScreenToWorldPoint (touch.position);
 										Vector2 convertWp = new Vector2 (wp.x, wp.y);
@@ -109,6 +115,7 @@ public class PlayerControl : Photon.MonoBehaviour
 		
 						if (Input.GetMouseButtonDown (0)) {
 								Vector2 touch = Input.mousePosition;
+								TOUCHpos = 0;
 								for (int i=1; i<=51; i++) {
 										Vector3 wp = Camera.main.ScreenToWorldPoint (touch);
 										Vector2 convertWp = new Vector2 (wp.x, wp.y);
@@ -129,25 +136,27 @@ public class PlayerControl : Photon.MonoBehaviour
 								}
 						}
 //						print (PLAYERpos);
-
-						int dir = 0;
-						dir = CalculateDirection (PLAYERpos, TOUCHpos);
+						if (TOUCHpos > 0) {				
+					
+								int dir = 0;
+								dir = CalculateDirection (PLAYERpos, TOUCHpos);
 //						print (PLAYERpos + " " + TOUCHpos + " " + gameMap [25] [26]);
-						if (dir == 0)
-								return;
-						//if (Input.GetAxis("Horizontal") > 0)
-						if (dir == 1)	
-								transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
-						//if (Input.GetAxis("Horizontal") < 0)
-						if (dir == 2)	
-								transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
-						//if (canClimb == true) {
-						//if (Input.GetAxis("Vertical") > 0)
-						if (dir == 4)		
-								transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
-						//if (Input.GetAxis("Vertical") < 0)
-						if (dir == 3)
-								transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
+								if (dir == 0)
+										return;
+								//if (Input.GetAxis("Horizontal") > 0)
+								if (dir == 1)	
+										transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
+								//if (Input.GetAxis("Horizontal") < 0)
+								if (dir == 2)	
+										transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
+								//if (canClimb == true) {
+								//if (Input.GetAxis("Vertical") > 0)
+								if (dir == 4)		
+										transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
+								//if (Input.GetAxis("Vertical") < 0)
+								if (dir == 3)
+										transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
+						}
 				}
 		}
 
@@ -205,10 +214,10 @@ public class PlayerControl : Photon.MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D other)
 		{
-				if (other.name == "Wheel") {
+				if (other.name == "Wheel" && SwitchView.GetCamMode () == SwitchView.WORLD_VIEW) {
 //						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
 //						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;	
-						Pad.SetActive(true);
+//						Pad.SetActive (true);
 						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
 				}
 
@@ -220,10 +229,10 @@ public class PlayerControl : Photon.MonoBehaviour
 	
 		void OnTriggerStay2D (Collider2D other)
 		{		
-				if (other.name == "Wheel") {
+				if (other.name == "Wheel" && SwitchView.GetCamMode () == SwitchView.WORLD_VIEW) {
 //						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
-						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;							
-						Pad.SetActive(true);
+//						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;							
+//						Pad.SetActive (true);
 						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
 				} 
 				if (other.name == "Ladder" || other.name == "Elevator") {

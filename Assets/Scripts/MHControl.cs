@@ -6,13 +6,20 @@ public class MHControl : MonoBehaviour
 		public float speed = 2.5f;
 		public static GameObject[] players;
 		private CharacterController	charaCtrl;
+		private GameObject Pad;
 
 		void Start ()
 		{
 				this.charaCtrl = this.collider as CharacterController;
 				if (this.charaCtrl == null)
 						Debug.LogError ("CharacterController is not assigned!");
+				Pad = GameObject.FindGameObjectWithTag ("Pad");
+		}
 
+		void Update ()
+		{
+//				Debug.Log (SwitchView.GetCamMode ());
+				
 		}
 
 		public void ControlByTouch (TouchController ctrl, ControlPad game)
