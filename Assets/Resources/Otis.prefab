@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b024dd9591b154fbe8aac604f013e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePad: {fileID: 100000, guid: bb27625b106844af686f33fe9441141f, type: 2}
   speed: 1
   MH: {fileID: 100074, guid: c96fe28b18e50438ab8ddbe19b2307a2, type: 2}
   map: {fileID: 0}

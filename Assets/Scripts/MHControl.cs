@@ -3,56 +3,28 @@ using System.Collections;
 
 public class MHControl : MonoBehaviour
 {
-		public float speed = 1f;
+		public float speed = 2.5f;
 		public static GameObject[] players;
+		private CharacterController	charaCtrl;
 
 		void Start ()
 		{
-				(this.GetComponent ("MHControl") as MonoBehaviour).enabled = false;
+				this.charaCtrl = this.collider as CharacterController;
+				if (this.charaCtrl == null)
+						Debug.LogError ("CharacterController is not assigned!");
+
 		}
 
-		void Update ()
+		public void ControlByTouch (TouchController ctrl, ControlPad game)
 		{
-				if (Input.GetKey (KeyCode.F)) {
-						(this.GetComponent ("MHControl") as MonoBehaviour).enabled = false;
-						(players [0].GetComponent ("PlayerControl") as MonoBehaviour).enabled = true;
-						if (PhotonNetwork.countOfPlayers > 1)
-								(players [1].GetComponent ("PlayerControl") as MonoBehaviour).enabled = true;
-				}
-		}
+				TouchStick 
+				stickWalk = ctrl.GetStick (ControlPad.STICK_WALK);
+				TouchZone
+				zoneScreen = ctrl.GetZone (ControlPad.ZONE_SCREEN);
 
-		void FixedUpdate ()
-		{
-				if (Input.GetAxis ("Horizontal") > 0) {
-						transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
-						players [0].transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
-						if (PhotonNetwork.countOfPlayers > 1)
-								players [1].transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
-			
-				}
+		
+				Vector3 moveWorldDir = stickWalk.GetVec3d (TouchStick.Vec3DMode.XY, false, 0);
 
-				if (Input.GetAxis ("Horizontal") < 0) {
-						transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
-						players [0].transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
-						if (PhotonNetwork.countOfPlayers > 1)
-								players [1].transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
-			
-				}
-
-				if (Input.GetAxis ("Vertical") > 0) {
-						transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
-						players [0].transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
-						if (PhotonNetwork.countOfPlayers > 1)
-								players [1].transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
-			
-				}
-
-				if (Input.GetAxis ("Vertical") < 0) {
-						transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
-						players [0].transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
-						if (PhotonNetwork.countOfPlayers > 1)
-								players [1].transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
-			
-				}
+				this.charaCtrl.Move (moveWorldDir * speed * Time.deltaTime);
 		}
 }

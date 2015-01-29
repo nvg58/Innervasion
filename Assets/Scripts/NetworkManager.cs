@@ -3,6 +3,8 @@ using System.Collections;
 
 public  class  NetworkManager: Photon.MonoBehaviour
 {
+		private string ViewMode;
+
 		void  Awake ()
 		{
 				// Seconds transmission rate the set (initial value 15)
@@ -39,18 +41,22 @@ public  class  NetworkManager: Photon.MonoBehaviour
 //				Vector3 SpawnPosition = new  Vector3 (0, 2, 0); // generate position
 				// Quaternion.identity means "no rotation"
 				if (PhotonNetwork.countOfPlayers > 1) {
-						PhotonNetwork.Instantiate ("Milo", new  Vector3 (-1.9f, -0.7f, 0), Quaternion.identity, 0);
+						GameObject milo = PhotonNetwork.Instantiate ("Milo", new  Vector3 (-1.9f, -0.7f, 0), Quaternion.identity, 0);
+						milo.transform.parent = GameObject.FindGameObjectWithTag ("MH").transform;
 //						PhotonNetwork.playerName = "Milo";
+						
 				} else {
-						PhotonNetwork.Instantiate ("Otis", new Vector3 (-1.9f, 0.43f, 0), Quaternion.identity, 0); 
+						GameObject otis = PhotonNetwork.Instantiate ("Otis", new Vector3 (-1.9f, 0.43f, 0), Quaternion.identity, 0); 
+						otis.transform.parent = GameObject.FindGameObjectWithTag ("MH").transform;
 //						PhotonNetwork.playerName = "Otis";
 				}
 				PhotonNetwork.playerName = "Player";
+				
 		}
-	
+
 		void  OnGUI ()
 		{
 				// Display the connection status of the server to the GUI
-				GUILayout.Label (PhotonNetwork.countOfPlayers + PhotonNetwork.connectionStateDetailed.ToString ());		
+				GUILayout.Label (PhotonNetwork.countOfPlayers + PhotonNetwork.connectionStateDetailed.ToString ());								
 		}
 }
