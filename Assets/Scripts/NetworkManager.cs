@@ -58,4 +58,8 @@ public  class  NetworkManager: Photon.MonoBehaviour
 //		{
 //			GUI.Label (new Rect (10, 10, 10, 10), PhotonNetwork.countOfPlayers + PhotonNetwork.connectionStateDetailed);
 //		}
+		void OnGUI ()
+		{
+				GUILayout.Label (PhotonNetwork.countOfPlayers + PhotonNetwork.connectionStateDetailed.ToString ());
+		}
 }
