@@ -163,7 +163,7 @@ public class PlayerControl : MonoBehaviour {
 			for (int i=1;i<62;i++)
 			if ((d[i]==0) && (gameMap[x][i]>0)){
 				if (i == initPos){
-					print ("dir"+gameMap[x][i]+"toi"+i);
+					//print ("dir"+gameMap[x][i]+"toi"+i);
 					return gameMap[i][x];
 				}
 				cuoi++;
