@@ -23,7 +23,10 @@ public  class  NetworkManager: Photon.MonoBehaviour
 		void  OnJoinedLobby ()
 		{
 				// Randomly join the Room
-				PhotonNetwork.JoinRandomRoom ();
+				if (PhotonNetwork.countOfPlayers > 1)
+						PhotonNetwork.JoinRoom ("IC15");				
+				else 
+						PhotonNetwork.CreateRoom ("IC15");
 		}
 	
 		// Room participation failure callback
@@ -31,7 +34,7 @@ public  class  NetworkManager: Photon.MonoBehaviour
 		{
 				Debug.Log ("I failed to participate in the Room");
 				// Create an unnamed Room
-				PhotonNetwork.CreateRoom (null);
+//				PhotonNetwork.CreateRoom ("IC15");
 		}
 	
 		// Room callback when participation success
