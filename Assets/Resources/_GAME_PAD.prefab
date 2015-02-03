@@ -92,7 +92,7 @@ MonoBehaviour:
   sticks:
   - initiallyDisabled: 0
     initiallyHidden: 0
-    prio: 10
+    prio: 20
     hitDistScale: 1
     name: Walk
     disableGui: 0

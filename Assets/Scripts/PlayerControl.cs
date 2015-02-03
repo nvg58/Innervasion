@@ -196,9 +196,9 @@ public class PlayerControl : Photon.MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D other)
 		{
-				if (other.name == "Wheel") {
+				if (other.name == "Wheel" && photonView.isMine) {
 						Pad.SetActive (true);			
-						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
+//						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
 				}
 
 				if (other.name == "Ladder" || other.name == "Elevator") {
@@ -215,7 +215,7 @@ public class PlayerControl : Photon.MonoBehaviour
 						rigidbody2D.gravityScale = 1;
 				}
 
-				if (other.name == "Wheel") {
+				if (other.name == "Wheel" && photonView.isMine) {
 						Pad.SetActive (false);
 				}
 		}

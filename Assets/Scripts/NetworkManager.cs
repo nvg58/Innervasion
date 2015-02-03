@@ -4,7 +4,8 @@ using System.Collections;
 public  class  NetworkManager: Photon.MonoBehaviour
 {
 		private string ViewMode;
-
+		public static int playerWhoIsIt;
+	
 		void  Awake ()
 		{
 				// Seconds transmission rate the set (initial value 15)
@@ -40,7 +41,6 @@ public  class  NetworkManager: Photon.MonoBehaviour
 		// Room callback when participation success
 		void  OnJoinedRoom ()
 		{
-				Debug.Log ("I was successful to participate in the Room");
 //				Vector3 SpawnPosition = new  Vector3 (0, 2, 0); // generate position
 				// Quaternion.identity means "no rotation"
 				if (PhotonNetwork.countOfPlayers > 1) {
