@@ -13,7 +13,7 @@ public class PlayerControl : Photon.MonoBehaviour
 		private int[][] gameMap;
 		private PhotonView PV;
 		private GameObject Pad;
-		
+
 		void Start ()
 		{
 				MH = GameObject.FindGameObjectWithTag ("MH");
@@ -86,18 +86,10 @@ public class PlayerControl : Photon.MonoBehaviour
 
 		void Update ()
 		{
-				Debug.Log (SwitchView.GetCamMode ());
-				if (SwitchView.GetCamMode () == SwitchView.CHARACTER_VIEW) {
-						Pad.SetActive (false);
-				} else if (SwitchView.GetCamMode () == SwitchView.WORLD_VIEW) {
-						Pad.SetActive (true);
-				}
 		}
 
 		void FixedUpdate ()
 		{
-//				if (!PV)
-//						Debug.Log ("Hehe");				
 				if (photonView.isMine) {
 						if (Input.touchCount > 0) {
 								Touch touch = Input.GetTouch (0);
@@ -107,7 +99,6 @@ public class PlayerControl : Photon.MonoBehaviour
 										Vector2 convertWp = new Vector2 (wp.x, wp.y);
 										if (boxs [i].bounds.Contains (convertWp)) {
 												TOUCHpos = i;
-//												print("touchPos "+i+" "+convertWp);
 												break;
 										}	
 								}			
@@ -121,7 +112,6 @@ public class PlayerControl : Photon.MonoBehaviour
 										Vector2 convertWp = new Vector2 (wp.x, wp.y);
 										if (boxs [i].bounds.Contains (convertWp)) {
 												TOUCHpos = i;
-												//print("touchPos "+i+" "+convertWp);
 												break;
 										}	
 								}
@@ -131,29 +121,21 @@ public class PlayerControl : Photon.MonoBehaviour
 								if (boxs [i].bounds.Contains (new Vector2 (this.collider2D.bounds.center.x,
 			                                       this.collider2D.bounds.center.y))) {
 										PLAYERpos = i;
-//										print (collider2D.bounds.center + "MHPos " + boxs [i].bounds);
 										break;
 								}
 						}
-//						print (PLAYERpos);
 						if (TOUCHpos > 0) {				
 					
 								int dir = 0;
 								dir = CalculateDirection (PLAYERpos, TOUCHpos);
-//						print (PLAYERpos + " " + TOUCHpos + " " + gameMap [25] [26]);
 								if (dir == 0)
 										return;
-								//if (Input.GetAxis("Horizontal") > 0)
 								if (dir == 1)	
 										transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
-								//if (Input.GetAxis("Horizontal") < 0)
 								if (dir == 2)	
 										transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
-								//if (canClimb == true) {
-								//if (Input.GetAxis("Vertical") > 0)
 								if (dir == 4)		
 										transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
-								//if (Input.GetAxis("Vertical") < 0)
 								if (dir == 3)
 										transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
 						}
@@ -214,10 +196,8 @@ public class PlayerControl : Photon.MonoBehaviour
 
 		void OnTriggerEnter2D (Collider2D other)
 		{
-				if (other.name == "Wheel" && SwitchView.GetCamMode () == SwitchView.WORLD_VIEW) {
-//						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
-//						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;	
-//						Pad.SetActive (true);
+				if (other.name == "Wheel") {
+						Pad.SetActive (true);			
 						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
 				}
 
@@ -227,26 +207,16 @@ public class PlayerControl : Photon.MonoBehaviour
 				}
 		}
 	
-		void OnTriggerStay2D (Collider2D other)
-		{		
-				if (other.name == "Wheel" && SwitchView.GetCamMode () == SwitchView.WORLD_VIEW) {
-//						(MH.GetComponent ("MHControl") as MonoBehaviour).enabled = true;
-//						(this.GetComponent ("PlayerControl") as MonoBehaviour).enabled = false;							
-//						Pad.SetActive (true);
-						MHControl.players = GameObject.FindGameObjectsWithTag (PhotonNetwork.playerName);		
-				} 
-				if (other.name == "Ladder" || other.name == "Elevator") {
-						canClimb = true;
-						rigidbody2D.isKinematic = true;
-				}
-		}
-
 		void OnTriggerExit2D (Collider2D other)
 		{
 				if (other.name == "Ladder" || other.name == "Elevator") {
 						canClimb = false;
 						rigidbody2D.isKinematic = false;
 						rigidbody2D.gravityScale = 1;
+				}
+
+				if (other.name == "Wheel") {
+						Pad.SetActive (false);
 				}
 		}
 }

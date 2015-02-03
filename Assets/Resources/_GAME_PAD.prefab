@@ -95,7 +95,7 @@ MonoBehaviour:
     prio: 10
     hitDistScale: 1
     name: Walk
-    disableGui: 1
+    disableGui: 0
     guiDepth: 0
     layoutBoxId: 6
     acceptSharedTouches: 1
@@ -115,7 +115,7 @@ MonoBehaviour:
     keyDown: 0
     keyLeft: 0
     keyRight: 0
-    dynamicMode: 1
+    dynamicMode: 0
     dynamicRegionPrio: 5
     dynamicClamp: 1
     dynamicMaxRelativeSize: .300000012
@@ -173,7 +173,7 @@ MonoBehaviour:
   touchZones:
   - initiallyDisabled: 0
     initiallyHidden: 0
-    prio: 20
+    prio: 0
     hitDistScale: 1
     name: SCREEN
     disableGui: 1
