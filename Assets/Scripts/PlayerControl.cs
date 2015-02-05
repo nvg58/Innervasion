@@ -205,7 +205,7 @@ public class PlayerControl : MonoBehaviour {
 		//print("player"+PLAYERpos+"touch"+TOUCHpos)	;
 
 		dir = CalculateDirection (PLAYERpos, TOUCHpos);
-		print ("dir" + dir);
+		//print ("dir" + dir);
 		//---------------------------------------------------------------------------------------
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
