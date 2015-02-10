@@ -97,87 +97,77 @@ public class Control : MonoBehaviour {
 		if( _controller.isGrounded )
 			_velocity.y = 0;
 		
-		if (Application.platform == RuntimePlatform.WindowsEditor){
-			if( Input.GetKey( KeyCode.RightArrow ) ){
-				normalizedHorizontalSpeed = 1;
-				//if( transform.localScale.x < 0f )
-					//transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
-				
-				//			if( _controller.isGrounded )
-				//				_animator.Play( Animator.StringToHash( "Run" ) );
-			}
-			else if( Input.GetKey( KeyCode.LeftArrow ) ){
-				normalizedHorizontalSpeed = -1;
-				//if( transform.localScale.x > 0f )
-					//transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
-				
-				//			if( _controller.isGrounded )
-				//				_animator.Play( Animator.StringToHash( "Run" ) );
-			}
-			else{	
-				normalizedHorizontalSpeed = 0;
-				
-				//			if( _controller.isGrounded )
-				//				_animator.Play( Animator.StringToHash( "Idle" ) );
-			}
+		// Use when test on editor
+		if (Network.peerType == NetworkPeerType.Disconnected){
+			if( Input.GetKey( KeyCode.RightArrow ) )
+				clientHInput = 1;
+			else if( Input.GetKey( KeyCode.LeftArrow ) )
+				clientHInput = -1;
+			else	
+				clientHInput = 0;
 			
-			
-			if (canClimb == true){
-				if (Input.GetKey( KeyCode.UpArrow )){
-					_velocity.y = 1;
-				}
-				else if (Input.GetKey( KeyCode.DownArrow )){
-					_velocity.y = -1;
-				}
-				else{
-					_velocity.y = 0;
-				}
-			}
+			if( Input.GetKey( KeyCode.UpArrow ) )
+				clientVInput = 1;
+			else if( Input.GetKey( KeyCode.DownArrow ) )
+				clientVInput = -1;
+			else	
+				clientVInput = 0;
 		}
-		
+		Debug.Log(isDriving);			
 		if (action == false)
 			isDriving = false;	
-		if (Network.peerType == NetworkPeerType.Server){
-			if (isDriving == false){
-				if (Mathf.Abs(clientHInput) > Mathf.Abs(clientVInput)){
-					if (clientHInput > 0)
-						normalizedHorizontalSpeed = 1;
-					if (clientHInput < 0)
-						normalizedHorizontalSpeed = -1;
-				}
-				else{
-					if (canClimb == true) {
-						if (clientVInput > 0)
-							_velocity.y = 1;
-						else if (clientVInput < 0)
-							_velocity.y = -1;
-						else 
-							_velocity.y = 0;
-					}
-				}	
-				if (clientHInput == 0)
-					normalizedHorizontalSpeed = 0;					
-			} 
-			else{
-				MHControl MH_control = MH.GetComponent<MHControl>();
-				MH_control.Move(clientHInput, clientVInput);
+		if (isDriving == false){
+			if (Mathf.Abs(clientHInput) > Mathf.Abs(clientVInput)){
+				if (clientHInput > 0)
+					normalizedHorizontalSpeed = 1;
+				if (clientHInput < 0)
+					normalizedHorizontalSpeed = -1;
 			}
+			else{
+				if (canClimb == true) {
+					_velocity.x = 0;
+					if (clientVInput > 0)
+						_velocity.y = 1;
+					else if (clientVInput < 0)
+						_velocity.y = -1;
+					else 
+						_velocity.y = 0;
+				}
+			}	
+			if (clientHInput == 0)
+				normalizedHorizontalSpeed = 0;		
+				
+			// apply horizontal speed smoothing it
+			var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
+			_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
+			
+			// apply gravity before moving
+			_velocity.y += gravity * Time.deltaTime;
+			_controller.move( _velocity * Time.deltaTime );
+		} 
+		else{
+			MHControl MH_control = MH.GetComponent<MHControl>();
+			MH_control.Move(clientHInput, clientVInput);
 		}
-		// apply horizontal speed smoothing it
-		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
-		_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
-		
-		// apply gravity before moving
-		_velocity.y += gravity * Time.deltaTime;
-		_controller.move( _velocity * Time.deltaTime );
-		Debug.Log(_velocity);
 	}
 		
 	void OnTriggerStay2D(Collider2D other){
-		if (other.name == "Wheel" && action == true) {
+		// use when test in editor
+		if (other.name == "Wheel" && Input.GetKey (KeyCode.G)){
+			isDriving = true;
+			action = true;
+		}
+		
+		if (other.name == "Wheel" && Input.GetKey (KeyCode.F)){
+			isDriving = false;
+			action = false;
+		}
+		
+		if (other.name == "Wheel" && action == true){
 			isDriving = true;
 		}
-		if (other.name == "Ladder" || other.name == "Elevator") {
+		
+		if (other.name == "Ladder" || other.name == "Elevator"){
 			canClimb = true;
 			gravity = 0;		
 		}
