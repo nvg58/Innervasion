@@ -8,8 +8,6 @@ public class GenerateMap : MonoBehaviour {
 
 	// Prefabs
 	public GameObject BG;
-	public GameObject rock;
-	public GameObject bare;
 
 	//container coordinate and BG instantiate
 	private Vector2 []CornerCamera;

@@ -1,4 +1,4 @@
-Rescue Lina
+Innervasion
 =================================
 
 A 2d game called "Rescue Lina" that is made to join Imagine Cup Competition (Microsoft)
