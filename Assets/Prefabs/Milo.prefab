@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,11 +25,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 50: {fileID: 5000000}
-  - 58: {fileID: 5800000}
   - 61: {fileID: 6100000}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  - 114: {fileID: 11400002}
+  m_Layer: 8
   m_Name: Milo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,23 +70,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_FixedAngle: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 1
---- !u!58 &5800000
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: .0579999983
-  m_Center: {x: -1.04999995, y: -.74000001}
+  m_CollisionDetection: 0
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -96,8 +85,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .15447557, y: .253934741}
-  m_Center: {x: -1.05080414, y: -.587086201}
+  m_Size: {x: .1650365, y: .329203129}
+  m_Center: {x: -1.0455246, y: -.622608185}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,8 +98,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d953b25bc0c68344cabd0f170f82bf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
   MH: {fileID: 0}
+  gravity: -25
+  runSpeed: 1
+  groundDamping: 20
+  inAirDamping: 5
+  jumpHeight: 3
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7e34ac1091d5a49ac42f83f6809fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usePhysicsForMovement: 0
+  _skinWidth: .0199999996
+  platformMask:
+    serializedVersion: 2
+    m_Bits: 1
+  triggerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  oneWayPlatformMask:
+    serializedVersion: 2
+    m_Bits: 0
+  slopeLimit: 75
+  jumpingThreshold: .0700000003
+  slopeSpeedMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  totalHorizontalRays: 8
+  totalVerticalRays: 4
+  triggerHelperBoxColliderScale: .949999988
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1
