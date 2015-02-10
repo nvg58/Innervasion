@@ -1,0 +1,25 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class MHControl : MonoBehaviour {
+	public float speed = 1f;
+	void Start(){
+	}
+	
+	void FixedUpdate() {
+	}
+	
+	public void Move(float HInput, float VInput){
+		if (HInput > 0)
+			transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
+		
+		if (HInput < 0) 
+			transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
+		
+		if (VInput > 0)
+			transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
+
+		if (VInput < 0) 
+			transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
+	}
+}
