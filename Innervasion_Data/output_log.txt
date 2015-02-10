@@ -1,0 +1,157 @@
+Initialize engine version: 4.6.0f3 (30840d631a27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
+    Vendor:   Intel
+    VRAM:     32 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\GameDevTool\unity3d\IC15\Rescue-Lina\Innervasion_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\GameDevTool\unity3d\IC15\Rescue-Lina\Innervasion_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\GameDevTool\unity3d\IC15\Rescue-Lina\Innervasion_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\GameDevTool\unity3d\IC15\Rescue-Lina\Innervasion_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\GameDevTool\unity3d\IC15\Rescue-Lina\Innervasion_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\GameDevTool\unity3d\IC15\Rescue-Lina\Innervasion_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.065 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: D:\GameDevTool\unity3d\IC15\Rescue-Lina\Innervasion_Data\Managed\System.Core.dll (this message is harmless)
+Calling GetNATStatus, but we havent finished testing yet!
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object)
+MultiplayerFunctions:GetNATStatus() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:387)
+MultiplayerFunctions:StartServer(String, Int32, Int32, Boolean) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:349)
+MultiplayerMenu2:StartHostingGame(String, Int32, Int32, String, String, String) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerMenu2.cs:429)
+MultiplayerMenu2:HostMenu() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerMenu2.cs:382)
+MultiplayerMenu2:WindowGUI(Int32) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerMenu2.cs:110)
+UnityEngine.LayoutedWindow:DoWindow(Int32) (at C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\GUILayout.cs:413)
+UnityEngine.GUI:CallWindowDelegate(WindowFunction, Int32, GUISkin, Int32, Single, Single, GUIStyle) (at C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\GUI.cs:1408)
+ 
+(Filename: D Line: 0)
+
+UnloadTime: 0.348094 ms
+Server registered the game at the masterserver.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+gamescript:Awake() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\gamescript.cs:19)
+ 
+(Filename: D Line: 0)
+
+RegisterHost; wasn't ready loading network settings yet though!
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object)
+MultiplayerFunctions:RegisterHost(String, String) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:360)
+gamescript:Awake() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\gamescript.cs:20)
+ 
+(Filename: D Line: 0)
+
+System memory in use before: 10.5 MB.
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+System memory in use after: 10.4 MB.
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 150.
+Total: 0.702176 ms (FindLiveObjects: 0.016677 ms CreateObjectMapping: 0.013256 ms MarkObjects: 0.111184 ms  DeleteObjects: 0.009407 ms)
+
+Binding to local socket 0.0.0.0
+Sending NAT type detection request, local port 59455
+8.633912 OnMasterEevent: RegistrationSucceeded
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MultiplayerFunctions:OnMasterServerEvent(MasterServerEvent) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:297)
+ 
+(Filename: D Line: 0)
+
+TestConnect NAT test aborted; timeout
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:LogWarning(Object)
+<TestConnection>c__Iterator3:MoveNext() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:413)
+ 
+(Filename: D Line: 0)
+
+TestConnection result: testedUseNat=True connectionTestResult=Undetermined probingPublicIP=False hasTestedNAT=True testMessage=Undetermined NAT capabilities
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+<TestConnection>c__Iterator3:MoveNext() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:482)
+ 
+(Filename: D Line: 0)
+
+10.49082 OnMasterEevent: HostListReceived
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MultiplayerFunctions:OnMasterServerEvent(MasterServerEvent) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:297)
+ 
+(Filename: D Line: 0)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.MonoBehaviour:StartCoroutine_Auto (System.Collections.IEnumerator)
+  at UnityEngine.MonoBehaviour.StartCoroutine (IEnumerator routine) [0x00000] in C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\UnityEngineMonoBehaviour.cs:62 
+  at MultiplayerMenu2.FullHostListReceived () [0x00000] in D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerMenu2.cs:435 
+  at MultiplayerFunctions+<WaitForAllHostData>c__Iterator2.MoveNext () [0x0009f] in D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:332 
+ 
+(Filename: C Line: 0)
+
+Player connected from: 192.168.0.5:49291
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+gamescript:OnPlayerConnected(NetworkPlayer) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\gamescript.cs:99)
+ 
+(Filename: D Line: 0)
+
+18.81625 OnMasterEevent: RegistrationSucceeded
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MultiplayerFunctions:OnMasterServerEvent(MasterServerEvent) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:297)
+ 
+(Filename: D Line: 0)
+
+Returning nat detection result to the user
+Player connected from: 192.168.0.4:46260
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+gamescript:OnPlayerConnected(NetworkPlayer) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\gamescript.cs:99)
+ 
+(Filename: D Line: 0)
+
+35.68142 OnMasterEevent: RegistrationSucceeded
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+MultiplayerFunctions:OnMasterServerEvent(MasterServerEvent) (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\MultiplayerFunctions.cs:297)
+ 
+(Filename: D Line: 0)
+
+UnloadTime: 0.320725 ms
+Server registered the game at the masterserver.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Generate:Awake() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\Generate.cs:14)
+ 
+(Filename: D Line: 0)
+
+System memory in use before: 10.7 MB.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+System memory in use after: 10.7 MB.
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 363.
+Total: 0.725695 ms (FindLiveObjects: 0.021381 ms CreateObjectMapping: 0.010690 ms MarkObjects: 0.162073 ms  DeleteObjects: 0.008552 ms)
+
+Server registered the game at the masterserver.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Control:Awake() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\Control.cs:19)
+UnityEngine.Object:Internal_CloneSingle(Object)
+UnityEngine.Object:Instantiate(Object) (at C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\UnityEngineObject.cs:91)
+Generate:Start() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\Generate.cs:23)
+ 
+(Filename: D Line: 0)
+
+Server registered the game at the masterserver.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+Control:Awake() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\Control.cs:19)
+UnityEngine.Object:Internal_CloneSingle(Object)
+UnityEngine.Object:Instantiate(Object) (at C:\BuildAgent\work\d63dfc6385190b60\artifacts\StandalonePlayerGenerated\UnityEngineObject.cs:91)
+Generate:Start() (at D:\GameDevTool\unity3d\IC15\Rescue-Lina\Assets\Scripts\Generate.cs:35)
+ 
+(Filename: D Line: 0)
+
