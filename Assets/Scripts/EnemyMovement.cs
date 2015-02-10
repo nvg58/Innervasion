@@ -11,8 +11,8 @@ public class EnemyMovement : MonoBehaviour
 		void Start ()
 		{
 				MH = GameObject.FindGameObjectWithTag ("Player").transform;
-				MinDist += MH.GetComponent<SpriteRenderer> ().bounds.extents.x;
-				MaxDist += MH.GetComponent<SpriteRenderer> ().bounds.extents.x;
+//				MinDist += MH.GetComponent<SpriteRenderer> ().bounds.extents.x;
+//				MaxDist += MH.GetComponent<SpriteRenderer> ().bounds.extents.x;
 		}
 	
 		void Update ()

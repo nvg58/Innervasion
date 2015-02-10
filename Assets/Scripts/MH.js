@@ -19,6 +19,7 @@ function OnCollisionEnter2D( col : Collision2D )
 	if(col.relativeVelocity.magnitude > maxMagnitudeMHCanSuffer)
 	{ //remove this 
 		Debug.Log ("Damn it!");
+		
 	}  
  }  
  

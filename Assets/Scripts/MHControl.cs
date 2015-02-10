@@ -2,27 +2,24 @@
 using System.Collections;
 
 public class MHControl : MonoBehaviour {
-
-	public float speed;
-
-	// Use this for initialization
-	void Start () {
-		speed = 5.0f;
-//		rigidbody2D.velocity = Vector2.one.normalized * speed;
+	public float speed = 1f;
+	void Start(){
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
-		Vector2 curVel = gameObject.rigidbody2D.velocity;
-		curVel.x = Input.GetAxis("Horizontal") * speed ; // max speed = 5
-		curVel.y = Input.GetAxis("Vertical") * speed; // max speed = 5
-		gameObject.rigidbody2D.velocity = curVel;
-
-
+	void FixedUpdate() {
 	}
 	
- 	void OnCollisionEnter2D (Collision2D other) {
-		rigidbody2D.velocity = Vector2.one.normalized * speed;
-		Debug.Log ("hello");
+	public void Move(float HInput, float VInput){
+		if (HInput > 0)
+			transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
+		
+		if (HInput < 0) 
+			transform.Translate (new Vector3 (-speed * Time.deltaTime, 0, 0));
+		
+		if (VInput > 0)
+			transform.Translate (new Vector3 (0, speed * Time.deltaTime, 0));
+
+		if (VInput < 0) 
+			transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
 	}
 }

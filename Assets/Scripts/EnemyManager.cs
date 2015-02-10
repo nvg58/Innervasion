@@ -28,9 +28,9 @@ public class EnemyManager : MonoBehaviour
 		
 				// Find a random index between zero and one less than the number of spawn points.
 				int spawnPointIndex = Random.Range (0, spawnPoints.Length);
-				if (!MH.GetComponent<PolygonCollider2D> ().bounds.Contains (spawnPoints [spawnPointIndex].position)) {
+//				if (!MH.GetComponent<PolygonCollider2D> ().bounds.Contains (spawnPoints [spawnPointIndex].position)) {
 						// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
 						Instantiate (enemy, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation);
-				}
+//				}
 		}
 }
