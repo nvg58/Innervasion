@@ -8,10 +8,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
+  - 68: {fileID: 6800002}
+  - 68: {fileID: 6800000}
   m_Layer: 0
-  m_Name: Persistent
+  m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,36 +24,53 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.32878304, y: -.75680697, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -.09667629, y: 0, z: 0}
+  m_LocalScale: {x: .125, y: .166666672, z: .166666672}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11400000
-MonoBehaviour:
+--- !u!68 &6800000
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551ae5548e40b1441be674af1b564969, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11400002
-MonoBehaviour:
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: 55.3169937, y: -14.7921886}
+  - {x: 39.2764168, y: -6.75905514}
+  - {x: 27.4428425, y: -8.83439445}
+  - {x: 20.1188354, y: -15.608674}
+  - {x: 6.78064346, y: -19.8096008}
+  - {x: -3.2215395, y: -17.1701775}
+  - {x: -14.6845369, y: -16.1746254}
+  - {x: -26.729702, y: -17.9319916}
+  - {x: -40.775753, y: -9.71258068}
+  - {x: -50.2404556, y: -11.3956451}
+  - {x: -53.8965836, y: -12.1455555}
+--- !u!68 &6800002
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73cea0fd1e2da14429b2427377d68ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  masterserverGameName: YourGameName
-  defaultServerPort: 20000
-  connectTimeoutValue: 10
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: 55.4323044, y: 13.7434072}
+  - {x: 53.3755646, y: 13.7011204}
+  - {x: 44.4876175, y: 18.0022907}
+  - {x: 33.9228706, y: 17.5901222}
+  - {x: 16.7305489, y: 12.1084185}
+  - {x: 5.40817642, y: 16.1279831}
+  - {x: -4.04418755, y: 13.6560526}
+  - {x: -14.5559111, y: 12.4598274}
+  - {x: -25.6690235, y: 14.1550131}
+  - {x: -37.8643913, y: 18.3574524}
+  - {x: -53.6212196, y: 16.7796326}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
