@@ -11,11 +11,11 @@ public class Control : MonoBehaviour {
 	public float inAirDamping = 5f;
 	public float jumpHeight = 3f;
 	public float delta = 0.1f;
-	private float clientHInput = 0;
-	private float clientVInput = 0;
-	private bool action = false;
-	private bool fire = false;
-	private bool isDriving = false;
+	public float clientHInput = 0;
+	public float clientVInput = 0;
+	public bool action = false;
+	public bool isDriving = false;
+	public bool isShooting = false;
 	
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
@@ -113,41 +113,43 @@ public class Control : MonoBehaviour {
 			else	
 				clientVInput = 0;
 		}
-		Debug.Log(isDriving);			
+		
 		if (action == false)
 			isDriving = false;	
-		if (isDriving == false){
-			if (Mathf.Abs(clientHInput) > Mathf.Abs(clientVInput)){
-				if (clientHInput > 0)
-					normalizedHorizontalSpeed = 1;
-				if (clientHInput < 0)
-					normalizedHorizontalSpeed = -1;
-			}
-			else{
-				if (canClimb == true) {
-					_velocity.x = 0;
-					if (clientVInput > 0)
-						_velocity.y = 1;
-					else if (clientVInput < 0)
-						_velocity.y = -1;
-					else 
-						_velocity.y = 0;
+		if (isShooting == false){
+			if (isDriving == false){
+				if (Mathf.Abs(clientHInput) > Mathf.Abs(clientVInput)){
+					if (clientHInput > 0)
+						normalizedHorizontalSpeed = 1;
+					if (clientHInput < 0)
+						normalizedHorizontalSpeed = -1;
 				}
-			}	
-			if (clientHInput == 0)
-				normalizedHorizontalSpeed = 0;		
+				else{
+					if (canClimb == true) {
+						_velocity.x = 0;
+						if (clientVInput > 0)
+							_velocity.y = 1;
+						else if (clientVInput < 0)
+							_velocity.y = -1;
+						else 
+							_velocity.y = 0;
+					}
+				}	
+				if (clientHInput == 0)
+					normalizedHorizontalSpeed = 0;		
+					
+				// apply horizontal speed smoothing it
+				var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
+				_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
 				
-			// apply horizontal speed smoothing it
-			var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
-			_velocity.x = Mathf.Lerp( _velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor );
-			
-			// apply gravity before moving
-			_velocity.y += gravity * Time.deltaTime;
-			_controller.move( _velocity * Time.deltaTime );
-		} 
-		else{
-			MHControl MH_control = MH.GetComponent<MHControl>();
-			MH_control.Move(clientHInput, clientVInput);
+				// apply gravity before moving
+				_velocity.y += gravity * Time.deltaTime;
+				_controller.move( _velocity * Time.deltaTime );
+			} 
+			else{
+				MHControl MH_control = MH.GetComponent<MHControl>();
+				MH_control.Move(clientHInput, clientVInput);
+			}
 		}
 	}
 		
@@ -187,6 +189,5 @@ public class Control : MonoBehaviour {
 		clientHInput = HInput;
 		clientVInput = VInput;
 		action = actionButtonPressed;
-		fire = fireButtonPressed;
 	}
 }
