@@ -24,7 +24,10 @@ public class Control : MonoBehaviour {
 	//private Animator _animator;
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;	
-	
+
+	protected Animator animator;
+	private Vector3 localScale;
+
 	#region Event Listeners
 	
 	void onControllerCollider( RaycastHit2D hit )
@@ -69,6 +72,8 @@ public class Control : MonoBehaviour {
 	
 	void Start(){
 		MH = GameObject.Find("MH");
+		animator = gameObject.GetComponent<Animator> ();
+		localScale = transform.localScale;
 	}	
 	
 	void  OnGUI (){
@@ -98,22 +103,48 @@ public class Control : MonoBehaviour {
 			_velocity.y = 0;
 		
 		// Use when test on editor
-		if (Network.peerType == NetworkPeerType.Disconnected){
-			if( Input.GetKey( KeyCode.RightArrow ) )
+
+		if (Network.peerType == NetworkPeerType.Disconnected){			
+
+			Debug.Log("localscale: " + localScale);
+
+			if( Input.GetKey( KeyCode.RightArrow ) ) {
 				clientHInput = 1;
-			else if( Input.GetKey( KeyCode.LeftArrow ) )
+				if (localScale.x < 0) {
+					localScale.x *= -1.0f;
+				}
+				animator.SetBool("isIdle", false);
+				animator.SetBool("isWalk", true);
+				animator.SetBool("isClimbLadder", false);
+			}
+			else if( Input.GetKey( KeyCode.LeftArrow ) ) {
 				clientHInput = -1;
-			else	
+				if (localScale.x > 0) {
+					localScale.x *= -1.0f;
+				} 
+				animator.SetBool("isIdle", false);
+				animator.SetBool("isWalk", true);
+				animator.SetBool("isClimbLadder", false);				
+			}
+			else {
 				clientHInput = 0;
-			
-			if( Input.GetKey( KeyCode.UpArrow ) )
+				animator.SetBool("isIdle", true);
+				animator.SetBool("isWalk", false);
+				animator.SetBool("isClimbLadder", false);				
+			}
+
+			transform.localScale = localScale;
+
+			if( Input.GetKey( KeyCode.UpArrow ) ) {
 				clientVInput = 1;
-			else if( Input.GetKey( KeyCode.DownArrow ) )
+			}
+			else if( Input.GetKey( KeyCode.DownArrow ) ) {
 				clientVInput = -1;
+			}
 			else	
 				clientVInput = 0;
 		}
-		Debug.Log(isDriving);			
+//		Debug.Log(isDriving);			
 		if (action == false)
 			isDriving = false;	
 		if (isDriving == false){
@@ -126,12 +157,24 @@ public class Control : MonoBehaviour {
 			else{
 				if (canClimb == true) {
 					_velocity.x = 0;
-					if (clientVInput > 0)
+					if (clientVInput > 0) {
 						_velocity.y = 1;
-					else if (clientVInput < 0)
+						animator.SetBool("isIdle", false);
+						animator.SetBool("isWalk", false);
+						animator.SetBool("isClimbLadder", true);				
+					}
+					else if (clientVInput < 0) {
 						_velocity.y = -1;
-					else 
+						animator.SetBool("isIdle", false);
+						animator.SetBool("isWalk", false);
+						animator.SetBool("isClimbLadder", true);				
+					}
+					else {
 						_velocity.y = 0;
+						animator.SetBool("isIdle", true);
+						animator.SetBool("isWalk", false);
+						animator.SetBool("isClimbLadder", false);				
+					}
 				}
 			}	
 			if (clientHInput == 0)
@@ -149,6 +192,7 @@ public class Control : MonoBehaviour {
 			MHControl MH_control = MH.GetComponent<MHControl>();
 			MH_control.Move(clientHInput, clientVInput);
 		}
+//		Debug.Log ("ve:" + _velocity);
 	}
 		
 	void OnTriggerStay2D(Collider2D other){

@@ -1,7 +1,27 @@
 fileFormatVersion: 2
-guid: 9e715eca5f1fa8644b62bd190d4b1ef1
+guid: c2e663506966d425b8eeb1e42756012b
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Otis_0
+    21300002: Otis_1
+    21300004: Otis_2
+    21300006: Otis_3
+    21300008: Otis_4
+    21300010: Otis_5
+    21300012: Otis_6
+    21300014: Otis_7
+    21300016: Otis_8
+    21300018: Otis_9
+    21300020: Otis_10
+    21300022: Otis_11
+    21300024: Otis_12
+    21300026: Otis_13
+    21300028: Otis_14
+    21300030: Otis_15
+    21300032: Otis_16
+    21300034: Otis_17
+    21300036: Otis_18
+    21300038: Otis_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +45,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +62,206 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Otis_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 254
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 254
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 254
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_3
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 254
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_4
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 254
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_5
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 175
+        width: 39
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_6
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 175
+        width: 25
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_7
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 176
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_8
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 176
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_9
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 176
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_10
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 176
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_11
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 95
+        width: 39
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_12
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 95
+        width: 25
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_13
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 96
+        width: 25
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_14
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 25
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_15
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 96
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_16
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 96
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 15
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_18
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 16
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Otis_19
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 15
+        width: 37
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
