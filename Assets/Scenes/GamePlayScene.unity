@@ -2845,8 +2845,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 100000, guid: a31e036622cb6460caa135eee3207884, type: 2}
   spawnTime: 3
+  timeToActualSpawnEnemy: 2
   spawnPoints:
   - {fileID: 1264488317}
+  energyBlast: {fileID: 100002, guid: 9565cde8c7698420aa10544579cb6f3d, type: 2}
 --- !u!4 &343374477
 Transform:
   m_ObjectHideFlags: 0
@@ -5561,7 +5563,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802471999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.25, y: -.5, z: 0}
+  m_LocalPosition: {x: 6.80000019, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9572,7 +9574,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1264488316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.3699999, y: 4.38000011, z: 0}
+  m_LocalPosition: {x: 5.30000019, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12666,7 +12668,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
