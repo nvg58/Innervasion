@@ -107,10 +107,10 @@ private void FireBullet()
 	
 			if ((this.projectileOrigin != null) && (this.bulletPrefab != null))
 				{
-					Debug.Log(projectileOrigin.position);
+					//Debug.Log(projectileOrigin.position);
 				BulletCS bullet = Instantiate(this.bulletPrefab, 
 					this.projectileOrigin.position, this.projectileOrigin.rotation) as BulletCS;
-
+				
 				if (bullet != null)
 					bullet.Init(this); 
 				} 

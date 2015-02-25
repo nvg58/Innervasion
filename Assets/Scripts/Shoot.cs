@@ -12,7 +12,7 @@ public class Shoot : MonoBehaviour {
 		initialAngle = barel.transform.localEulerAngles;
 		if (initialAngle.z > 180)
 			initialAngle.z = initialAngle.z - 360;
-		Debug.Log(initialAngle);
+		//Debug.Log(initialAngle);
 	}
 
 	// ---------------
@@ -31,7 +31,7 @@ public class Shoot : MonoBehaviour {
 		// use when test in editor
 		if ((other.name == "Milo" || other.name == "Otis") && Input.GetKey (KeyCode.H)){
 			SetTriggerState(true);
-			Debug.Log ("shoot");
+			//Debug.Log ("shoot");
 		}
 		else 
 			SetTriggerState(false);
