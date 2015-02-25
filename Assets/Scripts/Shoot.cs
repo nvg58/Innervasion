@@ -49,9 +49,12 @@ public class Shoot : MonoBehaviour {
 						angle = Mathf.Min(angle, 90.0f);
 					else 
 						angle = Mathf.Max(angle, -90.0f);	
-									    
-					barel.transform.localEulerAngles = new Vector3(0.0f, 0.0f, initialAngle.z + angle);
-					Debug.Log(angle);				
+
+					Vector3 eulerAngle = new Vector3(0, 0, initialAngle.z + angle);
+					Quaternion qr = Quaternion.Euler(eulerAngle);
+					barel.transform.localRotation = Quaternion.Lerp(barel.transform.localRotation, qr, Time.deltaTime*5);		    	    
+					//barel.transform.localEulerAngles = new Vector3(0.0f, 0.0f, lerpAngle);
+					//Debug.Log("maxAngle" + maxAngle + "    lerpAngle" + lerpAngle);				
 				}
 			}
 			else 

@@ -95,7 +95,7 @@ ConstantForce:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 77.4000015, z: 0}
+  m_RelativeForce: {x: 0, y: 40, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87813fe3c39fbe042925cf92c1c246d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLifetime: 5
+  maxLifetime: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
