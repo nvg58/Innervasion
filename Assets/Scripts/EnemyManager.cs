@@ -7,12 +7,12 @@ public class EnemyManager : MonoBehaviour
 		public GameObject enemy;                // The enemy prefab to be spawned.
 		public float spawnTime = 3f;            // How long between each spawn.
 		public float timeToActualSpawnEnemy = 2f;	// How long between spawn effect and enemy
+		public GameObject energyBlastPrefab;
 		public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
-		public GameObject energyBlast;
 		GameObject MH;
-		
 		private int spawnPointIndex;
-	
+		private GameObject energyBlast;
+		
 		void Start ()
 		{
 				// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
@@ -33,7 +33,7 @@ public class EnemyManager : MonoBehaviour
 				spawnPointIndex = Random.Range (0, spawnPoints.Length);
 //				if (!MH.GetComponent<PolygonCollider2D> ().bounds.Contains (spawnPoints [spawnPointIndex].position)) {						
 				// Spawn enemy appear effect first
-				Instantiate (energyBlast, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation);
+				energyBlast = Instantiate (energyBlastPrefab, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation) as GameObject;
 				// Then wait timeToActualSpawnEnemy seconds to actual spawn enemy
 				Invoke ("ActualSpawnEnemy", timeToActualSpawnEnemy);						
 //				}
@@ -43,5 +43,6 @@ public class EnemyManager : MonoBehaviour
 		{
 				// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.											
 				Instantiate (enemy, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation);
+				Destroy (energyBlast);
 		}
 }
