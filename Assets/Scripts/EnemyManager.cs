@@ -41,8 +41,12 @@ public class EnemyManager : MonoBehaviour
 
 		void ActualSpawnEnemy ()
 		{
+				Vector3 delta = MH.transform.position - spawnPoints [spawnPointIndex].position;
+				float angle = - Mathf.Atan2 (delta.x, delta.y) * Mathf.Rad2Deg;
+				Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, angle));
+
 				// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.											
-				Instantiate (enemy, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation);
+				Instantiate (enemy, spawnPoints [spawnPointIndex].position, rot);
 				// Finally destroy the spawning effect
 				Destroy (energyBlast);
 		}
