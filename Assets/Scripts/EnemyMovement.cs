@@ -32,18 +32,9 @@ public class EnemyMovement : MonoBehaviour
 
 		void Shoot ()
 		{
-//				Vector3 delta = MH.transform.position - transform.position;
-//				float angle = - Mathf.Atan2 (delta.x, delta.y) * Mathf.Rad2Deg;
-//				
-//				Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, angle));
-//				transform.rotation = rot;
-
-//				transform.localRotation = Quaternion.Lerp (transform.localRotation, rot, 0);
-
 				if (Vector3.Distance (this.transform.position, MH.position) <= MaxDist) {
 						GameObject bullet = Instantiate (bulletPrefab, GetChildByName ("firePoint").position, transform.rotation) as GameObject;									
 				} 
-//				bullet.rigidbody2D.velocity = transform.TransformDirection (delta * 2);
 				Debug.Log ("Shoot at " + Time.time);
 		}
 
