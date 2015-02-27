@@ -32,9 +32,16 @@ public class BulletFire : MonoBehaviour
 
 		void OnCollisionEnter2D (Collision2D objectHit)
 		{
-				if (objectHit.gameObject.tag == "MH" ) {
-						Destroy (this.gameObject);
-						Debug.Log ("Destroy collide MH");
+				if (objectHit.gameObject.tag == "MH") {	
+						Animator animator = GetComponent<Animator> () as Animator;
+						animator.SetTrigger ("Explosion");
+						Invoke ("RemoveEffect", 0.4f);
 				}
+		}
+
+		void RemoveEffect ()
+		{
+				
+				Destroy (this.gameObject);		
 		}
 }
