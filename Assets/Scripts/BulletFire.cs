@@ -35,13 +35,13 @@ public class BulletFire : MonoBehaviour
 				if (objectHit.gameObject.tag == "MH") {	
 						Animator animator = GetComponent<Animator> () as Animator;
 						animator.SetTrigger ("Explosion");
+						Debug.Log ("Explosion!");
 						Invoke ("RemoveEffect", 0.4f);
 				}
 		}
 
 		void RemoveEffect ()
-		{
-				
+		{				
 				Destroy (this.gameObject);		
 		}
 }
