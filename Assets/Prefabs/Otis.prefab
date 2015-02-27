@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   m_Layer: 8
-  m_Name: Otis_Anim
+  m_Name: Otis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,6 +121,11 @@ MonoBehaviour:
   inAirDamping: 5
   jumpHeight: 3
   delta: .100000001
+  clientHInput: 0
+  clientVInput: 0
+  action: 0
+  isDriving: 0
+  isShooting: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
