@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.864000022, y: .981000006, z: 0}
+  m_LocalPosition: {x: -.864000022, y: 1.00300002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -85,8 +85,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .166219831, y: .327044964}
-  m_Center: {x: -1.05667591, y: -.623641372}
+  m_Size: {x: .164790869, y: .354187727}
+  m_Center: {x: -1.04596138, y: -.624355674}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,6 +104,12 @@ MonoBehaviour:
   groundDamping: 20
   inAirDamping: 5
   jumpHeight: 3
+  delta: .100000001
+  clientHInput: 0
+  clientVInput: 0
+  action: 0
+  isDriving: 0
+  isShooting: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
