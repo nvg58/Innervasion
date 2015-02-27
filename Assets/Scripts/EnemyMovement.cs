@@ -17,7 +17,6 @@ public class EnemyMovement : MonoBehaviour
 	
 		void Update ()
 		{
-//				Debug.Log (Vector3.Distance (transform.position, MH.position));
 				if (Vector3.Distance (transform.position, MH.position) >= MinDist) {
 						transform.position += (MH.transform.position - transform.position).normalized * MoveSpeed * Time.deltaTime;	
 						if (Vector3.Distance (this.transform.position, MH.position) <= MaxDist) {
