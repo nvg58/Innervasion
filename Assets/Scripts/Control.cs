@@ -110,9 +110,6 @@ public class Control : MonoBehaviour
 		// Use when test on editor
 		
 		if (Network.peerType == NetworkPeerType.Disconnected) {			
-			
-			//Debug.Log ("localscale: " + localScale);
-			
 			if (Input.GetKey (KeyCode.RightArrow)) {
 				clientHInput = 1;								
 			} else if (Input.GetKey (KeyCode.LeftArrow)) {
@@ -120,8 +117,6 @@ public class Control : MonoBehaviour
 			} else {
 				clientHInput = 0;								
 			}
-			
-			
 			
 			if (Input.GetKey (KeyCode.UpArrow)) {
 				clientVInput = 1;
@@ -140,20 +135,14 @@ public class Control : MonoBehaviour
 						if (localScale.x < 0) {
 							localScale.x *= -1.0f;
 						}
-						animator.SetBool ("isIdle", false);
-						animator.SetBool ("isWalk", true);
-						animator.SetBool ("isWalkNeg", false);
-						animator.SetBool ("isClimbLadder", false);
+						animator.SetTrigger("MoveRight");
 					}
 					if (clientHInput < 0) {
 						normalizedHorizontalSpeed = -1;
 						if (localScale.x > 0) {
 							localScale.x *= -1.0f;
 						} 
-						animator.SetBool ("isIdle", false);
-						animator.SetBool ("isWalk", false);
-						animator.SetBool ("isWalkNeg", true);
-						animator.SetBool ("isClimbLadder", false);				
+						animator.SetTrigger("MoveLeft");
 					}
 					//transform.localScale = localScale;
 				} else {
@@ -161,39 +150,27 @@ public class Control : MonoBehaviour
 						_velocity.x = 0;
 						if (clientVInput > 0) {
 							_velocity.y = 1;
-							animator.SetBool ("isIdle", false);
-							animator.SetBool ("isWalk", false);
-							animator.SetBool ("isWalkNeg", false);
-							animator.SetBool ("isClimbLadder", true);				
+							animator.SetTrigger ("ClimbLadder");
 						} else if (clientVInput < 0) {
 							_velocity.y = -1;
-							animator.SetBool ("isIdle", false);
-							animator.SetBool ("isWalk", false);
-							animator.SetBool ("isWalkNeg", false);
-							animator.SetBool ("isClimbLadder", true);				
+							animator.SetTrigger ("ClimbLadder");
 						} else {
 							_velocity.y = 0;
-							animator.SetBool ("isIdle", true);
-							animator.SetBool ("isWalk", false);
-							animator.SetBool ("isWalkNeg", false);
-							animator.SetBool ("isClimbLadder", false);				
+							animator.SetTrigger ("Idle");
 						}
 					} 
 				}	
 				if (clientHInput == 0) {
 					normalizedHorizontalSpeed = 0;		
 					if (canClimb == false) {
-						animator.SetBool ("isIdle", true);
-						animator.SetBool ("isWalk", false);
-						animator.SetBool ("isWalkNeg", false);
-						animator.SetBool ("isClimbLadder", false);				
+						animator.SetTrigger ("Idle");
 					}
 				}
 				
 				// apply horizontal speed smoothing it
 				var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
 				_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
-				//Debug.Log(normalizedHorizontalSpeed);
+
 				// apply gravity before moving
 				_velocity.y += gravity * Time.deltaTime;
 				_controller.move (_velocity * Time.deltaTime);
