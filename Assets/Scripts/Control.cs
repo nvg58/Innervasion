@@ -104,8 +104,6 @@ public class Control : MonoBehaviour
 		
 		if (_controller.isGrounded)
 			_velocity.y = 0;
-		if (old_vel_y != _velocity.y)
-			Debug.Log(gravity);
 		old_vel_y = _velocity.y;
 		// Use when test on editor
 		
