@@ -32,8 +32,6 @@ public class EnemyMovement : MonoBehaviour
 				Debug.Log ("dist: " + Vector3.Distance (this.transform.position, MH.position));
 				if (Vector3.Distance (transform.position, MH.position) >= MinDist) {
 						transform.position += (MH.transform.position - transform.position).normalized * MoveSpeed * Time.deltaTime;
-
-						
 				} else {
 						if (Time.time >= tChange) {
 								randomX = Random.Range (-0.5f, 0.5f); // with float parameters, a random float
@@ -52,9 +50,7 @@ public class EnemyMovement : MonoBehaviour
 								float angle = - Mathf.Atan2 (delta.x, delta.y) * Mathf.Rad2Deg;
 								Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, angle));
 								transform.localRotation = Quaternion.Lerp (transform.localRotation, rot, Time.deltaTime / 3);
-						} else {
-				
-						}
+						} 
 				}    	    
 		}
 	

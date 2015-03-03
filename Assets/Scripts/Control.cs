@@ -135,18 +135,14 @@ public class Control : MonoBehaviour
 						if (localScale.x < 0) {
 							localScale.x *= -1.0f;
 						}
-						animator.SetBool ("isIdle", false);
-						animator.SetBool ("isWalk", true);
-						animator.SetBool ("isClimbLadder", false);
+						animator.SetTrigger("MoveRight");
 					}
 					if (clientHInput < 0) {
 						normalizedHorizontalSpeed = -1;
 						if (localScale.x > 0) {
 							localScale.x *= -1.0f;
 						} 
-						animator.SetBool ("isIdle", false);
-						animator.SetBool ("isWalk", true);
-						animator.SetBool ("isClimbLadder", false);				
+						animator.SetTrigger("MoveLeft");
 					}
 					transform.localScale = localScale;
 				} else {
@@ -154,28 +150,20 @@ public class Control : MonoBehaviour
 						_velocity.x = 0;
 						if (clientVInput > 0) {
 							_velocity.y = 1;
-							animator.SetBool ("isIdle", false);
-							animator.SetBool ("isWalk", false);
-							animator.SetBool ("isClimbLadder", true);				
+							animator.SetTrigger ("ClimbLadder");
 						} else if (clientVInput < 0) {
 							_velocity.y = -1;
-							animator.SetBool ("isIdle", false);
-							animator.SetBool ("isWalk", false);
-							animator.SetBool ("isClimbLadder", true);				
+							animator.SetTrigger ("ClimbLadder");
 						} else {
 							_velocity.y = 0;
-							animator.SetBool ("isIdle", true);
-							animator.SetBool ("isWalk", false);
-							animator.SetBool ("isClimbLadder", false);				
+							animator.SetTrigger ("Idle");
 						}
 					} 
 				}	
 				if (clientHInput == 0) {
 					normalizedHorizontalSpeed = 0;		
 					if (canClimb == false) {
-						animator.SetBool ("isIdle", true);
-						animator.SetBool ("isWalk", false);
-						animator.SetBool ("isClimbLadder", false);				
+						animator.SetTrigger ("Idle");
 					}
 				}
 				
