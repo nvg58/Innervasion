@@ -16,8 +16,6 @@ public class EnemyMovement : MonoBehaviour
 		void Start ()
 		{
 				MH = GameObject.FindGameObjectWithTag ("MH").transform;
-//				MinDist += MH.GetComponent<SpriteRenderer> ().bounds.extents.x;
-//				MaxDist += MH.GetComponent<SpriteRenderer> ().bounds.extents.x;
 
 				float length = 2f;
 				float randomizationFactor = 0.1f;
@@ -29,7 +27,6 @@ public class EnemyMovement : MonoBehaviour
 	
 		void Update ()
 		{		
-				Debug.Log ("dist: " + Vector3.Distance (this.transform.position, MH.position));
 				if (Vector3.Distance (transform.position, MH.position) >= MinDist) {
 						transform.position += (MH.transform.position - transform.position).normalized * MoveSpeed * Time.deltaTime;
 				} else {
@@ -42,8 +39,6 @@ public class EnemyMovement : MonoBehaviour
 						Vector3 randPos = new Vector3 (randomX, randomY, 0);				
 						Vector3 futurePos = transform.position + randPos * MoveSpeed * Time.deltaTime;
 			
-						Debug.Log ("pos: " + transform.position + " randPos: " + randPos + " futurePos: " + futurePos + " dis: " + Vector3.Distance (futurePos, MH.position));
-			
 						if (Vector3.Distance (futurePos, MH.position) > SafeDist) {
 								transform.position = futurePos;					
 								Vector3 delta = MH.transform.position - transform.position;
@@ -51,6 +46,9 @@ public class EnemyMovement : MonoBehaviour
 								Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, angle));
 								transform.localRotation = Quaternion.Lerp (transform.localRotation, rot, Time.deltaTime / 3);
 						} 
+						else {
+							transform.position -= (MH.transform.position - transform.position).normalized * MoveSpeed * Time.deltaTime;
+						}
 				}    	    
 		}
 	

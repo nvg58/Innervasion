@@ -105,9 +105,7 @@ public class Control : MonoBehaviour
 		// Use when test on editor
 		
 		if (Network.peerType == NetworkPeerType.Disconnected) {			
-			
-			Debug.Log ("localscale: " + localScale);
-			
+						
 			if (Input.GetKey (KeyCode.RightArrow)) {
 				clientHInput = 1;								
 			} else if (Input.GetKey (KeyCode.LeftArrow)) {
@@ -115,8 +113,6 @@ public class Control : MonoBehaviour
 			} else {
 				clientHInput = 0;								
 			}
-			
-			
 			
 			if (Input.GetKey (KeyCode.UpArrow)) {
 				clientVInput = 1;
@@ -170,7 +166,6 @@ public class Control : MonoBehaviour
 				// apply horizontal speed smoothing it
 				var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
 				_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
-				Debug.Log(normalizedHorizontalSpeed);
 				// apply gravity before moving
 				_velocity.y += gravity * Time.deltaTime;
 				_controller.move (_velocity * Time.deltaTime);

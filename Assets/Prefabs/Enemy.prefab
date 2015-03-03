@@ -98,7 +98,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_FixedAngle: 1
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
   MoveSpeed: 3
   MaxDist: 10
   MinDist: 6
-  SafeDist: 3
+  SafeDist: 5
   bulletPrefab: {fileID: 100002, guid: b0c90ce92a40e4194be3748c8db12c79, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
