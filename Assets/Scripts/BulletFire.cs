@@ -8,12 +8,12 @@ public class BulletFire : MonoBehaviour
 		public float 	speed = 6.0f;
 		private float	lifetime;
 		private float 	speedX, speedY;
-
+		public GameObject MH;
 
 		// Use this for initialization
 		void Start ()
 		{
-	
+				MH = GameObject.FindGameObjectWithTag ("MH");
 				float angle = -transform.localEulerAngles.z;	
 				speedX = speed * Mathf.Sin (angle * Mathf.Deg2Rad);
 				speedY = speed * Mathf.Cos (angle * Mathf.Deg2Rad);
@@ -32,12 +32,16 @@ public class BulletFire : MonoBehaviour
 
 		void OnCollisionEnter2D (Collision2D objectHit)
 		{
+				Animator animator = GetComponent<Animator> () as Animator;
+				animator.SetTrigger ("Explosion");
+				Debug.Log ("Explosion!");
+		
+				Invoke ("RemoveEffect", 0.4f);
+
 				if (objectHit.gameObject.tag == "MH") {	
-						Animator animator = GetComponent<Animator> () as Animator;
-						animator.SetTrigger ("Explosion");
-						Debug.Log ("Explosion!");
-												
-						Invoke ("RemoveEffect", 0.4f);
+						MHHeathSystem health = MH.GetComponent<MHHeathSystem> ();
+						health.ReduceHealth (1);			
+
 				}
 		}
 
