@@ -36,10 +36,7 @@ public class BulletFire : MonoBehaviour
 						Animator animator = GetComponent<Animator> () as Animator;
 						animator.SetTrigger ("Explosion");
 						Debug.Log ("Explosion!");
-						
-						HealthSystem health = objectHit.gameObject.GetComponent<HealthSystem>();
-						health.ReduceHealth(1);			
-
+												
 						Invoke ("RemoveEffect", 0.4f);
 				}
 		}

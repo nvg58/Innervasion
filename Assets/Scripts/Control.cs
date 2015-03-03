@@ -26,6 +26,7 @@ public class Control : MonoBehaviour
 	private Vector3 _velocity;
 	protected Animator animator;
 	private Vector3 localScale;
+	private float old_vel_y;
 	
 	#region Event Listeners
 	
@@ -96,16 +97,19 @@ public class Control : MonoBehaviour
 	
 	void Update ()
 	{
+		
+			
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
 		
 		if (_controller.isGrounded)
 			_velocity.y = 0;
-		
+		if (old_vel_y != _velocity.y)
+			Debug.Log(gravity);
+		old_vel_y = _velocity.y;
 		// Use when test on editor
 		
 		if (Network.peerType == NetworkPeerType.Disconnected) {			
-						
 			if (Input.GetKey (KeyCode.RightArrow)) {
 				clientHInput = 1;								
 			} else if (Input.GetKey (KeyCode.LeftArrow)) {
@@ -140,7 +144,7 @@ public class Control : MonoBehaviour
 						} 
 						animator.SetTrigger("MoveLeft");
 					}
-					transform.localScale = localScale;
+					//transform.localScale = localScale;
 				} else {
 					if (canClimb == true) {
 						_velocity.x = 0;
@@ -166,6 +170,7 @@ public class Control : MonoBehaviour
 				// apply horizontal speed smoothing it
 				var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
 				_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
+
 				// apply gravity before moving
 				_velocity.y += gravity * Time.deltaTime;
 				_controller.move (_velocity * Time.deltaTime);
@@ -177,6 +182,28 @@ public class Control : MonoBehaviour
 		}
 	}
 	
+	void onTriggerEnter2D (Collider2D other)
+	{
+		// use when test in editor
+		if (other.name == "Wheel" && Input.GetKey (KeyCode.G)) {
+			isDriving = true;
+			action = true;
+		}
+		
+		if (other.name == "Wheel" && Input.GetKey (KeyCode.F)) {
+			isDriving = false;
+			action = false;
+		}
+		
+		if (other.name == "Wheel" && action == true) {
+			isDriving = true;
+		}
+		
+		if (other.name == "Ladder" || other.name == "Elevator") {
+			canClimb = true;
+			gravity = 0;		
+		}
+	}
 	void OnTriggerStay2D (Collider2D other)
 	{
 		// use when test in editor
@@ -208,6 +235,8 @@ public class Control : MonoBehaviour
 		}
 		if (other.name == "Wheel")
 			isDriving = false;
+		if (other.name == "Body")
+			gravity = 0;
 	}
 	
 	[RPC]
