@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
 				if (Vector3.Distance (this.transform.position, MH.position) <= MaxDist) {
 						GameObject bullet = Instantiate (bulletPrefab, GetChildByName ("firePoint").position, transform.rotation) as GameObject;									
 				} 
-				Debug.Log ("Shoot at " + Time.time);
+				//Debug.Log ("Shoot at " + Time.time);
 		}
 
 		Transform GetChildByName (string name)

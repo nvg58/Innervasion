@@ -10,6 +10,7 @@ public class MHControl : MonoBehaviour {
 	}
 	
 	public void Move(float HInput, float VInput){
+		Debug.Log ("move");
 		if (HInput > 0)
 			transform.Translate (new Vector3 (speed * Time.deltaTime, 0, 0));
 		
@@ -22,4 +23,9 @@ public class MHControl : MonoBehaviour {
 		if (VInput < 0) 
 			transform.Translate (new Vector3 (0, -speed * Time.deltaTime, 0));
 	}
-}
+
+	void OnCollisionEnter2D( Collision2D col )
+	{
+		//	Debug.Log (col.gameObject.name);
+	}
+	}
