@@ -7,6 +7,12 @@ public class MHControl : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
+		Debug.Log (Physics.gravity.y * rigidbody2D.gravityScale);
+		rigidbody2D.velocity = new Vector2(0, rigidbody2D.gravityScale * Physics.gravity.y);
+	}
+
+	void Update() {
+		Debug.Log ("Jaja");
 	}
 	
 	public void Move(float HInput, float VInput){

@@ -1,27 +1,31 @@
 fileFormatVersion: 2
-guid: c2e663506966d425b8eeb1e42756012b
+guid: eeefa642888cc41bf8492a3fa63384b1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Otis_0
-    21300002: Otis_1
-    21300004: Otis_2
-    21300006: Otis_3
-    21300008: Otis_4
-    21300010: Otis_5
-    21300012: Otis_6
-    21300014: Otis_7
-    21300016: Otis_8
-    21300018: Otis_9
-    21300020: Otis_10
-    21300022: Otis_11
-    21300024: Otis_12
-    21300026: Otis_13
-    21300028: Otis_14
-    21300030: Otis_15
-    21300032: Otis_16
-    21300034: Otis_17
-    21300036: Otis_18
-    21300038: Otis_19
+    21300000: otis 1_0
+    21300002: otis 1_1
+    21300004: otis 1_2
+    21300006: otis 1_3
+    21300008: otis 1_4
+    21300010: otis 1_5
+    21300012: otis 1_6
+    21300014: otis 1_7
+    21300016: otis 1_8
+    21300018: otis 1_9
+    21300020: otis 1_10
+    21300022: otis 1_11
+    21300024: otis 1_12
+    21300026: otis 1_13
+    21300028: otis 1_14
+    21300030: otis 1_15
+    21300032: otis 1_16
+    21300034: otis 1_17
+    21300036: otis 1_18
+    21300038: otis 1_19
+    21300040: otis 1_20
+    21300042: otis 1_21
+    21300044: otis 1_22
+    21300046: otis 1_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -63,203 +67,243 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Otis_0
+    - name: otis 1_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 254
-        width: 41
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_1
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 254
-        width: 41
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_2
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 254
-        width: 41
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_3
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 254
+        x: 15
+        y: 438
         width: 40
         height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_4
+    - name: otis 1_1
       rect:
         serializedVersion: 2
-        x: 309
-        y: 254
+        x: 87
+        y: 438
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 438
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_3
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 438
+        width: 40
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 438
         width: 41
         height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_5
+    - name: otis 1_5
       rect:
         serializedVersion: 2
-        x: 6
-        y: 175
+        x: 12
+        y: 354
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_6
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 354
         width: 39
         height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_6
+    - name: otis 1_7
       rect:
         serializedVersion: 2
-        x: 89
-        y: 175
-        width: 25
+        x: 168
+        y: 354
+        width: 24
         height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_7
+    - name: otis 1_8
       rect:
         serializedVersion: 2
-        x: 166
-        y: 176
+        x: 241
+        y: 354
         width: 24
         height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_8
+    - name: otis 1_9
       rect:
         serializedVersion: 2
-        x: 242
-        y: 176
-        width: 24
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_9
-      rect:
-        serializedVersion: 2
-        x: 318
-        y: 176
-        width: 24
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_10
-      rect:
-        serializedVersion: 2
-        x: 392
-        y: 176
-        width: 24
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_11
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 95
-        width: 39
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_12
-      rect:
-        serializedVersion: 2
-        x: 89
-        y: 95
+        x: 22
+        y: 269
         width: 25
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_13
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 96
-        width: 25
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_14
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 96
-        width: 25
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_15
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 96
-        width: 24
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_16
-      rect:
-        serializedVersion: 2
-        x: 392
-        y: 96
-        width: 24
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_17
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 15
-        width: 37
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_18
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 16
-        width: 32
         height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Otis_19
+    - name: otis 1_10
       rect:
         serializedVersion: 2
-        x: 157
-        y: 15
-        width: 37
+        x: 95
+        y: 269
+        width: 25
         height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 269
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_12
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 269
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_13
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 188
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_14
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 188
+        width: 25
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_15
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 188
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_16
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 188
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 104
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 104
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_19
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 104
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_20
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 104
+        width: 25
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_21
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 18
+        width: 37
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_22
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 20
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: otis 1_23
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 18
+        width: 37
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
