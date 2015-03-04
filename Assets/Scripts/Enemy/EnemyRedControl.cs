@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyGreenControl : MonoBehaviour
+public class EnemyRedControl : MonoBehaviour
 {
 	Transform MH;
 	public float MoveSpeed = 3.0f;
@@ -12,15 +12,18 @@ public class EnemyGreenControl : MonoBehaviour
 	private float tChange = 0f; // force new direction in the first Update 
 	private float randomX;
 	private float randomY;
-	
-	void Start ()
-	{
-		MH = GameObject.FindGameObjectWithTag ("MH").transform;
-		
+
+	#region DeltaTime shooting
 		float length = 2f;
 		float randomizationFactor = 0.1f;
 		float startDelay = 1.5f;
 		bool repeat = true;
+	#endregion
+
+	void Start ()
+	{
+		MH = GameObject.FindGameObjectWithTag ("MH").transform;
+
 		CoroutineTimer timer = new CoroutineTimer (length, randomizationFactor, startDelay, repeat);
 		timer.Start (gameObject, Shoot);
 	}

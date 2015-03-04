@@ -1,26 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyGreenControl : MonoBehaviour
+public class EnemyYellowControl : MonoBehaviour
 {
 	Transform MH;
 	public float MoveSpeed = 3.0f;
 	public float MaxDist = 10.0f;
 	public float MinDist = 6.0f;
-	public float SafeDist = 5.0f;
+	public float SafeDist = 4.0f;
 	public GameObject bulletPrefab;
 	private float tChange = 0f; // force new direction in the first Update 
 	private float randomX;
 	private float randomY;
 	
+	public float length = 2f;
+	public float randomizationFactor = 0.1f;
+	public float startDelay = 1.5f;
+	public bool repeat = true;
+
 	void Start ()
 	{
 		MH = GameObject.FindGameObjectWithTag ("MH").transform;
-		
-		float length = 2f;
-		float randomizationFactor = 0.1f;
-		float startDelay = 1.5f;
-		bool repeat = true;
+
 		CoroutineTimer timer = new CoroutineTimer (length, randomizationFactor, startDelay, repeat);
 		timer.Start (gameObject, Shoot);
 	}
