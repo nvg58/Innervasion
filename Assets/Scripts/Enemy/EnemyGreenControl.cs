@@ -1,7 +1,7 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyGreenMovement : MonoBehaviour
 {
 	Transform MH;
 	public float MoveSpeed = 3.0f;

@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyGreenManager : MonoBehaviour
 {
 		public GameObject enemy;                	// The enemy prefab to be spawned.
 		public float spawnTime = 3f;            	// How long between each spawn.
+		public int enemyCounter;
 		public float timeToActualSpawnEnemy = 2f;	// How long between spawn effect and enemy
 		public GameObject energyBlastPrefab;
 		public Transform[] spawnPoints;         	// An array of the spawn points this enemy can spawn from.
 		GameObject MH;
 		private int spawnPointIndex;
 		private GameObject energyBlast;		
-
-		private int enemyCounter;
 		
 		void Start ()
 		{
@@ -25,7 +24,7 @@ public class EnemyManager : MonoBehaviour
 		void Spawn ()
 		{	
 				if (-- enemyCounter == 0)
-					CancelInvoke("Spawn");
+						CancelInvoke ("Spawn");
 
 				// Find a random index between zero and one less than the number of spawn points.
 				spawnPointIndex = Random.Range (0, spawnPoints.Length); 
