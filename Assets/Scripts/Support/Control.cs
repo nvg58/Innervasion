@@ -128,6 +128,7 @@ public class Control : MonoBehaviour
 		if (isShooting == false) {
 			if (isDriving == false) {
 				if (Mathf.Abs (clientHInput) > Mathf.Abs (clientVInput)) {
+					_velocity.y = 0;
 					if (clientHInput > 0) {
 						normalizedHorizontalSpeed = 1;
 						if (localScale.x < 0) {
