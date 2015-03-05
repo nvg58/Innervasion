@@ -18,7 +18,9 @@ public class HealthSystem : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (health == 0) {						
+				if (health == 0) {				
+						// TODO remember to delete the UniqueID of (yellow) enemy before destroy it!
+
 						Destroy (this.gameObject);
 				}
 		}
