@@ -3569,11 +3569,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400008, guid: 425107ad26f074cbaab20c58c2e148a8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 265.5
+      value: 197.899994
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 425107ad26f074cbaab20c58c2e148a8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 113.699997
+      value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 425107ad26f074cbaab20c58c2e148a8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9068,7 +9068,7 @@ Transform:
   - {fileID: 1186441537}
   - {fileID: 2100727616}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!114 &1661909342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11612,7 +11612,7 @@ Transform:
   m_PrefabInternal: {fileID: 638343352}
   m_GameObject: {fileID: 2094708707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 265.5, y: 113.699997, z: 0}
+  m_LocalPosition: {x: 197.899994, y: 111, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2464866}
@@ -13093,6 +13093,10 @@ MonoBehaviour:
   MinDist: 6
   SafeDist: 5
   bulletPrefab: {fileID: 100002, guid: b0c90ce92a40e4194be3748c8db12c79, type: 2}
+  length: 2
+  randomizationFactor: .100000001
+  startDelay: 1.5
+  repeat: 1
 --- !u!1 &2140641439
 GameObject:
   m_ObjectHideFlags: 0
@@ -13188,7 +13192,7 @@ Transform:
   - {fileID: 993873444}
   - {fileID: 139782294}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!114 &2142245111
 MonoBehaviour:
   m_ObjectHideFlags: 0

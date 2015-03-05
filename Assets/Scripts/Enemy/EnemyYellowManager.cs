@@ -3,12 +3,13 @@ using System.Collections;
 
 public class EnemyYellowManager : MonoBehaviour
 {
-	public GameObject enemy;                	// The enemy prefab to be spawned.
+	public GameObject enemyPrefab;                	// The enemy prefab to be spawned.
 	public float spawnTime = 3f;            	// How long between each spawn.
 	public int enemyCounter;
 	public float timeToActualSpawnEnemy = 2f;	// How long between spawn effect and enemy
 	public GameObject energyBlastPrefab;
 	public Transform[] spawnPoints;         	// An array of the spawn points this enemy can spawn from.
+//	public List<
 	GameObject MH;
 	private int spawnPointIndex;
 	private GameObject energyBlast;		
@@ -41,11 +42,10 @@ public class EnemyYellowManager : MonoBehaviour
 		Vector3 delta = MH.transform.position - spawnPoints [spawnPointIndex].position;
 		float angle = - Mathf.Atan2 (delta.x, delta.y) * Mathf.Rad2Deg;
 		Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, angle));
-		
-		Debug.Log (spawnPoints [spawnPointIndex].position);
-		
+				
 		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.											
-		Instantiate (enemy, spawnPoints [spawnPointIndex].position, rot);
+		GameObject enemyYellow = Instantiate (enemyPrefab, spawnPoints [spawnPointIndex].position, rot) as GameObject;
+
 		// Finally destroy the spawning effect
 		Destroy (energyBlast);
 		
