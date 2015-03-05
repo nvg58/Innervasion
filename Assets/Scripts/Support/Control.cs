@@ -26,7 +26,6 @@ public class Control : MonoBehaviour
 	private Vector3 _velocity;
 	protected Animator animator;
 	private Vector3 localScale;
-	private float old_vel_y;
 	
 	#region Event Listeners
 	
@@ -101,10 +100,10 @@ public class Control : MonoBehaviour
 			
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
-		
+		if (gravity == 0)
+			_velocity.y = 0;
 		if (_controller.isGrounded)
 			_velocity.y = 0;
-		old_vel_y = _velocity.y;
 		// Use when test on editor
 		
 		if (Network.peerType == NetworkPeerType.Disconnected) {			
@@ -128,7 +127,7 @@ public class Control : MonoBehaviour
 		if (isShooting == false) {
 			if (isDriving == false) {
 				if (Mathf.Abs (clientHInput) > Mathf.Abs (clientVInput)) {
-					_velocity.y = 0;
+					//_velocity.y = 0;
 					if (clientHInput > 0) {
 						normalizedHorizontalSpeed = 1;
 						if (localScale.x < 0) {
