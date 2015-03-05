@@ -42,7 +42,7 @@ public class EnemyRedManager : MonoBehaviour
 				float angle = - Mathf.Atan2 (delta.x, delta.y) * Mathf.Rad2Deg;
 				Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, angle));
 
-				Debug.Log (spawnPoints [spawnPointIndex].position);
+				//Debug.Log (spawnPoints [spawnPointIndex].position);
 
 				// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.											
 				Instantiate (enemy, spawnPoints [spawnPointIndex].position, rot);

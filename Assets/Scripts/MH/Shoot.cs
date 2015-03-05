@@ -22,12 +22,15 @@ public class Shoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		// Control gun's trigger...
 		if (this.gun != null)
 			this.gun.SetTriggerState(this.isShooting);
 	}
 	
+	
 	void OnTriggerStay2D(Collider2D other){
+		Debug.Log ("On trigger stay " + other.name);
 		// use when test in editor
 		if ((other.name == "Milo" || other.name == "Otis") && Input.GetKey (KeyCode.H)){
 			SetTriggerState(true);
@@ -52,13 +55,21 @@ public class Shoot : MonoBehaviour {
 
 					Vector3 eulerAngle = new Vector3(0, 0, initialAngle.z + angle);
 					Quaternion qr = Quaternion.Euler(eulerAngle);
-					barel.transform.localRotation = Quaternion.Lerp(barel.transform.localRotation, qr, Time.deltaTime*3);		    	    
-					//barel.transform.localEulerAngles = new Vector3(0.0f, 0.0f, lerpAngle);
-					//Debug.Log("maxAngle" + maxAngle + "    lerpAngle" + lerpAngle);				
+					barel.transform.localRotation = Quaternion.Lerp(barel.transform.localRotation, qr, Time.deltaTime*3);		    	    	
 				}
 			}
-			else 
+			else{ 
 				playerControl.isShooting = false;
+				SetTriggerState(false);
+			}
 		}
+	}
+	void OnTriggerExit2D(Collider2D other){
+		if ((other.name == "Milo(Clone)" || other.name == "Otis(Clone)")){
+			GameObject player = GameObject.Find(other.name);
+			Control playerControl = player.GetComponent<Control>();
+			playerControl.isShooting = false;
+			SetTriggerState(false);
+		}	
 	}
 }

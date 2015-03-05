@@ -95,9 +95,7 @@ public class Control : MonoBehaviour
 	}
 	
 	void Update ()
-	{
-		
-			
+	{			
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
 		if (gravity == 0)
