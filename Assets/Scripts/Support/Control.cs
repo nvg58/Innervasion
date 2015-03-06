@@ -61,7 +61,6 @@ public class Control : MonoBehaviour
 			MultiplayerFunctions.SP.RegisterHost (GameSettings.serverTitle, GameSettings.description);
 		}
 		_controller = GetComponent<CharacterController2D> ();
-		
 		// listen to some events for illustration purposes
 		_controller.onControllerCollidedEvent += onControllerCollider;
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
@@ -142,8 +141,12 @@ public class Control : MonoBehaviour
 					}
 					//transform.localScale = localScale;
 				} else {
+					normalizedHorizontalSpeed = 0;		
+					if (canClimb == false) {
+						animator.SetTrigger ("Idle");
+					}
+					
 					if (canClimb == true) {
-						_velocity.x = 0;
 						if (clientVInput > 0) {
 							_velocity.y = 1;
 							animator.SetTrigger ("ClimbLadder");
@@ -169,6 +172,8 @@ public class Control : MonoBehaviour
 
 				// apply gravity before moving
 				_velocity.y += gravity * Time.deltaTime;
+				if (_velocity.x != 0.0)
+					Debug.Log(_velocity);
 				_controller.move (_velocity * Time.deltaTime);
 				
 			} else {
