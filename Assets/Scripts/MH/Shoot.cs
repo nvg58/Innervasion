@@ -65,7 +65,7 @@ public class Shoot : MonoBehaviour {
 		}
 	}
 	void OnTriggerExit2D(Collider2D other){
-		if ((other.name == "Milo(Clone)" || other.name == "Otis(Clone)")){
+		if ((other.name == "Milo(Clone)" || other.name == "Otis(Clone)") || other.name == "Milo" || other.name == "Otis"){
 			GameObject player = GameObject.Find(other.name);
 			Control playerControl = player.GetComponent<Control>();
 			playerControl.isShooting = false;
