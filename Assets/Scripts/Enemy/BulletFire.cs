@@ -26,7 +26,7 @@ public class BulletFire : MonoBehaviour
 		
 				if ((this.lifetime += Time.deltaTime) > this.maxLifetime) {
 						Destroy (this.gameObject);
-						Debug.Log ("Destroy overtime");
+//						Debug.Log ("Destroy overtime");
 				}
 		}
 
