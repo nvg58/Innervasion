@@ -277,7 +277,9 @@ public class CharacterController2D : MonoBehaviour
 		else
 		{
 			transform.Translate( deltaMovement, Space.World );
+	
 
+			
 			// only calculate velocity if we have a non-zero deltaTime
 			if( Time.deltaTime > 0 )
 				velocity = deltaMovement / Time.deltaTime;
