@@ -5,7 +5,7 @@ public class EnemyRedManager : MonoBehaviour
 {
 		public GameObject enemy;                	// The enemy prefab to be spawned.
 		public float spawnTime = 3f;            	// How long between each spawn.
-		public int enemyCounter;
+		public int enemyCounter = 0;
 		public float timeToActualSpawnEnemy = 2f;	// How long between spawn effect and enemy
 		public GameObject energyBlastPrefab;
 		public Transform[] spawnPoints;         	// An array of the spawn points this enemy can spawn from.
@@ -15,7 +15,6 @@ public class EnemyRedManager : MonoBehaviour
 		
 		void Start ()
 		{
-				enemyCounter = 10;
 				// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
 				InvokeRepeating ("Spawn", spawnTime, spawnTime);				
 				MH = GameObject.FindGameObjectWithTag ("MH");

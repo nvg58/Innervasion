@@ -15,13 +15,13 @@ TagManager:
   Builtin Layer 5: UI
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: Charecters
-  User Layer 9: Trigger
-  User Layer 10: Bullet
-  User Layer 11: Enemy
-  User Layer 12: Border
-  User Layer 13: MHBullet
-  User Layer 14: Background
+  User Layer 8: Background
+  User Layer 9: Foreground
+  User Layer 10: MH
+  User Layer 11: Trigger
+  User Layer 12: Character
+  User Layer 13: Bullet
+  User Layer 14: Enemy
   User Layer 15: 
   User Layer 16: 
   User Layer 17: 

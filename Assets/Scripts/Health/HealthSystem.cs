@@ -10,7 +10,7 @@ public class HealthSystem : MonoBehaviour
 	
 		}
 	
-		public void ReduceHealth (int value)
+		public void ReduceHealth (float value)
 		{
 				health = Mathf.Max (health - value, 0);
 		}

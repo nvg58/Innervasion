@@ -8,7 +8,6 @@ public class MHControl : MonoBehaviour {
 	public float frictionCoefficient = 0.4f;
 	
 	public void FixedUpdate (){
-		Debug.Log(rigidbody2D.velocity);
 		// apply Archimedes force
 		rigidbody2D.AddForce(new Vector2(0.0f, (float) -1 * rigidbody2D.mass * Physics2D.gravity.y));
 		
