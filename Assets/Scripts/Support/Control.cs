@@ -95,6 +95,7 @@ public class Control : MonoBehaviour
 	
 	void Update ()
 	{			
+		//Debug.Log(MH.rigidbody2D.velocity);
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
 		if (gravity == 0)
@@ -172,8 +173,6 @@ public class Control : MonoBehaviour
 
 				// apply gravity before moving
 				_velocity.y += gravity * Time.deltaTime;
-				if (_velocity.x != 0.0)
-					Debug.Log(_velocity);
 				_controller.move (_velocity * Time.deltaTime);
 				
 			} else {

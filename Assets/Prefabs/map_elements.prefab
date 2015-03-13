@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 60: {fileID: 6000016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
   - 60: {fileID: 6000000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 212: {fileID: 21200004}
   - 60: {fileID: 6000008}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200006}
   - 60: {fileID: 6000004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200008}
   - 60: {fileID: 6000002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200010}
   - 60: {fileID: 6000010}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - 4: {fileID: 400012}
   - 212: {fileID: 21200012}
   - 60: {fileID: 6000014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 4: {fileID: 400014}
   - 212: {fileID: 21200014}
   - 60: {fileID: 6000006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - 4: {fileID: 400016}
   - 212: {fileID: 21200016}
   - 60: {fileID: 6000012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - 4: {fileID: 400018}
   - 212: {fileID: 21200018}
   - 60: {fileID: 6000018}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - 4: {fileID: 400020}
   - 212: {fileID: 21200044}
   - 61: {fileID: 6100006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - 4: {fileID: 400022}
   - 212: {fileID: 21200056}
   - 61: {fileID: 6100004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - 4: {fileID: 400024}
   - 212: {fileID: 21200024}
   - 60: {fileID: 6000020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - 4: {fileID: 400026}
   - 212: {fileID: 21200050}
   - 60: {fileID: 6000036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - 4: {fileID: 400028}
   - 212: {fileID: 21200046}
   - 60: {fileID: 6000024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - 4: {fileID: 400030}
   - 212: {fileID: 21200022}
   - 60: {fileID: 6000040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - 4: {fileID: 400032}
   - 212: {fileID: 21200054}
   - 60: {fileID: 6000026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - 4: {fileID: 400036}
   - 212: {fileID: 21200032}
   - 60: {fileID: 6000044}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - 4: {fileID: 400038}
   - 212: {fileID: 21200034}
   - 60: {fileID: 6000022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - 4: {fileID: 400042}
   - 212: {fileID: 21200038}
   - 61: {fileID: 6100002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - 4: {fileID: 400044}
   - 212: {fileID: 21200048}
   - 60: {fileID: 6000030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - 4: {fileID: 400046}
   - 212: {fileID: 21200020}
   - 60: {fileID: 6000028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - 4: {fileID: 400048}
   - 212: {fileID: 21200036}
   - 60: {fileID: 6000032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   - 4: {fileID: 400050}
   - 212: {fileID: 21200042}
   - 60: {fileID: 6000034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - 4: {fileID: 400052}
   - 212: {fileID: 21200028}
   - 60: {fileID: 6000038}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - 4: {fileID: 400056}
   - 212: {fileID: 21200030}
   - 61: {fileID: 6100000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ GameObject:
   - 4: {fileID: 400058}
   - 212: {fileID: 21200026}
   - 60: {fileID: 6000046}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - 4: {fileID: 400060}
   - 212: {fileID: 21200052}
   - 60: {fileID: 6000042}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hangrao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400054}
   - 212: {fileID: 21200040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: map_elements
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,11 +529,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1097.5, y: 248.499985, z: 0}
+  m_LocalPosition: {x: 62, y: -30, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1.10478318}
   m_Children: []
   m_Father: {fileID: 400034}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -545,7 +545,7 @@ Transform:
   m_LocalScale: {x: 5.52391529, y: 5.52391577, z: 1.10478318}
   m_Children: []
   m_Father: {fileID: 400034}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -745,8 +745,8 @@ Transform:
   - {fileID: 400008}
   - {fileID: 400006}
   - {fileID: 400004}
-  - {fileID: 400002}
   - {fileID: 400000}
+  - {fileID: 400002}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400036

@@ -30,7 +30,6 @@ public class Shoot : MonoBehaviour {
 	
 	
 	void OnTriggerStay2D(Collider2D other){
-		Debug.Log ("On trigger stay " + other.name);
 		// use when test in editor
 		if ((other.name == "Milo" || other.name == "Otis") && Input.GetKey (KeyCode.H)){
 			SetTriggerState(true);

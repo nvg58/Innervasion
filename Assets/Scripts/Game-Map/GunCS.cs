@@ -22,7 +22,7 @@ public int 				bulletCapacity 	= 40,
 						bulletCount		= 40;
 
 public Transform		projectileOrigin;		// Transform where projectiles will be fired from.
-public BulletCS			bulletPrefab;			// Bullet prefab reference. 
+public Bullet			bulletPrefab;			// Bullet prefab reference. 
 
 
 // --------------------
@@ -106,17 +106,10 @@ private void FireBullet()
 			// Fire projectile.
 	
 			if ((this.projectileOrigin != null) && (this.bulletPrefab != null))
-				{
+			{
 					//Debug.Log(projectileOrigin.position);
-				BulletCS bullet = Instantiate(this.bulletPrefab, 
-					this.shotParticles.transform.position, this.projectileOrigin.rotation) as BulletCS;
-				
-				
-				if (bullet != null)
-					bullet.Init(this); 
-				} 
-
-	
+				Bullet bullet = Instantiate(this.bulletPrefab, 
+					this.shotParticles.transform.position, this.projectileOrigin.rotation) as Bullet;
 
 			// Play sound...
 	
@@ -142,5 +135,5 @@ private void FireBullet()
 
 		}
 	}
-
+	}
 }

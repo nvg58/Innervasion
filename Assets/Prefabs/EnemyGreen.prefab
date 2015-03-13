@@ -13,7 +13,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: EnemyGreen
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: firePoint
   m_TagString: Untagged
   m_Icon: {fileID: 866134395, guid: 0000000000000000d000000000000000, type: 0}
@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 212: {fileID: 21200000}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Animations
   m_TagString: Untagged
   m_Icon: {fileID: 0}

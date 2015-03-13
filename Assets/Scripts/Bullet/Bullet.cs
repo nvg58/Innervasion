@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletFire : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-
 		public float 	maxLifetime = 3.0f;
 		public float 	speed = 6.0f;
+		public float	damage = 1.0f;
+		public GameObject	explosion;	
 		private float	lifetime;
 		private float 	speedX, speedY;
-		public GameObject MH;
-
+	
 		// Use this for initialization
 		void Start ()
 		{
-				MH = GameObject.FindGameObjectWithTag ("MH");
 				float angle = -transform.localEulerAngles.z;	
 				speedX = speed * Mathf.Sin (angle * Mathf.Deg2Rad);
 				speedY = speed * Mathf.Cos (angle * Mathf.Deg2Rad);
@@ -26,27 +25,19 @@ public class BulletFire : MonoBehaviour
 		
 				if ((this.lifetime += Time.deltaTime) > this.maxLifetime) {
 						Destroy (this.gameObject);
-//						Debug.Log ("Destroy overtime");
 				}
 		}
 
-		void OnCollisionEnter2D (Collision2D objectHit)
+		void OnTriggerEnter2D (Collider2D objectHit)
 		{
-				Animator animator = GetComponent<Animator> () as Animator;
-				animator.SetTrigger ("Explosion");
-				Debug.Log ("Explosion!");
-		
-				Invoke ("RemoveEffect", 0.4f);
-
-				if (objectHit.gameObject.tag == "MH") {	
-						MHHeathSystem health = MH.GetComponent<MHHeathSystem> ();
-						health.ReduceHealth (1);			
-
+				HealthSystem health = objectHit.transform.root.gameObject.GetComponent<HealthSystem>();
+				if (health){
+					health.ReduceHealth(damage);
 				}
-		}
-
-		void RemoveEffect ()
-		{				
-				Destroy (this.gameObject);		
+				Debug.Log(explosion != null);
+				GameObject explo =  Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+//				if (objectHit.tag == "Enemy")
+//					UnityEditor.EditorApplication.isPaused = true;	
+				Destroy (this.gameObject);	
 		}
 }

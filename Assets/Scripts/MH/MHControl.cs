@@ -2,65 +2,48 @@
 using System.Collections;
 
 public class MHControl : MonoBehaviour {
-	public float speed = 1f;
-	private CharacterController2D _controller;
-	public float gravity = 0;
+	public float maxSpeed = 2f;
+	public float moveForce = 70.0f;
+	public Vector2 velocity = Vector2.zero;
+	public float frictionCoefficient = 0.4f;
 	
-	#region Event Listeners
-	
-	void onControllerCollider (RaycastHit2D hit)
-	{
-		// bail out on plain old ground hits cause they arent very interesting
-		if (hit.normal.y == 1f)
-			return;
+	public void FixedUpdate (){
+		// apply Archimedes force
+		rigidbody2D.AddForce(new Vector2(0.0f, (float) -1 * rigidbody2D.mass * Physics2D.gravity.y));
 		
-		// logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
-		//Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
-	}
-	
-	void onTriggerEnterEvent (Collider2D col)
-	{
-		Debug.Log ("onTriggerEnterEvent: " + col.gameObject.name);
-	}
-	
-	void onTriggerExitEvent (Collider2D col)
-	{
-		Debug.Log ("onTriggerExitEvent: " + col.gameObject.name);
-	}
-	
-	#endregion	
-	
-	void  Awake ()
-	{
-		_controller = GetComponent<CharacterController2D> ();
-		// listen to some events for illustration purposes
-		_controller.onControllerCollidedEvent += onControllerCollider;
-		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
-		_controller.onTriggerExitEvent += onTriggerExitEvent;
-	}
-	
-	void Start(){
-	}
-	
-	void FixedUpdate() {
-		//rigidbody2D.velocity = new Vector2(0, rigidbody2D.gravityScale * Physics.gravity.y);
-		Vector3 vel = new Vector3(0, 0, 0);
-		vel.y = vel.y + gravity * Time.deltaTime;
-		_controller.move (vel * Time.deltaTime);
-	}
-	
-	void Update() {
+		// apply kinetic friction
+		if (rigidbody2D.velocity.x != 0){
+			float signX = Mathf.Sign( rigidbody2D.velocity.x );
+			rigidbody2D.AddForce(new Vector2(-signX * frictionCoefficient * moveForce, 0));	
+			if (Mathf.Sign( rigidbody2D.velocity.x ) != signX)
+				rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);		
+		}
+		
+		if (rigidbody2D.velocity.y != 0){
+			float signY = Mathf.Sign( rigidbody2D.velocity.y );
+			rigidbody2D.AddForce(new Vector2(0, -signY * frictionCoefficient * moveForce));
+			if (Mathf.Sign( rigidbody2D.velocity.y ) != signY)
+				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);                           
+		}
 	}
 	
 	public void Move(float HInput, float VInput){
-		Vector3 vel = new Vector3(HInput*speed, VInput*speed, 0);
-		vel.y = vel.y + gravity * Time.deltaTime;
-		_controller.move (vel * Time.deltaTime);
+		float vX = HInput * rigidbody2D.velocity.x;
+		float vY = VInput * rigidbody2D.velocity.y;
+		if( vX*vX + vY*vY < maxSpeed*maxSpeed){
+			rigidbody2D.AddForce(Vector2.right * HInput * moveForce);
+			rigidbody2D.AddForce(Vector2.up * VInput * moveForce);
+		}
+			
+		Vector2 vel = rigidbody2D.velocity;
+		float tmp = Mathf.Sqrt((vel.x*vel.x + vel.y*vel.y) / (maxSpeed*maxSpeed));
+		if(tmp > 1){
+			Debug.Log(vel);
+			rigidbody2D.velocity = new Vector2(vel.x / tmp, vel.y / tmp);		
+		}
 	}
 	
-	void OnCollisionEnter2D( Collision2D col )
-	{
-		//	Debug.Log (col.gameObject.name);
+	void OnCollisionEnter2D( Collision2D col ) {
 	}
 }
 
