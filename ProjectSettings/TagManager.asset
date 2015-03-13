@@ -20,9 +20,9 @@ TagManager:
   User Layer 10: MH
   User Layer 11: Trigger
   User Layer 12: Character
-  User Layer 13: Bullet
+  User Layer 13: EnemyBullet
   User Layer 14: Enemy
-  User Layer 15: 
+  User Layer 15: MHBullet
   User Layer 16: 
   User Layer 17: 
   User Layer 18: 

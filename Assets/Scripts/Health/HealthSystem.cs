@@ -4,6 +4,8 @@ using System.Collections;
 public class HealthSystem : MonoBehaviour
 {
 		public float health = 2;
+		public GameObject diePrefab;
+		public float dieTime = 0;
 		// Use this for initialization
 		void Start ()
 		{
@@ -19,9 +21,15 @@ public class HealthSystem : MonoBehaviour
 		void Update ()
 		{
 				if (health == 0) {				
-						// TODO remember to delete the UniqueID of (yellow) enemy before destroy it!
-
-						Destroy (this.gameObject);
+						if (diePrefab){
+							GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
+						}
+						
+						Invoke("DestroyObject", dieTime);
 				}
+		}
+		
+		void DestroyObject(){
+			Destroy (this.gameObject);
 		}
 }
