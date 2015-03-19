@@ -25,6 +25,7 @@ public class Generate : MonoBehaviour {
 			NetworkView nView;
 			nView = clone.GetComponent<NetworkView>();
 			nView.viewID = viewID;			
+			Debug.Log(Network.connections.Length);
 			foreach (NetworkPlayer player in Network.connections){
 				if (player.ipAddress == PlayerPrefs.GetString("Player 1 ip")){
 					networkView.RPC("Spawn", player, viewID);

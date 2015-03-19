@@ -94,7 +94,7 @@ public class MultiplayerFunctions : MonoBehaviour
         */
 
         //If we don't set any IP/ports we use the public&free Unity masterserver.
-
+		
         hasLoadedMasterserverSettings = true;
         FetchHostList();
         yield break;
@@ -401,7 +401,7 @@ public class MultiplayerFunctions : MonoBehaviour
 
         testedUseNat = !Network.HavePublicAddress();
         ConnectionTesterStatus connectionTestResult = ConnectionTesterStatus.Undetermined;
-        float timeoutAt = Time.realtimeSinceStartup + 10;
+        float timeoutAt = Time.realtimeSinceStartup + 15;
         float timer = 0;
         bool probingPublicIP = false;
         string testMessage = "";
