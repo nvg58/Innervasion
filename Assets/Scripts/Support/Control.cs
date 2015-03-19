@@ -42,11 +42,13 @@ public class Control : MonoBehaviour
 	void onTriggerEnterEvent (Collider2D col)
 	{
 		Debug.Log ("onTriggerEnterEvent: " + col.gameObject.name);
+		if (col.gameObject.name == "Wheel") LumiaControl.onTutGoCabin = true;
 	}
 	
 	void onTriggerExitEvent (Collider2D col)
 	{
 		Debug.Log ("onTriggerExitEvent: " + col.gameObject.name);
+
 	}
 	
 	#endregion

@@ -55,6 +55,8 @@ public class Shoot : MonoBehaviour {
 					Vector3 eulerAngle = new Vector3(0, 0, initialAngle.z + angle);
 					Quaternion qr = Quaternion.Euler(eulerAngle);
 					barel.transform.localRotation = Quaternion.Lerp(barel.transform.localRotation, qr, Time.deltaTime*3);		    	    	
+
+					LumiaControl.onTutShoot = true;
 				}
 			}
 			else{ 
