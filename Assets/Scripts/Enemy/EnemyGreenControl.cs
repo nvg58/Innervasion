@@ -14,7 +14,6 @@ public class EnemyGreenControl : MonoBehaviour
 		private float randomY;
 		private Vector3 originPos;	
 		private float radius = 10f;	
-
 		void Start ()
 		{
 				MH = GameObject.FindGameObjectWithTag ("MH").transform;

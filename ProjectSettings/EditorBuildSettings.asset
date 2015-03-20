@@ -8,18 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ConnectScene.unity
   - enabled: 1
-    path: Assets/Scenes/WaitingTwoPlayerScene.unity
+    path: Assets/Scenes/TutorialScene.unity
+  - enabled: 1
+    path: Assets/Scenes/SelectMapScene.unity
   - enabled: 1
     path: Assets/Scenes/GamePlayScene.unity
-  - enabled: 0
-    path: Assets/InteractiveDemo/Scenes/magic_sprays.unity
-  - enabled: 0
-    path: Assets/InteractiveDemo/Scenes/magic_aura.unity
-  - enabled: 0
-    path: Assets/InteractiveDemo/Scenes/magic_domes.unity
-  - enabled: 0
-    path: Assets/InteractiveDemo/Scenes/magic_modular.unity
-  - enabled: 0
-    path: Assets/InteractiveDemo/Scenes/magic_projectiles.unity
-  - enabled: 0
-    path: Assets/InteractiveDemo/Scenes/magic_shields.unity
