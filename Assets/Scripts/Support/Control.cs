@@ -178,6 +178,7 @@ public class Control : MonoBehaviour
 				_controller.move (_velocity * Time.deltaTime);
 				
 			} else {
+				Debug.Log("driving");
 				MHControl MH_control = MH.GetComponent<MHControl> ();
 				MH_control.Move (clientHInput, clientVInput);
 			}
@@ -226,6 +227,12 @@ public class Control : MonoBehaviour
 		if (other.name == "Ladder" || other.name == "Elevator") {
 			canClimb = true;
 			gravity = 0;		
+		}
+				
+		if (Application.loadedLevelName == "TutorialScene"){
+			if (other.name == "FoodCabin")
+				if (action == true)
+					LumiaControl.onTutStamina = true;
 		}
 	}
 	

@@ -31,6 +31,7 @@ public class MHControl : MonoBehaviour {
 		float vX = HInput * rigidbody2D.velocity.x;
 		float vY = VInput * rigidbody2D.velocity.y;
 		if( vX*vX + vY*vY < maxSpeed*maxSpeed){
+			Debug.Log(Vector2.right * HInput * moveForce);
 			rigidbody2D.AddForce(Vector2.right * HInput * moveForce);
 			rigidbody2D.AddForce(Vector2.up * VInput * moveForce);
 		}
@@ -38,7 +39,6 @@ public class MHControl : MonoBehaviour {
 		Vector2 vel = rigidbody2D.velocity;
 		float tmp = Mathf.Sqrt((vel.x*vel.x + vel.y*vel.y) / (maxSpeed*maxSpeed));
 		if(tmp > 1){
-			Debug.Log(vel);
 			rigidbody2D.velocity = new Vector2(vel.x / tmp, vel.y / tmp);		
 		}
 	}

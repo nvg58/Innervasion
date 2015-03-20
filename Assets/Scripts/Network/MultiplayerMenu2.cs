@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class MultiplayerMenu2 : MonoBehaviour {
-	private string characters = "0123456789abcdefghijklmnopqrstuvwx";
+	private string characters = "0123456789";
 	private string hostTitle;
 	private int hostMaxPlayers;
 	private string hostPW;

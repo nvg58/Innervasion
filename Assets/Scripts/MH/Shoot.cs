@@ -10,7 +10,7 @@ public class Shoot : MonoBehaviour {
 	// Use this for initialization
 	void Start (){
 		initialAngle = barel.transform.localEulerAngles;
-		if (initialAngle.z > 180)
+		if (initialAngle.z > 180)	
 			initialAngle.z = initialAngle.z - 360;
 		//Debug.Log(initialAngle);
 	}
