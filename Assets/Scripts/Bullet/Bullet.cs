@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
 				if (health){
 					health.ReduceHealth(damage);
 				}
-				Debug.Log(explosion != null);
+//				Debug.Log(explosion != null);
 				GameObject explo =  Instantiate(explosion, transform.position, transform.rotation) as GameObject;
 //				if (objectHit.tag == "Enemy")
 //					UnityEditor.EditorApplication.isPaused = true;	
