@@ -51,7 +51,6 @@ public class LumiaControl : MonoBehaviour
 					Invoke("ShootTut", 1.0f);
 				}
 				
-				  Debug.Log(onTutShoot);
 		          if (onTutShoot) {
 					animator.SetTrigger ("Awesome3");
 					Invoke("StaminaTut", 1.0f);

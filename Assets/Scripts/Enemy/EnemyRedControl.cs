@@ -8,7 +8,7 @@ public class EnemyRedControl : MonoBehaviour
 	public float vectorLength = 0.3f;
 	public float MaxDist = 10.0f;
 	public float MinDist;
-
+	
 	public float[] round = new float[5]{0.3f,5.0f,6.0f,7.0f,8.0f};
 	public int roundPos = 4;
 	public int roundMax = 4;
@@ -16,7 +16,7 @@ public class EnemyRedControl : MonoBehaviour
 	bool isChangeRound = true;
 	bool ok = true;
 	Vector3 tmp;
-
+	
 	public GameObject bulletPrefab;
 	private float tChange = 0f; // force new direction in the first Update 
 	private int randomRound;
@@ -37,23 +37,23 @@ public class EnemyRedControl : MonoBehaviour
 		timer.Start (gameObject, Shoot);
 		MinDist = round[roundMax];
 	}
-
+	
 	void Update ()
 	{		
 		float dist = Vector3.Distance (transform.position, MH.position);
 		if (dist > MinDist && dist <= MaxDist && ok) {
 			float length = dist - MinDist;
 			if (length>0)
-			
-			tmp = new Vector3(0.0f,0.0f,0.0f);
+				
+				tmp = new Vector3(0.0f,0.0f,0.0f);
 			tmp = findDirection(MH.position,transform.position,1,vectorLength);
 			tmp = findDirection(transform.position+tmp,transform.position,0,length);
 			move (tmp);
-
+			
 		} 
 		if (dist <= MinDist && ok)
 			ok = false;
-
+		
 		if (!ok) {
 			if (Time.time >= tChange) {
 				randomDir = Random.Range (0, 2); // receive value of 0 or 1
@@ -61,7 +61,7 @@ public class EnemyRedControl : MonoBehaviour
 				tChange = Time.time + Random.Range (0.5f, 1.5f);
 			}
 			
-//			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
+			//			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
 			if (isChangeRound == true) {
 				randomRound = Random.Range(roundMin,roundMax+1); 
 				isChangeRound = false;
@@ -69,7 +69,7 @@ public class EnemyRedControl : MonoBehaviour
 			changeRound (roundPos, randomRound);
 			goAround (randomDir);
 		}
-
+		
 		if (dist>MaxDist && ok){
 			if ((Time.time >= tChange)||Vector3.Distance (transform.position, originPos)>radius){
 				randomX = Random.Range (-radius, radius)+originPos.x-transform.position.x; // with float parameters, a random float
@@ -97,21 +97,21 @@ public class EnemyRedControl : MonoBehaviour
 		Vector3 Dir = findDirection(MH.position,transform.position,dir,vectorLength);
 		move (Dir);
 	}
-
+	
 	void changeRound (int pos, int goal){
 		if (pos == goal) {
 			isChangeRound = true;
-//			Debug.Log("ok");
+			//			Debug.Log("ok");
 			return;
 		}
 		Vector3 normal = findDirection (MH.position, transform.position, 1, 1);
 		normal = findDirection (transform.position + normal, transform.position, 1, 0.1f);
 		float dist = Vector3.Distance (transform.position, MH.position);
-
+		
 		if (pos < goal) {
-
+			
 			if (dist <= round [goal])
-					move (normal);
+				move (normal);
 			else{
 				isChangeRound = true;
 				roundPos = goal;
@@ -126,18 +126,18 @@ public class EnemyRedControl : MonoBehaviour
 				move (normal);
 				//Debug.Log("move");
 			}
-				
+			
 			else{
 				isChangeRound = true;
 				roundPos = goal;
 				//Debug.Log("ok");
 			}
 		}
-
-
-
+		
+		
+		
 	}
-
+	
 	void move(Vector3 dir){
 		// transform.position
 		transform.position = transform.position + dir * MoveSpeed * Time.deltaTime;
@@ -147,7 +147,7 @@ public class EnemyRedControl : MonoBehaviour
 		Quaternion rot = Quaternion.Euler (new Vector3 (0, 0, angle));
 		transform.localRotation = Quaternion.Lerp (transform.localRotation, rot, Time.time*0.1f);
 	}
-
+	
 	Vector3 findDirection(Vector3 a,Vector3 b,int dir,float speed){//dir=1 => right; =0 => left
 		if (dir == 0)
 			dir = -1;	
