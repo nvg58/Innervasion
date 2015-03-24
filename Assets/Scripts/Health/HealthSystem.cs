@@ -7,10 +7,12 @@ public class HealthSystem : MonoBehaviour
 		public GameObject diePrefab;
 		public GameObject wormManager;
 		public float dieTime = 0;
+		ScoreManager scoreManager;
+
 		// Use this for initialization
 		void Start ()
 		{
-	
+				scoreManager = GameObject.FindWithTag ("ScoreManager").GetComponent<ScoreManager>();
 		}
 	
 		public void ReduceHealth (float value)
@@ -28,6 +30,8 @@ public class HealthSystem : MonoBehaviour
 						if (this.name=="EggOfEnemy")
 						Instantiate (wormManager, transform.position, transform.rotation);
 						Invoke("DestroyObject", dieTime);
+						
+						scoreManager.AddScore(1);
 				}
 		}
 		

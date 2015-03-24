@@ -61,7 +61,7 @@ public class EnemyRedControl : MonoBehaviour
 				tChange = Time.time + Random.Range (0.5f, 1.5f);
 			}
 			
-			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
+//			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
 			if (isChangeRound == true) {
 				randomRound = Random.Range(roundMin,roundMax+1); 
 				isChangeRound = false;
@@ -101,7 +101,7 @@ public class EnemyRedControl : MonoBehaviour
 	void changeRound (int pos, int goal){
 		if (pos == goal) {
 			isChangeRound = true;
-			Debug.Log("ok");
+//			Debug.Log("ok");
 			return;
 		}
 		Vector3 normal = findDirection (MH.position, transform.position, 1, 1);

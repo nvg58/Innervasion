@@ -50,7 +50,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Awesome 4
+  - m_Name: Awesome4
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -101,7 +101,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Awesome 4
+    m_ConditionEvent: Awesome4
     m_EventTreshold: 0
     m_ExitTime: .75
   m_Atomic: 1
@@ -385,18 +385,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110228308}
-      second:
-      - {fileID: 110178919}
-    data:
-      first: {fileID: 110233478}
-      second:
-      - {fileID: 110104491}
-    data:
-      first: {fileID: 110252160}
-      second:
-      - {fileID: 110119706}
-    data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110100000}
@@ -416,6 +404,21 @@ StateMachine:
       first: {fileID: 110282193}
       second:
       - {fileID: 110117046}
+    data:
+      first: {fileID: 110252160}
+      second:
+      - {fileID: 110119706}
+    data:
+      first: {fileID: 110233478}
+      second:
+      - {fileID: 110104491}
+    data:
+      first: {fileID: 110228308}
+      second:
+      - {fileID: 110178919}
+    data:
+      first: {fileID: 110272902}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 180, y: -60, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

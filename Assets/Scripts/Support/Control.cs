@@ -17,6 +17,9 @@ public class Control : MonoBehaviour
 	public bool action = false;
 	public bool isDriving = false;
 	public bool isShooting = false;
+	public GameObject pauseButton;
+	public GameObject playButton;
+	
 	[HideInInspector]
 	private float
 		normalizedHorizontalSpeed = 0;
@@ -178,6 +181,7 @@ public class Control : MonoBehaviour
 				_controller.move (_velocity * Time.deltaTime);
 				
 			} else {
+				Debug.Log("driving");
 				MHControl MH_control = MH.GetComponent<MHControl> ();
 				MH_control.Move (clientHInput, clientVInput);
 			}
@@ -227,6 +231,12 @@ public class Control : MonoBehaviour
 			canClimb = true;
 			gravity = 0;		
 		}
+				
+		if (Application.loadedLevelName == "TutorialScene"){
+			if (other.name == "FoodCabin")
+				if (action == true)
+					LumiaControl.onTutStamina = true;
+		}
 	}
 	
 	void OnTriggerExit2D (Collider2D other)
@@ -247,5 +257,23 @@ public class Control : MonoBehaviour
 		clientHInput = HInput;
 		clientVInput = VInput;
 		action = actionButtonPressed;
+	}
+	
+	[RPC]
+	void PauseGame(){
+		Time.timeScale = 0;
+		if (Network.isClient){
+			pauseButton.SetActive(false);
+			playButton.SetActive(true);			
+		}	
+	}
+	
+	[RPC]
+	void ResumeGame(){
+		Time.timeScale = 1;
+		if (Network.isClient){
+			pauseButton.SetActive(true);
+			playButton.SetActive(false);			
+		}
 	}
 }
