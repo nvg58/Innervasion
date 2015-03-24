@@ -5,6 +5,7 @@ public class HealthSystem : MonoBehaviour
 {
 		public float health = 2;
 		public GameObject diePrefab;
+		public GameObject wormManager;
 		public float dieTime = 0;
 		ScoreManager scoreManager;
 
@@ -22,11 +23,12 @@ public class HealthSystem : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (health == 0) {				
+				if (health <= 0) {				
 						if (diePrefab){
 							GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
 						}
-						
+						if (this.name=="EggOfEnemy")
+						Instantiate (wormManager, transform.position, transform.rotation);
 						Invoke("DestroyObject", dieTime);
 						
 						scoreManager.AddScore(1);
