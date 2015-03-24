@@ -61,7 +61,6 @@ public class EnemyRedControl : MonoBehaviour
 				tChange = Time.time + Random.Range (0.5f, 1.5f);
 			}
 			
-			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
 			if (isChangeRound == true) {
 				randomRound = Random.Range(roundMin,roundMax+1); 
 				isChangeRound = false;
