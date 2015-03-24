@@ -5,6 +5,7 @@ public class HealthSystem : MonoBehaviour
 {
 		public float health = 2;
 		public GameObject diePrefab;
+		public GameObject wormManager;
 		public float dieTime = 0;
 		GameController gameController;
 		public float timeToGameOver = 1.0f;
@@ -26,20 +27,20 @@ public class HealthSystem : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (health == 0) {				
+				if (health <= 0) {				
 						if (diePrefab) {
 								GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
 						}
+						if (this.name=="EggOfEnemy")
+							Instantiate (wormManager, transform.position, transform.rotation);
 
 						if (gameObject.tag == "MH") {
 								isMH = true;
-								Debug.Log ("isMH: " + isMH);
 						} else {
 								gameController.AddScore (newScoreValue);
 						}
 
 						Invoke ("DestroyObject", dieTime);						
-			
 				}
 		}
 		
@@ -47,7 +48,6 @@ public class HealthSystem : MonoBehaviour
 		{
 				Destroy (this.gameObject);	
 				if (isMH) {
-						Debug.Log ("aa");
 						gameController.GameOverShow ();
 				}
 		}
