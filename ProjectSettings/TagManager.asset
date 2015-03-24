@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Code
   - ServerStatus
+  - ScoreManager
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

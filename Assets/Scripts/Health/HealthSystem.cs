@@ -6,10 +6,12 @@ public class HealthSystem : MonoBehaviour
 		public float health = 2;
 		public GameObject diePrefab;
 		public float dieTime = 0;
+		ScoreManager scoreManager;
+
 		// Use this for initialization
 		void Start ()
 		{
-	
+				scoreManager = GameObject.FindWithTag ("ScoreManager").GetComponent<ScoreManager>();
 		}
 	
 		public void ReduceHealth (float value)
@@ -26,6 +28,8 @@ public class HealthSystem : MonoBehaviour
 						}
 						
 						Invoke("DestroyObject", dieTime);
+						
+						scoreManager.AddScore(1);
 				}
 		}
 		
