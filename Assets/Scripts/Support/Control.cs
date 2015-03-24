@@ -17,6 +17,9 @@ public class Control : MonoBehaviour
 	public bool action = false;
 	public bool isDriving = false;
 	public bool isShooting = false;
+	public GameObject pauseButton;
+	public GameObject playButton;
+	
 	[HideInInspector]
 	private float
 		normalizedHorizontalSpeed = 0;
@@ -254,5 +257,23 @@ public class Control : MonoBehaviour
 		clientHInput = HInput;
 		clientVInput = VInput;
 		action = actionButtonPressed;
+	}
+	
+	[RPC]
+	void PauseGame(){
+		Time.timeScale = 0;
+		if (Network.isClient){
+			pauseButton.SetActive(false);
+			playButton.SetActive(true);			
+		}	
+	}
+	
+	[RPC]
+	void ResumeGame(){
+		Time.timeScale = 1;
+		if (Network.isClient){
+			pauseButton.SetActive(true);
+			playButton.SetActive(false);			
+		}
 	}
 }
