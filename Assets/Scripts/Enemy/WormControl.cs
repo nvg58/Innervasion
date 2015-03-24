@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyRedControl : MonoBehaviour
+public class WormControl : MonoBehaviour
 {
 	Transform MH;
-	public float MoveSpeed = 3.0f;
-	public float vectorLength = 0.3f;
+	public float MoveSpeed = 1.0f;
+	public float vectorLength = 0.001f;
 	public float MaxDist = 10.0f;
 	public float MinDist;
 	
@@ -14,6 +14,7 @@ public class EnemyRedControl : MonoBehaviour
 	public int roundMax = 4;
 	public int roundMin = 1;
 	bool isChangeRound = true;
+	bool isAttack = false;
 	bool ok = true;
 	Vector3 tmp;
 	
@@ -28,71 +29,55 @@ public class EnemyRedControl : MonoBehaviour
 	public	float startDelay = 1.5f;
 	public	bool repeat = true;
 	private Vector3 originPos;	
-	private float radius = 10f;			
+	private float radius = 10f;		
+	Animator animator;
 	void Start ()
 	{
 		MH = GameObject.FindGameObjectWithTag ("MH").transform;
 		originPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-		CoroutineTimer timer = new CoroutineTimer (length, randomizationFactor, startDelay, repeat);
-		timer.Start (gameObject, Shoot);
+		// CoroutineTimer timer = new CoroutineTimer (length, randomizationFactor, startDelay, repeat);
+		// timer.Start (gameObject, Shoot);
 		MinDist = round[roundMax];
+		animator = gameObject.GetComponent<Animator> ();
 	}
 	
 	void Update ()
 	{		
-		float dist = Vector3.Distance (transform.position, MH.position);
-		if (dist > MinDist && dist <= MaxDist && ok) {
-			float length = dist - MinDist;
-			if (length>0)
-				
-				tmp = new Vector3(0.0f,0.0f,0.0f);
-			tmp = findDirection(MH.position,transform.position,1,vectorLength);
-			tmp = findDirection(transform.position+tmp,transform.position,0,length);
-			move (tmp);
-			
-		} 
-		if (dist <= MinDist && ok)
-			ok = false;
+		if (!isAttack) {
 		
-		if (!ok) {
 			if (Time.time >= tChange) {
 				randomDir = Random.Range (0, 2); // receive value of 0 or 1
 				// set a random interval between 0.5 and 1.5
 				tChange = Time.time + Random.Range (0.5f, 1.5f);
 			}
 			
-			//			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
+			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
 			if (isChangeRound == true) {
-				randomRound = Random.Range(roundMin,roundMax+1); 
+				randomRound = Random.Range(2,roundMax+1); 
 				isChangeRound = false;
 			}
+			if (roundPos<=3) isAttack = true;
 			changeRound (roundPos, randomRound);
 			goAround (randomDir);
 		}
-		
-		if (dist>MaxDist && ok){
-			if ((Time.time >= tChange)||Vector3.Distance (transform.position, originPos)>radius){
-				randomX = Random.Range (-radius, radius)+originPos.x-transform.position.x; // with float parameters, a random float
-				randomX /= 20;
-				randomY = Random.Range (-radius, radius)+originPos.y-transform.position.y; //  between -0.5 and 0.5 is returned
-				randomY /= 20;
-				// set a random interval between 0.5 and 1.5
-				if (Vector3.Distance (transform.position, originPos)>radius)
-					tChange = Time.time;
-				
-				tChange = Time.time + Random.Range (1.5f, 2.5f);
-			}
-			Vector3 randPos = new Vector3 (randomX, randomY, 0);				
-			Vector3 futurePos = transform.position + randPos * MoveSpeed * Time.deltaTime;
-			transform.position = futurePos;
-			
-			Vector3 delta = MH.position - transform.position;
-			float angle = - Mathf.Atan2 (delta.x, delta.y) * Mathf.Rad2Deg;
-			Quaternion rot =Quaternion.Euler (new Vector3 (0, 0, angle));
-			transform.localRotation = Quaternion.Lerp (transform.localRotation, rot, Time.time*0.1f);
-		}    	  	
+		else
+		{
+				tmp = new Vector3(0.0f,0.0f,0.0f);
+				tmp = findDirection(MH.position,transform.position,1,vectorLength);
+				tmp = findDirection(transform.position+tmp,transform.position,0,2);
+				move (tmp);
+			animator.SetTrigger("Attack");
+		} 
+	}
+
+	void OnCollisionEnter2D( Collision2D col ) {
+		if (col.gameObject.name == "MH") {
+			gameObject.GetComponent<HealthSystem>().ReduceHealth(3);
+			MH.GetComponent<HealthSystem>().ReduceHealth(3);
+		}
 	}
 	
+
 	void goAround(int dir){
 		Vector3 Dir = findDirection(MH.position,transform.position,dir,vectorLength);
 		move (Dir);
@@ -101,7 +86,7 @@ public class EnemyRedControl : MonoBehaviour
 	void changeRound (int pos, int goal){
 		if (pos == goal) {
 			isChangeRound = true;
-			//			Debug.Log("ok");
+			Debug.Log("ok");
 			return;
 		}
 		Vector3 normal = findDirection (MH.position, transform.position, 1, 1);
@@ -115,27 +100,20 @@ public class EnemyRedControl : MonoBehaviour
 			else{
 				isChangeRound = true;
 				roundPos = goal;
-				//Debug.Log("ok");
 			}
 		} 
 		else {
-			//Debug.Log("vao"+pos+"goal "+goal+"dist "+dist+"far "+round[goal]);
 			normal *= -1;
 			if (dist >= round [goal])
 			{
 				move (normal);
-				//Debug.Log("move");
 			}
 			
 			else{
 				isChangeRound = true;
 				roundPos = goal;
-				//Debug.Log("ok");
 			}
 		}
-		
-		
-		
 	}
 	
 	void move(Vector3 dir){
@@ -186,20 +164,20 @@ public class EnemyRedControl : MonoBehaviour
 		}
 		//////////////////////////
 		if (b.x > a.x && b.y == b.x) {//0x
-			coorY = -dir;
+			coorY = -dir*speed;
 			coorX = 0;
 		}
 		if (b.x < a.x && b.y == a.y) {//0-x
-			coorY = dir;
+			coorY = dir*speed;
 			coorX = 0;
 		}
 		if (b.x == a.x && b.y > a.y) {//0y
 			coorY = 0;
-			coorX = dir;
+			coorX = dir*speed;
 		}
 		if (b.x == a.x && b.y < a.y) {//0-y
 			coorY = 0;
-			coorX = -dir;
+			coorX = -dir*speed;
 		}
 		Vector3 res = new Vector3 (coorX, coorY, 0.0f); 
 		//Debug.Log ("res "+res + "b "+b+"a "+a+"dist " +Vector3.Distance (res,b));
