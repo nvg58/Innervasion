@@ -26,7 +26,35 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_IsActive
-    path: Canvas/shootText/a_pressed
+    path: Canvas/shootText/small_circle
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/big_circle
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/use
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -54,20 +82,6 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_IsActive
-    path: Canvas/shootText/Move to
-    classID: 1
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_IsActive
     path: Canvas/shootText
     classID: 1
     script: {fileID: 0}
@@ -82,7 +96,21 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_IsActive
-    path: Canvas/shootText/and use
+    path: Canvas/shootText/hold
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/a_pressed
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -97,6 +125,20 @@ AnimationClip:
       m_PostInfinity: 2
     attribute: m_IsActive
     path: Canvas/shootText/to shoot
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/Move to
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -149,7 +191,19 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 492124091
+    - path: 2600490021
+      attribute: 2086281974
+      script: {fileID: 0}
+      classID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - path: 1436408509
+      attribute: 2086281974
+      script: {fileID: 0}
+      classID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - path: 419166192
       attribute: 2086281974
       script: {fileID: 0}
       classID: 1
@@ -161,25 +215,31 @@ AnimationClip:
       classID: 1
       customType: 0
       isPPtrCurve: 0
-    - path: 2579384739
-      attribute: 2086281974
-      script: {fileID: 0}
-      classID: 1
-      customType: 0
-      isPPtrCurve: 0
     - path: 3744331289
       attribute: 2086281974
       script: {fileID: 0}
       classID: 1
       customType: 0
       isPPtrCurve: 0
-    - path: 704001665
+    - path: 1140141368
+      attribute: 2086281974
+      script: {fileID: 0}
+      classID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - path: 492124091
       attribute: 2086281974
       script: {fileID: 0}
       classID: 1
       customType: 0
       isPPtrCurve: 0
     - path: 722135918
+      attribute: 2086281974
+      script: {fileID: 0}
+      classID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2579384739
       attribute: 2086281974
       script: {fileID: 0}
       classID: 1
@@ -233,7 +293,35 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_IsActive
-    path: Canvas/shootText/a_pressed
+    path: Canvas/shootText/small_circle
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/big_circle
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/use
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -261,20 +349,6 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_IsActive
-    path: Canvas/shootText/Move to
-    classID: 1
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 31
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_IsActive
     path: Canvas/shootText
     classID: 1
     script: {fileID: 0}
@@ -289,7 +363,21 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_IsActive
-    path: Canvas/shootText/and use
+    path: Canvas/shootText/hold
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/a_pressed
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -304,6 +392,20 @@ AnimationClip:
       m_PostInfinity: 2
     attribute: m_IsActive
     path: Canvas/shootText/to shoot
+    classID: 1
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_IsActive
+    path: Canvas/shootText/Move to
     classID: 1
     script: {fileID: 0}
   - curve:
