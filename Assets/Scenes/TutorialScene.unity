@@ -9290,7 +9290,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1000
   diePrefab: {fileID: 100002, guid: 4ace374ac48734e0a8159109bc4c6bbb, type: 2}
+  wormManager: {fileID: 0}
   dieTime: .5
+  timeToGameOver: 1
+  newScoreValue: 1
 --- !u!50 &2024703401
 Rigidbody2D:
   m_ObjectHideFlags: 0

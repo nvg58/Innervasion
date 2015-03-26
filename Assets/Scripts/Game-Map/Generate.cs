@@ -67,7 +67,7 @@ public class Generate : MonoBehaviour {
 	public void setFinish(){
 		networkView.RPC("FinishTut", RPCMode.Others);		
 	}
-	
+
 	[RPC]
 	void Spawn(NetworkViewID viewID)
 	{
@@ -96,8 +96,14 @@ public class Generate : MonoBehaviour {
 	[RPC]
 	void Select()
 	{
-		
 		Network.isMessageQueueRunning = false;
 		Application.LoadLevel(Application.loadedLevel+1);
 	}
+	
+	[RPC]
+	void SkipTut()
+	{
+		GameObject lumia = GameObject.Find("lumia_920");
+		lumia.GetComponent<LumiaControl>().LoadNewScene();		
+	}	
 }

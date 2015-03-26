@@ -81,12 +81,11 @@ public class LumiaControl : MonoBehaviour
 			animator.SetTrigger ("Stamina");
 		}
 		
-		void LoadNewScene(){
+		public void LoadNewScene(){
 			GameObject startPoint = GameObject.Find("StartPoint");
 			Generate gen = startPoint.GetComponent<Generate>();
 			gen.setFinish();
 			Network.isMessageQueueRunning = false;
 			Application.LoadLevel(Application.loadedLevel + 1);
 		}
-		
 }
