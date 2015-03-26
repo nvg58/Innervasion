@@ -19,6 +19,7 @@ public class Control : MonoBehaviour
 	public bool isShooting = false;
 	public GameObject pauseButton;
 	public GameObject playButton;
+	public float staminaValue = 1.0f;
 	
 	[HideInInspector]
 	private float
@@ -81,25 +82,12 @@ public class Control : MonoBehaviour
 	
 	void  OnGUI ()
 	{
-		if (Network.peerType == NetworkPeerType.Client) {
-			GUILayout.Label ("Connection status: Client!");
-			GUILayout.Label ("Ping to server: " + Network.GetAveragePing (Network.connections [0]));
-		}	
-		
-		if (Network.peerType == NetworkPeerType.Disconnected) {
-			//We are currently disconnected: Not a client or host
-			GUILayout.Label ("Connection status: We've (been) disconnected");
-			if (GUILayout.Button ("Back to main menu")) {
-				Application.LoadLevel (Application.loadedLevel - 1);
-			}
-		}
-		if (GUILayout.Button ("Disconnect")) {
-			Network.Disconnect ();
-		}
+		GUILayout.Label ("Ping to client: " + Network.GetAveragePing (Network.connections [0]));
 	}
 	
 	void Update ()
 	{			
+		float speed = runSpeed / 3 + (runSpeed*2/3)*staminaValue;
 		//Debug.Log(MH.rigidbody2D.velocity);
 		// grab our current _velocity to use as a base for all calculations
 		_velocity = _controller.velocity;
@@ -154,10 +142,10 @@ public class Control : MonoBehaviour
 					
 					if (canClimb == true) {
 						if (clientVInput > 0) {
-							_velocity.y = 1;
+							_velocity.y = 1*speed;
 							animator.SetTrigger ("ClimbLadder");
 						} else if (clientVInput < 0) {
-							_velocity.y = -1;
+							_velocity.y = -1*speed;
 							animator.SetTrigger ("ClimbLadder");
 						} else {
 							_velocity.y = 0;
@@ -174,7 +162,7 @@ public class Control : MonoBehaviour
 				
 				// apply horizontal speed smoothing it
 				var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
-				_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * runSpeed, Time.deltaTime * smoothedMovementFactor);
+				_velocity.x = Mathf.Lerp (_velocity.x, normalizedHorizontalSpeed * speed, Time.deltaTime * smoothedMovementFactor);
 
 				// apply gravity before moving
 				_velocity.y += gravity * Time.deltaTime;
@@ -234,8 +222,16 @@ public class Control : MonoBehaviour
 				
 		if (Application.loadedLevelName == "TutorialScene"){
 			if (other.name == "FoodCabin")
-				if (action == true)
+				if (action == true){
+					networkView.RPC("Eat", RPCMode.Others);
+				if (staminaValue > 0.5 && LumiaControl.onTutShoot == true)
 					LumiaControl.onTutStamina = true;
+				}
+		}
+		
+		if (other.name == "FoodCabin")
+		if (action == true){
+			networkView.RPC("Eat", RPCMode.Others);
 		}
 	}
 	
@@ -252,11 +248,12 @@ public class Control : MonoBehaviour
 	}
 	
 	[RPC]
-	void SendInput (float HInput, float VInput, bool actionButtonPressed, bool fireButtonPressed)
+	void SendInput (float HInput, float VInput, bool actionButtonPressed, float stamina)
 	{
 		clientHInput = HInput;
 		clientVInput = VInput;
 		action = actionButtonPressed;
+		staminaValue = stamina;
 	}
 	
 	[RPC]
@@ -275,5 +272,8 @@ public class Control : MonoBehaviour
 			pauseButton.SetActive(true);
 			playButton.SetActive(false);			
 		}
+	}
+	[RPC]
+	void Eat(){
 	}
 }

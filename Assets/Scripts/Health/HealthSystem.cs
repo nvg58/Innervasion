@@ -7,16 +7,22 @@ public class HealthSystem : MonoBehaviour
 		public GameObject diePrefab;
 		public GameObject wormManager;
 		public float dieTime = 0;
-		ScoreManager scoreManager;
+
+
 		public GameObject[] Artifacts; //"starmina":"health_point":"gun_default";"gun_type1":"guntype2":"boss_artifact"
 		private int percentiveDropArtifact;
 		private int artifactPosition;
 
+		GameController gameController;
+		public float timeToGameOver = 1.0f;
+		public int newScoreValue = 1;
+		bool isMH;
 		// Use this for initialization
 		void Start ()
 		{
-				//scoreManager = GameObject.FindWithTag ("ScoreManager").GetComponent<ScoreManager>();
-		}
+				isMH = false;
+				gameController = GameObject.FindWithTag ("GameCanvas").GetComponent<GameController> ();
+}
 	
 		public void ReduceHealth (float value)
 		{
@@ -27,23 +33,30 @@ public class HealthSystem : MonoBehaviour
 		void Update ()
 		{
 				if (health <= 0) {				
-						if (diePrefab){
-							GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
+						if (diePrefab) {
+								GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
 						}
 						
 						if (this.name=="EggOfEnemy"||this.name=="EggOfEnemy(Clone)")
 							Instantiate (wormManager, transform.position, transform.rotation);
 						Invoke("DestroyObject", dieTime);
 						dropArtifact();
-//						scoreManager.AddScore(1);
-				}
+
+						if (this.name=="EggOfEnemy")
+							Instantiate (wormManager, transform.position, transform.rotation);
+
+						if (gameObject.tag == "MH") {
+								isMH = true;
+						} else {
+								gameController.AddScore (newScoreValue);
+						}
+
+						Invoke ("DestroyObject", dieTime);						
+		}
 		}
 
 		void dropArtifact(){
-		
-		Debug.Log (this.name);
-			switch (this.name){
-
+		switch (this.name){
 				case "worm(Clone)": 
 					percentiveDropArtifact = 100;
 					artifactPosition = Random.Range(0,2);
@@ -69,12 +82,15 @@ public class HealthSystem : MonoBehaviour
 			int x = Random.Range (0, 100);
 			
 			if (percentiveDropArtifact > x) {
-			Debug.Log("art"+artifactPosition);
 				Instantiate (Artifacts[artifactPosition], transform.position, transform.rotation);
 			}
 		}
 			
-		void DestroyObject(){
-			Destroy (this.gameObject);
+		void DestroyObject ()
+		{
+				Destroy (this.gameObject);	
+				if (isMH) {
+						gameController.GameOverShow ();
+				}
 		}
 }

@@ -15,6 +15,7 @@ public class LumiaControl : MonoBehaviour
 	
 		Animator animator;	
 
+		private Transform player;
 		// Use this for initialization
 		void Start ()
 		{
@@ -28,11 +29,14 @@ public class LumiaControl : MonoBehaviour
 				initMHPos = MH.transform.position;
 		
 				//animator = gameObject.GetComponent<Animator> ();
+
+				player = GameObject.FindGameObjectWithTag ("MH").transform;
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{		
+				transform.position = new Vector3 (player.transform.position.x - 10, player.transform.position.y, 10	);
 				if (animator == null)
 					animator = gameObject.GetComponent<Animator> ();
 		
@@ -51,7 +55,6 @@ public class LumiaControl : MonoBehaviour
 					Invoke("ShootTut", 1.0f);
 				}
 				
-				  Debug.Log(onTutShoot);
 		          if (onTutShoot) {
 					animator.SetTrigger ("Awesome3");
 					Invoke("StaminaTut", 1.0f);
@@ -82,12 +85,11 @@ public class LumiaControl : MonoBehaviour
 			animator.SetTrigger ("Stamina");
 		}
 		
-		void LoadNewScene(){
+		public void LoadNewScene(){
 			GameObject startPoint = GameObject.Find("StartPoint");
 			Generate gen = startPoint.GetComponent<Generate>();
 			gen.setFinish();
 			Network.isMessageQueueRunning = false;
 			Application.LoadLevel(Application.loadedLevel + 1);
 		}
-		
 }

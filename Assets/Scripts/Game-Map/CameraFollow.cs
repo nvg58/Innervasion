@@ -1,32 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraFollow : MonoBehaviour 
+public class CameraFollow : MonoBehaviour
 {
-	public float xMargin = 1f;		// Distance in the x axis the player can move before the camera follows.
-	public float yMargin = 1f;		// Distance in the y axis the player can move before the camera follows.
-	public float xSmooth = 8f;		// How smoothly the camera catches up with it's target movement in the x axis.
-	public float ySmooth = 8f;		// How smoothly the camera catches up with it's target movement in the y axis.
-	public Vector2 maxXAndY;		// The maximum x and y coordinates the camera can have.
-	public Vector2 minXAndY;		// The minimum x and y coordinates the camera can have.
+		public float xMargin = 1f;		// Distance in the x axis the player can move before the camera follows.
+		public float yMargin = 1f;		// Distance in the y axis the player can move before the camera follows.
+		public float xSmooth = 8f;		// How smoothly the camera catches up with it's target movement in the x axis.
+		public float ySmooth = 8f;		// How smoothly the camera catches up with it's target movement in the y axis.
+		public Vector2 maxXAndY;		// The maximum x and y coordinates the camera can have.
+		public Vector2 minXAndY;		// The minimum x and y coordinates the camera can have.
 	
 	
-	private Transform player;		// Reference to the player's transform.
+		private Transform player;		// Reference to the player's transform.
+		private Transform tut;		// Reference to the player's transform.
+		private bool isTut = false;
 	
-	
-	void Awake ()
-	{
-		// Setting up the reference.
-		player = GameObject.FindGameObjectWithTag("MH").transform;
-	}
+		void Awake ()
+		{
+				// Setting up the reference.
+				player = GameObject.FindGameObjectWithTag ("MH").transform;
+				if (Application.loadedLevelName == "TutorialScene") {
+						tut = GameObject.FindGameObjectWithTag ("Tut").transform;
+						isTut = true;
+						Debug.Log(isTut);
+				}
+		}
 
-	void Update ()
-	{
-		transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, -1);
-	}
+		void Update ()
+		{
+				if (isTut) {
+						transform.position = new Vector3 (player.transform.position.x - 6, player.transform.position.y, -1);	
+				} else {
+						transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, -1);
+				}
+		}
 
 	
-	/*
+		/*
 	bool CheckXMargin()
 	{
 		// Returns true if the distance between the camera and the player in the x axis is greater than the x margin.

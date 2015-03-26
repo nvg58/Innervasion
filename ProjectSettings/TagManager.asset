@@ -8,7 +8,11 @@ TagManager:
   - Enemy
   - Code
   - ServerStatus
-  - ScoreManager
+  - GameController
+  - GameOver
+  - GameCanvas
+  - Tut
+  - 
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
