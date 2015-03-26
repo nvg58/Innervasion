@@ -13,18 +13,22 @@ public class CameraFollow : MonoBehaviour
 	
 		private Transform player;		// Reference to the player's transform.
 		private Transform tut;		// Reference to the player's transform.
-	
+		private bool isTut = false;
 	
 		void Awake ()
 		{
 				// Setting up the reference.
 				player = GameObject.FindGameObjectWithTag ("MH").transform;
-				tut = GameObject.FindGameObjectWithTag ("Tut").transform;
+				if (Application.loadedLevelName == "TutorialScene") {
+						tut = GameObject.FindGameObjectWithTag ("Tut").transform;
+						isTut = true;
+						Debug.Log(isTut);
+				}
 		}
 
 		void Update ()
 		{
-				if (tut != null) {
+				if (isTut) {
 						transform.position = new Vector3 (player.transform.position.x - 6, player.transform.position.y, -1);	
 				} else {
 						transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, -1);
