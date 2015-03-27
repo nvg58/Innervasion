@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: simpleFlash
-  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: a8bb22e6584785c44809550d67d117db, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -18,6 +18,20 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 2800000, guid: 70927d33d507aba49aebc0d14203bfd9, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _TexA
+        second:
+          m_Texture: {fileID: 2800000, guid: 8400f78c3c6ed4415a9be6f0ac7fe730, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _TexB
+        second:
+          m_Texture: {fileID: 2800000, guid: 1dad34db94f6d4eb5a8ed85c5c75f3f5, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:

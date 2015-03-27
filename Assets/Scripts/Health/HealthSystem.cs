@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class HealthSystem : MonoBehaviour
 		public GameObject diePrefab;
 		public GameObject wormManager;
 		public float dieTime = 0;
-
+		public float maxHealth;
 
 		public GameObject[] Artifacts; //"starmina":"health_point":"gun_default";"gun_type1":"guntype2":"boss_artifact"
 		private int percentiveDropArtifact;
@@ -32,6 +33,19 @@ public class HealthSystem : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
+				if (this.name == "MH"){
+					GameObject MHHealthBar = GameObject.FindGameObjectWithTag("MHHealthBar");
+					Slider s = MHHealthBar.GetComponent<Slider>();
+					s.value = health / maxHealth;
+					
+					GameObject MHHealthBarColor = GameObject.FindGameObjectWithTag("MHHealthBarColor");
+					Image img = MHHealthBarColor.GetComponent<Image>();
+					Color c = img.color;
+					c.r = 1 - (health / maxHealth);
+					img.color = c;
+				}
+				
+				
 				if (health <= 0) {				
 						if (diePrefab) {
 								GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
@@ -52,7 +66,7 @@ public class HealthSystem : MonoBehaviour
 						}
 
 						Invoke ("DestroyObject", dieTime);						
-		}
+			}
 		}
 
 		void dropArtifact(){

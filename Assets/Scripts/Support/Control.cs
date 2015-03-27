@@ -82,7 +82,8 @@ public class Control : MonoBehaviour
 	
 	void  OnGUI ()
 	{
-		GUILayout.Label ("Ping to client: " + Network.GetAveragePing (Network.connections [0]));
+		if (Network.isServer)
+			GUILayout.Label ("Ping to client: " + Network.GetAveragePing (Network.connections [0]));
 	}
 	
 	void Update ()

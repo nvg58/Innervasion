@@ -30,6 +30,10 @@ Material:
     m_Floats:
       data:
         first:
+          name: _InvFade
+        second: 1.82535708
+      data:
+        first:
           name: _InnerColorPower
         second: .50746268
       data:
@@ -46,10 +50,6 @@ Material:
         second: 1.16417909
       data:
         first:
-          name: _InvFade
-        second: 1
-      data:
-        first:
           name: _AlphPower
         second: 1.31343281
       data:
@@ -63,16 +63,16 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
+          name: _TintColor
+        second: {r: .992647052, g: .773680806, b: .773680806, a: .43921569}
+      data:
+        first:
           name: _RimColor
         second: {r: .812128186, g: .328358233, b: 1, a: 1}
       data:
         first:
           name: _InnerColor
         second: {r: .499634475, g: .23880595, b: 1, a: 0}
-      data:
-        first:
-          name: _TintColor
-        second: {r: .399853826, g: .141791046, b: 1, a: .43921569}
       data:
         first:
           name: _ReflColor
