@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160.149994, y: 156.5, z: 0}
+  m_LocalPosition: {x: 150.789993, y: 153.020004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -129,6 +129,9 @@ MonoBehaviour:
   diePrefab: {fileID: 100002, guid: b59d6dbeba1b5d04db3db63f81fbf76c, type: 2}
   wormManager: {fileID: 100010, guid: bdbe39f8df4f4944aabf96c314c493af, type: 2}
   dieTime: 0
+  Artifacts: []
+  timeToGameOver: 1
+  newScoreValue: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
