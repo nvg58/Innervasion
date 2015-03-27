@@ -65,17 +65,19 @@ public class OctopusControl : MonoBehaviour {
 			
 			if (Vector3.Distance (this.transform.position, MH.position) <= MaxDist) {
 				animator.SetTrigger("attack");
-				fire ("firePoint");									
+				Invoke("fire",0.1f);									
 				Invoke("doIdle",0.1f);
 			} 
 		}
 		
 		void doIdle(){
 			animator.SetTrigger("idle");
+			
 		}
 		
-		void fire (string name)
+		void fire ()
 		{
+			string name = "firePoint";
 			foreach (Transform t in transform) {
 				if (t.name == name)
 				Instantiate (bulletPrefab, t.position, transform.rotation);
