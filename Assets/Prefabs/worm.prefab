@@ -289,8 +289,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   diePrefab: {fileID: 100002, guid: b59d6dbeba1b5d04db3db63f81fbf76c, type: 2}
-  wormManager: {fileID: 0}
+  wormManager: {fileID: 100010, guid: bdbe39f8df4f4944aabf96c314c493af, type: 2}
   dieTime: 0
+  Artifacts:
+  - {fileID: 100004, guid: ff14b9d3fa0d9f944a55c7870ddbec4d, type: 2}
+  - {fileID: 100004, guid: ff14b9d3fa0d9f944a55c7870ddbec4d, type: 2}
+  - {fileID: 100004, guid: ff14b9d3fa0d9f944a55c7870ddbec4d, type: 2}
+  - {fileID: 100004, guid: ff14b9d3fa0d9f944a55c7870ddbec4d, type: 2}
+  - {fileID: 100004, guid: ff14b9d3fa0d9f944a55c7870ddbec4d, type: 2}
+  - {fileID: 100004, guid: ff14b9d3fa0d9f944a55c7870ddbec4d, type: 2}
+  timeToGameOver: 1
+  newScoreValue: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 3
-  vectorLength: .300000012
+  vectorLength: .00999999978
   MaxDist: 10
   MinDist: 0
   round:
@@ -315,11 +324,6 @@ MonoBehaviour:
   roundPos: 4
   roundMax: 4
   roundMin: 1
-  bulletPrefab: {fileID: 100002, guid: b0c90ce92a40e4194be3748c8db12c79, type: 2}
-  length: 2
-  randomizationFactor: .100000001
-  startDelay: 1.5
-  repeat: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

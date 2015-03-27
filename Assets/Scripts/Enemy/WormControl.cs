@@ -18,25 +18,14 @@ public class WormControl : MonoBehaviour
 	bool ok = true;
 	Vector3 tmp;
 	
-	public GameObject bulletPrefab;
 	private float tChange = 0f; // force new direction in the first Update 
 	private int randomRound;
 	private int randomDir;
-	private float randomX;
-	private float randomY;
-	public	float length = 2f;
-	public	float randomizationFactor = 0.1f;
-	public	float startDelay = 1.5f;
-	public	bool repeat = true;
-	private Vector3 originPos;	
-	private float radius = 10f;		
 	Animator animator;
 	void Start ()
 	{
 		MH = GameObject.FindGameObjectWithTag ("MH").transform;
-		originPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
-		// CoroutineTimer timer = new CoroutineTimer (length, randomizationFactor, startDelay, repeat);
-		// timer.Start (gameObject, Shoot);
+
 		MinDist = round[roundMax];
 		animator = gameObject.GetComponent<Animator> ();
 	}
@@ -183,20 +172,5 @@ public class WormControl : MonoBehaviour
 		//Debug.Log ("res "+res + "b "+b+"a "+a+"dist " +Vector3.Distance (res,b));
 		return res;
 	}
-	
-	void Shoot ()
-	{
-		if (Vector3.Distance (this.transform.position, MH.position) <= MaxDist) {
-			GameObject bullet = Instantiate (bulletPrefab, GetChildByName ("firePoint").position, transform.rotation) as GameObject;									
-		} 
-	}
-	
-	Transform GetChildByName (string name)
-	{
-		foreach (Transform t in transform) {
-			if (t.name == name)
-				return t;
-		}
-		return null;
-	}
+
 }
