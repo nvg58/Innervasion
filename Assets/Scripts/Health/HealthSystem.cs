@@ -45,7 +45,7 @@ public class HealthSystem : MonoBehaviour
 						img.color = c;
 				}
 				
-				Debug.Log (this.name + ": " + health);
+//				Debug.Log (this.name + ": " + health);
 				
 				if (health <= 0) {				
 						if (diePrefab) {
