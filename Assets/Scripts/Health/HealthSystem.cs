@@ -44,11 +44,8 @@ public class HealthSystem : MonoBehaviour
 						c.r = 1 - (health / maxHealth);
 						img.color = c;
 				}
-
 				
 				if (health <= 0) {				
-						
-
 					if (this.name=="crap_auto(Clone)"||this.name=="octopus_auto(Clone)"||this.name=="oveo_auto(Clone)")
 					GlobalValue.NumberOfCurrentEnemy--;
 					if (diePrefab) {
