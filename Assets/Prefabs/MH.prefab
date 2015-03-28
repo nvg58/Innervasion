@@ -467,6 +467,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400056}
+  - 95: {fileID: 9500002}
   m_Layer: 10
   m_Name: Healer
   m_TagString: Untagged
@@ -565,6 +566,7 @@ GameObject:
   - 4: {fileID: 400068}
   - 212: {fileID: 21200052}
   - 61: {fileID: 6100006}
+  - 114: {fileID: 11400028}
   m_Layer: 11
   m_Name: Control
   m_TagString: Untagged
@@ -1612,7 +1614,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 131.399994, y: 159.899994, z: 0}
+  m_LocalPosition: {x: 123.800003, y: 142, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400088}
@@ -1910,7 +1912,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0939999968, y: .370999992, z: 0}
+  m_LocalPosition: {x: -.0199999996, y: -2.23000002, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: 1}
   m_Children:
   - {fileID: 400118}
@@ -2441,6 +2443,21 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9500002
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100056}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbd6327a371844e98bb004d67b402f1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2452,7 +2469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef33ee0a9c9a55d439890918d3f6d860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
   diePrefab: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 2}
   wormManager: {fileID: 0}
   dieTime: .5
@@ -2727,6 +2744,17 @@ MonoBehaviour:
     itsBlinking: 0
     itsDepth: 0
     itsRepresentation: {fileID: 0}
+--- !u!114 &11400028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db231e323733498a9009a15f2e58a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!148 &14800000
 NetworkView:
   m_ObjectHideFlags: 1

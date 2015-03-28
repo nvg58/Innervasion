@@ -35,7 +35,7 @@ public class Heal : MonoBehaviour
 				// use when test in editor
 				if ((other.name == "Milo" || other.name == "Otis") && Input.GetKey (KeyCode.H)) {
 						SetTriggerState (true);
-						Debug.Log ("healing");
+//						Debug.Log ("healing");
 				} else 
 						SetTriggerState (false);
 		

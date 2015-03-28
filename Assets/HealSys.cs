@@ -26,11 +26,13 @@ public class HealSys : MonoBehaviour
 										healPoints [i].transform.Find ("text").renderer.enabled = true;
 										
 										if (MHControl.healTouchedPoint && Heal.healingStatus) {
-												Animator animator = gameObject.GetComponentInChildren<Animator> () as Animator;
+												Animator animator = healPoints [i].GetComponent<Animator>();
 												animator.SetTrigger ("Heal");
 												healPoints [i].transform.Find ("HolyDefenseBase").gameObject.SetActive (true);												
 												Destroy (healPoints [i], 3f);
 												onHealFinished = true;
+
+						Debug.Log ("OWWW");
 										}
 								} else {
 										healPoints [i].transform.Find ("circle").renderer.enabled = false;
