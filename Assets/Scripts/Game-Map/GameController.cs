@@ -7,10 +7,12 @@ public class GameController : MonoBehaviour {
 	private int score;
 	public Text coinsLabel;
 	GameObject gameOverLabel;
+	Animator animator;
 	
 	// Use this for initialization
 	void Start () {
 		score = 0;
+		animator = GetComponent<Animator> () as Animator; 
 	}
 	
 	// Update is called once per frame
@@ -26,12 +28,16 @@ public class GameController : MonoBehaviour {
 
 	public void GameOverShow()
 	{
-		Animator animator = GetComponent<Animator> () as Animator; 
 		animator.SetTrigger ("GameOver");
 	}
 	
 	void UpdateScore ()
 	{
 		coinsLabel.text = score.ToString();
+	}
+
+	public void WinShow()
+	{
+		animator.SetTrigger ("Win");
 	}
 }
