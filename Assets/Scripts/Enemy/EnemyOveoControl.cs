@@ -40,13 +40,13 @@ public class EnemyOveoControl : MonoBehaviour
 
 		void OnCollisionEnter2D (Collision2D objectHit)
 		{
-				Debug.Log (objectHit.gameObject.tag);
+				//Debug.Log (objectHit.gameObject.tag);
 				if (objectHit.gameObject.tag == "MH") {	
-						HealthSystem health = MH.GetComponent<HealthSystem> ();
-						health.ReduceHealth (1);			
-
-						GameObject explosion = Instantiate (explosionPrefab, this.transform.position, Quaternion.identity) as GameObject;
-						Destroy (this.gameObject);
+				(MH.GetComponent<HealthSystem> ()).ReduceHealth (1);
+				(this.GetComponent<HealthSystem> ()).ReduceHealth(3);
+					
+			//	GameObject explosion = Instantiate (explosionPrefab, this.transform.position, Quaternion.identity) as GameObject;
+			//	Destroy (this.gameObject);
 				}
 		}
 }
