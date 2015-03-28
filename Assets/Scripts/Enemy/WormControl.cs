@@ -5,7 +5,9 @@ public class WormControl : MonoBehaviour
 {
 	Transform MH;
 	public float MoveSpeed = 1.0f;
-	public float vectorLength = 0.001f;
+	public float vectorLength = 0.1f;
+	public float changeRoundSpeed = 0.1f;
+	public float attackSpeed = 3;
 	public float MaxDist = 10.0f;
 	public float MinDist;
 	
@@ -40,12 +42,12 @@ public class WormControl : MonoBehaviour
 				tChange = Time.time + Random.Range (0.5f, 1.5f);
 			}
 			
-			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
+			//Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
 			if (isChangeRound == true) {
 				randomRound = Random.Range(2,roundMax+1); 
 				isChangeRound = false;
 			}
-			if (roundPos<=3) isAttack = true;
+			if (roundPos<3) isAttack = true;
 			changeRound (roundPos, randomRound);
 			goAround (randomDir);
 		}
@@ -53,7 +55,7 @@ public class WormControl : MonoBehaviour
 		{
 				tmp = new Vector3(0.0f,0.0f,0.0f);
 				tmp = findDirection(MH.position,transform.position,1,vectorLength);
-				tmp = findDirection(transform.position+tmp,transform.position,0,2);
+				tmp = findDirection(transform.position+tmp,transform.position,0,attackSpeed);
 				move (tmp);
 			animator.SetTrigger("Attack");
 		} 
@@ -75,11 +77,11 @@ public class WormControl : MonoBehaviour
 	void changeRound (int pos, int goal){
 		if (pos == goal) {
 			isChangeRound = true;
-			Debug.Log("ok");
+			//Debug.Log("ok");
 			return;
 		}
 		Vector3 normal = findDirection (MH.position, transform.position, 1, 1);
-		normal = findDirection (transform.position + normal, transform.position, 1, 0.1f);
+		normal = findDirection (transform.position + normal, transform.position, 1, changeRoundSpeed);
 		float dist = Vector3.Distance (transform.position, MH.position);
 		
 		if (pos < goal) {

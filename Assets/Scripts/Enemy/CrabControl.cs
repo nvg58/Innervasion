@@ -6,6 +6,7 @@ public class CrabControl : MonoBehaviour {
 	Transform MH;
 	public float MoveSpeed = 3.0f;
 	public float vectorLength = 0.3f;
+	public float changeRoundSpeed = 0.1f;
 	public float MaxDist = 10.0f;
 	public float MinDist;
 	
@@ -86,20 +87,20 @@ public class CrabControl : MonoBehaviour {
 	
 	
 	void goAround(int dir){
-		Debug.Log("go aroud1 "+vectorLength);
+		//Debug.Log("go aroud1 "+vectorLength);
 		Vector3 Dir = findDirection(MH.position,transform.position,dir,vectorLength);
 		move (Dir);
-		Debug.Log("go aroud2 "+Dir);
+		//Debug.Log("go aroud2 "+Dir);
 	}
 	
 	void changeRound (int pos, int goal){
 		if (pos == goal) {
 			isChangeRound = true;
-			Debug.Log("ok");
+			//Debug.Log("ok");
 			return;
 		}
 		Vector3 normal = findDirection (MH.position, transform.position, 1, 1);
-		normal = findDirection (transform.position + normal, transform.position, 1, 0.1f);
+		normal = findDirection (transform.position + normal, transform.position, 1, changeRoundSpeed);
 		float dist = Vector3.Distance (transform.position, MH.position);
 		
 		if (pos < goal) {

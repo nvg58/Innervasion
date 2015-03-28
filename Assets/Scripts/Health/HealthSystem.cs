@@ -45,40 +45,44 @@ public class HealthSystem : MonoBehaviour
 						img.color = c;
 				}
 				
-//				Debug.Log (this.name + ": " + health);
-				
 				if (health <= 0) {				
-						if (diePrefab) {
-								GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
-						}
-						
-						if (this.name == "EggOfEnemy" || this.name == "EggOfEnemy(Clone)")
-								Instantiate (wormManager, transform.position, transform.rotation);
-						Invoke ("DestroyObject", dieTime);
-						dropArtifact ();
+					if (this.name=="crap_auto(Clone)"||this.name=="octopus_auto(Clone)"||this.name=="oveo_auto(Clone)")
+					GlobalValue.NumberOfCurrentEnemy--;
+					if (diePrefab) {
+							GameObject explosion = Instantiate (diePrefab, transform.position, transform.rotation) as GameObject;
+					}
+		
 
-						if (this.name == "EggOfEnemy")
-								Instantiate (wormManager, transform.position, transform.rotation);
+					if (this.name == "EggOfEnemy" || this.name == "EggOfEnemy(Clone)")
+							Instantiate (wormManager, transform.position, transform.rotation);
+					Invoke ("DestroyObject", dieTime);
+					dropArtifact ();
 
-						if (gameObject.tag == "MH") {
-								isMH = true;
-						} else if (gameObject.tag == "Boss") {
-								isBoss = true;
-						} else {
-								gameController.AddScore (newScoreValue);
-						}
+					if (this.name == "EggOfEnemy")
+							Instantiate (wormManager, transform.position, transform.rotation);
 
-						Invoke ("DestroyObject", dieTime);						
+					if (gameObject.tag == "MH") {
+							isMH = true;
+					} else if (gameObject.tag == "Boss") {
+							isBoss = true;
+					} else {
+							gameController.AddScore (newScoreValue);
+					}
+
+					Invoke ("DestroyObject", dieTime);						
 				}
+
 		}
 
 		void dropArtifact ()
 		{
 				switch (this.name) {
 				case "worm(Clone)": 
-						percentiveDropArtifact = 100;
-						artifactPosition = Random.Range (0, 2);
-						break;		
+
+					percentiveDropArtifact = 2;
+					artifactPosition = Random.Range(0,2);
+					break;		
+
 				case "oveo(Clone)": 
 						percentiveDropArtifact = 5;
 						artifactPosition = Random.Range (0, 3);
@@ -87,20 +91,37 @@ public class HealthSystem : MonoBehaviour
 					percentiveDropArtifact = 10;
 					artifactPosition = Random.Range(0,4);
 					break;
-				case "4(Clone)": 
-						percentiveDropArtifact = 30;
-						artifactPosition = Random.Range (0, 5);
-						break;
+
+				case "crab(Clone)": 
+					percentiveDropArtifact = 30;
+					artifactPosition = Random.Range(0,5);
+					break;
 				case "boss(Clone)": 
-						percentiveDropArtifact = 100;
-						artifactPosition = 6;
-						break;
-				}
+					percentiveDropArtifact = 100;
+					artifactPosition = 6;
+					break;
+
+				
+				case "oveo_auto(Clone)": 
+					percentiveDropArtifact = 5;
+					artifactPosition = Random.Range(0,3);
+					break;
+					
+				case "octopus_auto(Clone)": 
+					percentiveDropArtifact = 10;
+					artifactPosition = Random.Range(0,4);
+					break;
+				case "crap_auto(Clone)": 
+					percentiveDropArtifact = 30;
+					artifactPosition = Random.Range(0,5);
+					break;
+			
 				int x = Random.Range (0, 100);
 			
 				if (percentiveDropArtifact > x) {
 						Instantiate (Artifacts [artifactPosition], transform.position, transform.rotation);
 				}
+			}
 		}
 			
 		void DestroyObject ()

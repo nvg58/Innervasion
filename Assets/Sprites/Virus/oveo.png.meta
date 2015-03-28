@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d705386c7cdf3409c8c4982815d22207
+guid: 487b9e3281e0f944dac37a670516a539
 TextureImporter:
   fileIDToRecycleName:
     21300000: oveo_0
@@ -55,90 +55,90 @@ TextureImporter:
     - name: oveo_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 330
-        width: 166
-        height: 166
+        x: 1
+        y: 319
+        width: 188
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_1
       rect:
         serializedVersion: 2
-        x: 242
-        y: 430
-        width: 30
-        height: 52
+        x: 231
+        y: 419
+        width: 52
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_2
       rect:
         serializedVersion: 2
-        x: 306
-        y: 430
-        width: 29
-        height: 52
+        x: 295
+        y: 419
+        width: 52
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_3
       rect:
         serializedVersion: 2
-        x: 369
-        y: 430
-        width: 30
-        height: 52
+        x: 358
+        y: 419
+        width: 52
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_4
       rect:
         serializedVersion: 2
-        x: 433
-        y: 430
-        width: 30
-        height: 52
+        x: 422
+        y: 419
+        width: 52
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_5
       rect:
         serializedVersion: 2
-        x: 242
-        y: 346
-        width: 30
-        height: 52
+        x: 231
+        y: 335
+        width: 52
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_6
       rect:
         serializedVersion: 2
-        x: 306
-        y: 346
-        width: 29
-        height: 52
+        x: 295
+        y: 335
+        width: 52
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_7
       rect:
         serializedVersion: 2
-        x: 369
-        y: 346
-        width: 30
-        height: 52
+        x: 358
+        y: 335
+        width: 52
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: oveo_8
       rect:
         serializedVersion: 2
-        x: 433
-        y: 346
-        width: 30
-        height: 52
+        x: 422
+        y: 335
+        width: 52
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
