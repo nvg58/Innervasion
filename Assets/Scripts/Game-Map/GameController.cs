@@ -46,5 +46,5 @@ public class GameController : MonoBehaviour {
 	void LoadNewScene()
 	{
 		Application.LoadLevel ("SelectMapScene");
-		}
+	}
 }

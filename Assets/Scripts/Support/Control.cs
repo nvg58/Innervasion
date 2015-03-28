@@ -170,7 +170,7 @@ public class Control : MonoBehaviour
 				_controller.move (_velocity * Time.deltaTime);
 				
 			} else {
-				Debug.Log("driving");
+//				Debug.Log("driving");
 				MHControl MH_control = MH.GetComponent<MHControl> ();
 				MH_control.Move (clientHInput, clientVInput);
 			}
