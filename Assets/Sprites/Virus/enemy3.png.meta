@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 831a71026380c1942b082afacc76a256
+guid: bd9e79c99965d114394f2b693071e3fc
 TextureImporter:
   fileIDToRecycleName:
     21300000: enemy3_0
@@ -69,7 +69,7 @@ TextureImporter:
         width: 127
         height: 127
       alignment: 9
-      pivot: {x: 1, y: .185830906}
+      pivot: {x: .996589482, y: .175696433}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy3_2
       rect:
@@ -79,7 +79,7 @@ TextureImporter:
         width: 127
         height: 127
       alignment: 9
-      pivot: {x: 0, y: .185830906}
+      pivot: {x: .0135452393, y: .185830906}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy3_3
       rect:

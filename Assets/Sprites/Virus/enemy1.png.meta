@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f59f3c8b0f8ba48498c672edcd82478d
+guid: 3f00af297f04a984aa861f85b96e7fb2
 TextureImporter:
   fileIDToRecycleName:
     21300000: enemy1_0
@@ -86,17 +86,17 @@ TextureImporter:
         width: 89
         height: 88
       alignment: 9
-      pivot: {x: .23138462, y: .0146252029}
+      pivot: {x: .210769132, y: .00271918555}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_2
       rect:
         serializedVersion: 2
-        x: 407
-        y: 398
+        x: 406
+        y: 397
         width: 89
         height: 89
       alignment: 9
-      pivot: {x: .210768789, y: .0083066104}
+      pivot: {x: .210768446, y: .0227681715}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_3
       rect:
@@ -106,7 +106,7 @@ TextureImporter:
         width: 89
         height: 89
       alignment: 9
-      pivot: {x: .210769132, y: .977231145}
+      pivot: {x: .225230694, y: .977231145}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_4
       rect:
@@ -116,7 +116,7 @@ TextureImporter:
         width: 89
         height: 88
       alignment: 9
-      pivot: {x: .210768446, y: .997279763}
+      pivot: {x: .210768446, y: .982654214}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_5
       rect:
@@ -151,7 +151,7 @@ TextureImporter:
     - name: enemy1_8
       rect:
         serializedVersion: 2
-        x: 115
+        x: 116
         y: 128
         width: 17
         height: 110
@@ -211,9 +211,9 @@ TextureImporter:
     - name: enemy1_14
       rect:
         serializedVersion: 2
-        x: 358
+        x: 356
         y: 106
-        width: 49
+        width: 51
         height: 49
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -233,7 +233,7 @@ TextureImporter:
         serializedVersion: 2
         x: 74
         y: 67
-        width: 45
+        width: 46
         height: 23
       alignment: 0
       pivot: {x: .5, y: .5}
