@@ -7,12 +7,13 @@ public class EnemyRedManager : MonoBehaviour
 		public float spawnTime = 3f;            	// How long between each spawn.
 		public int enemyCounter = 0;
 		public float timeToActualSpawnEnemy = 2f;	// How long between spawn effect and enemy
-		public GameObject energyBlastPrefab;
+		
 		public Transform[] spawnPoints;         	// An array of the spawn points this enemy can spawn from.
 		GameObject MH;
 		private int spawnPointIndex;
 		private GameObject energyBlast;		
-		
+		public GameObject energyBlastPrefab;
+
 		void Start ()
 		{
 				// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.

@@ -6,13 +6,14 @@ public class OctopusControl : MonoBehaviour {
 		Transform MH;
 		public float MoveSpeed = 3.0f;
 		public float vectorLength = 0.3f;
+		public float changeRoundSpeed = 0.1f;
 		public float MaxDist = 10.0f;
 		public float MinDist;
 		
 		public float[] round = new float[5]{0.3f,5.0f,6.0f,7.0f,8.0f};
 		public int roundPos = 4;
 		public int roundMax = 4;
-		public int roundMin = 1;
+		public int roundMin = 3;
 		bool isChangeRound = true;
 		bool ok = true;
 		Vector3 tmp;
@@ -86,10 +87,10 @@ public class OctopusControl : MonoBehaviour {
 
 		
 		void goAround(int dir){
-		Debug.Log("go aroud1 "+vectorLength);
+		//Debug.Log("go aroud1 "+vectorLength);
 			Vector3 Dir = findDirection(MH.position,transform.position,dir,vectorLength);
 			move (Dir);
-		Debug.Log("go aroud2 "+Dir);
+		//Debug.Log("go aroud2 "+Dir);
 		}
 		
 		void changeRound (int pos, int goal){
@@ -99,7 +100,7 @@ public class OctopusControl : MonoBehaviour {
 				return;
 			}
 			Vector3 normal = findDirection (MH.position, transform.position, 1, 1);
-			normal = findDirection (transform.position + normal, transform.position, 1, 0.1f);
+			normal = findDirection (transform.position + normal, transform.position, 1, changeRoundSpeed);
 			float dist = Vector3.Distance (transform.position, MH.position);
 			
 			if (pos < goal) {
@@ -188,7 +189,7 @@ public class OctopusControl : MonoBehaviour {
 				coorY = 0;
 				coorX = -dir*speed;
 			}
-		Debug.Log ("speedop " + speed);
+		//Debug.Log ("speedop " + speed);
 			Vector3 res = new Vector3 (coorX, coorY, 0.0f); 
 			//Debug.Log ("res "+res + "b "+b+"a "+a+"dist " +Vector3.Distance (res,b));
 			return res;
