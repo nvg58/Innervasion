@@ -5,16 +5,16 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Canvas
+  m_Name: crap
   serializedVersion: 2
   m_AnimatorParameters:
-  - m_Name: GameOver
+  - m_Name: attack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Win
+  - m_Name: idle
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -39,35 +39,35 @@ Transition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110224770}
-  m_DstState: {fileID: 110200000}
-  m_TransitionDuration: .25
+  m_SrcState: {fileID: 110200000}
+  m_DstState: {fileID: 110299053}
+  m_TransitionDuration: .100819767
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: GameOver
+    m_ConditionEvent: attack
     m_EventTreshold: 0
     m_ExitTime: .75
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110151857
+--- !u!1101 &110105085
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110224770}
-  m_DstState: {fileID: 110281929}
-  m_TransitionDuration: .25
+  m_SrcState: {fileID: 110299053}
+  m_DstState: {fileID: 110200000}
+  m_TransitionDuration: .125
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Win
+    m_ConditionEvent: idle
     m_EventTreshold: 0
-    m_ExitTime: .75
+    m_ExitTime: .875
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -77,43 +77,28 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GameOver
+  m_Name: crabIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: e783de910fd764c0abc76347a169a5cc, type: 2}
+  - {fileID: 7400000, guid: 907d3669a52b3f443bbf1e4260b108a6, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 144, y: 96, z: 0}
+  m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110224770
+--- !u!1102 &110299053
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Inactive
+  m_Name: crabAttack
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: e5fed32389f964050be88b65bbff14a2, type: 2}
+  - {fileID: 7400000, guid: a36565c333df2b74c96405ed4c71e391, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 240, y: -12, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
---- !u!1102 &110281929
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Win
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: c170f4f748f0b4bd5ac492d50aa61375, type: 2}
-  m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 504, y: 60, z: 0}
+  m_Position: {x: 85, y: 115, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -124,25 +109,21 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110224770}
+  m_DefaultState: {fileID: 110200000}
   m_States:
   - {fileID: 110200000}
-  - {fileID: 110224770}
-  - {fileID: 110281929}
+  - {fileID: 110299053}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110224770}
+      first: {fileID: 110299053}
       second:
-      - {fileID: 110100000}
-      - {fileID: 110151857}
+      - {fileID: 110105085}
     data:
       first: {fileID: 110200000}
-      second: []
-    data:
-      first: {fileID: 110281929}
-      second: []
+      second:
+      - {fileID: 110100000}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WormControl : MonoBehaviour
-{
+public class CrabControl : MonoBehaviour {
+	
 	Transform MH;
-	public float MoveSpeed = 1.0f;
-	public float vectorLength = 0.001f;
+	public float MoveSpeed = 3.0f;
+	public float vectorLength = 0.3f;
 	public float MaxDist = 10.0f;
 	public float MinDist;
 	
@@ -14,62 +14,82 @@ public class WormControl : MonoBehaviour
 	public int roundMax = 4;
 	public int roundMin = 1;
 	bool isChangeRound = true;
-	bool isAttack = false;
 	bool ok = true;
 	Vector3 tmp;
 	
 	private float tChange = 0f; // force new direction in the first Update 
 	private int randomRound;
 	private int randomDir;
+	
+	// fire
+	public	float length = 5f;
+	public	float randomizationFactor = 0.1f;
+	public	float startDelay = 1.5f;
+	public	bool repeat = true;
+	public GameObject bulletPrefab;
 	Animator animator;
+	
 	void Start ()
 	{
 		MH = GameObject.FindGameObjectWithTag ("MH").transform;
-
+		CoroutineTimer timer = new CoroutineTimer (length, randomizationFactor, startDelay, repeat);
+		timer.Start (gameObject, Shoot);
+		
 		MinDist = round[roundMax];
 		animator = gameObject.GetComponent<Animator> ();
 	}
 	
 	void Update ()
 	{		
-		if (!isAttack) {
+		float dist = Vector3.Distance (transform.position, MH.position);
+		if (dist > MaxDist)
+			return;
 		
-			if (Time.time >= tChange) {
-				randomDir = Random.Range (0, 2); // receive value of 0 or 1
-				// set a random interval between 0.5 and 1.5
-				tChange = Time.time + Random.Range (0.5f, 1.5f);
-			}
-			
-			Debug.Log (isChangeRound + "pos " + roundPos + "round " + randomRound);
-			if (isChangeRound == true) {
-				randomRound = Random.Range(2,roundMax+1); 
-				isChangeRound = false;
-			}
-			if (roundPos<=3) isAttack = true;
-			changeRound (roundPos, randomRound);
-			goAround (randomDir);
+		if (Time.time >= tChange) {
+			randomDir = Random.Range (0, 2); // receive value of 0 or 1
+			// set a random interval between 0.5 and 1.5
+			tChange = Time.time + Random.Range (0.5f, 1.5f);
 		}
-		else
-		{
-				tmp = new Vector3(0.0f,0.0f,0.0f);
-				tmp = findDirection(MH.position,transform.position,1,vectorLength);
-				tmp = findDirection(transform.position+tmp,transform.position,0,2);
-				move (tmp);
-			animator.SetTrigger("Attack");
+		
+		if (isChangeRound == true) {
+			randomRound = Random.Range(roundMin,roundMax+1); 
+			isChangeRound = false;
+		}
+		changeRound (roundPos, randomRound);
+		goAround (randomDir);
+	}
+	
+	
+	void Shoot ()
+	{
+		
+		if (Vector3.Distance (this.transform.position, MH.position) <= MaxDist) {
+			animator.SetTrigger("attack");
+			Invoke("fire",1f);									
+			Invoke("doIdle",2f);
 		} 
 	}
-
-	void OnCollisionEnter2D( Collision2D col ) {
-		if (col.gameObject.name == "MH") {
-			gameObject.GetComponent<HealthSystem>().ReduceHealth(3);
-			MH.GetComponent<HealthSystem>().ReduceHealth(3);
+	
+	void doIdle(){
+		animator.SetTrigger("idle");
+		
+	}
+	
+	void fire ()
+	{
+		string name = "firePoint";
+		foreach (Transform t in transform) {
+			if (t.name == name)
+				Instantiate (bulletPrefab, t.position, transform.rotation);
 		}
 	}
 	
-
+	
 	void goAround(int dir){
+		Debug.Log("go aroud1 "+vectorLength);
 		Vector3 Dir = findDirection(MH.position,transform.position,dir,vectorLength);
 		move (Dir);
+		Debug.Log("go aroud2 "+Dir);
 	}
 	
 	void changeRound (int pos, int goal){
@@ -168,9 +188,11 @@ public class WormControl : MonoBehaviour
 			coorY = 0;
 			coorX = -dir*speed;
 		}
+		Debug.Log ("speedop " + speed);
 		Vector3 res = new Vector3 (coorX, coorY, 0.0f); 
 		//Debug.Log ("res "+res + "b "+b+"a "+a+"dist " +Vector3.Distance (res,b));
 		return res;
 	}
-
+	
+	
 }

@@ -83,11 +83,10 @@ public class HealthSystem : MonoBehaviour
 						percentiveDropArtifact = 5;
 						artifactPosition = Random.Range (0, 3);
 						break;
-				
-				case "3(Clone)": 
-						percentiveDropArtifact = 10;
-						artifactPosition = Random.Range (0, 4);
-						break;
+				case "octopus(Clone)": 
+					percentiveDropArtifact = 10;
+					artifactPosition = Random.Range(0,4);
+					break;
 				case "4(Clone)": 
 						percentiveDropArtifact = 30;
 						artifactPosition = Random.Range (0, 5);

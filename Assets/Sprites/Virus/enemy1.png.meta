@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8fd23d1f603012c44a92ad481af6cdf0
+guid: f59f3c8b0f8ba48498c672edcd82478d
 TextureImporter:
   fileIDToRecycleName:
     21300000: enemy1_0
@@ -10,10 +10,27 @@ TextureImporter:
     21300010: enemy1_5
     21300012: enemy1_6
     21300014: enemy1_7
+    21300016: enemy1_8
+    21300018: enemy1_9
+    21300020: enemy1_10
+    21300022: enemy1_11
+    21300024: enemy1_12
+    21300026: enemy1_13
+    21300028: enemy1_14
+    21300030: enemy1_15
+    21300032: enemy1_16
+    21300034: enemy1_17
+    21300036: enemy1_18
+    21300038: enemy1_19
+    21300040: enemy1_20
+    21300042: enemy1_21
+    21300044: enemy1_22
+    21300046: enemy1_23
+    21300048: enemy1_24
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -54,82 +71,252 @@ TextureImporter:
     - name: enemy1_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 319
-        width: 203
-        height: 138
+        x: 17
+        y: 256
+        width: 243
+        height: 243
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_1
       rect:
         serializedVersion: 2
-        x: 225
-        y: 226
-        width: 152
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 290
+        y: 406
+        width: 89
+        height: 88
+      alignment: 9
+      pivot: {x: .23138462, y: .0146252029}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_2
       rect:
         serializedVersion: 2
-        x: 419
-        y: 346
-        width: 84
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 407
+        y: 398
+        width: 89
+        height: 89
+      alignment: 9
+      pivot: {x: .210768789, y: .0083066104}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_3
       rect:
         serializedVersion: 2
-        x: 75
-        y: 65
-        width: 129
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 290
+        y: 269
+        width: 89
+        height: 89
+      alignment: 9
+      pivot: {x: .210769132, y: .977231145}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_4
       rect:
         serializedVersion: 2
-        x: 446
-        y: 225
-        width: 61
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 406
+        y: 265
+        width: 89
+        height: 88
+      alignment: 9
+      pivot: {x: .210768446, y: .997279763}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_5
       rect:
         serializedVersion: 2
-        x: 234
-        y: 67
-        width: 94
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 17
+        y: 128
+        width: 17
+        height: 96
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_6
       rect:
         serializedVersion: 2
-        x: 352
-        y: 80
-        width: 77
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 50
+        y: 128
+        width: 17
+        height: 96
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: enemy1_7
       rect:
         serializedVersion: 2
-        x: 455
-        y: 99
+        x: 83
+        y: 128
+        width: 17
+        height: 110
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_8
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 128
+        width: 17
+        height: 110
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_9
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 128
+        width: 17
+        height: 96
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_10
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 128
+        width: 17
+        height: 96
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_11
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 128
+        width: 16
+        height: 96
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_12
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 170
+        width: 115
+        height: 71
+      alignment: 4
+      pivot: {x: 0, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_13
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 106
         width: 49
-        height: 94
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_14
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 106
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_15
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 67
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_16
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 67
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_17
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 67
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_18
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 67
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_19
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 67
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_20
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 67
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_21
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 67
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_22
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 21
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_23
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 21
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1_24
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 21
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
