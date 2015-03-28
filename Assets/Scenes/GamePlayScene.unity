@@ -1776,7 +1776,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300012, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300012, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &89411049
 GameObject:
@@ -2256,7 +2256,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &177513047
 GameObject:
@@ -2307,7 +2307,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300014, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300014, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &185467712
 GameObject:
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3207da70368d74cdd9309d2eecfcbea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
+  MoveSpeed: 2
   MaxDist: 10
   explosionPrefab: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 2}
 --- !u!50 &201468433
@@ -2870,7 +2870,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300010, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300010, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &364757158
 GameObject:
@@ -10388,11 +10388,11 @@ MonoBehaviour:
   spawnTime: 3
   enemyCounter: 10
   timeToActualSpawnEnemy: 2
-  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
   spawnPoints:
   - {fileID: 936053411}
   - {fileID: 2019352395}
   - {fileID: 64652457}
+  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
 --- !u!1 &937188386
 GameObject:
   m_ObjectHideFlags: 0
@@ -10424,11 +10424,11 @@ MonoBehaviour:
   spawnTime: 3
   enemyCounter: 10
   timeToActualSpawnEnemy: 2
-  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
   spawnPoints:
   - {fileID: 937188388}
   - {fileID: 2028056311}
   - {fileID: 1297882850}
+  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
 --- !u!4 &937188388
 Transform:
   m_ObjectHideFlags: 0
@@ -10977,7 +10977,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300004, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1024168603
 GameObject:
@@ -15695,6 +15695,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
       propertyPath: m_LocalPosition.x
       value: 131.399994
@@ -15735,6 +15739,38 @@ Prefab:
       propertyPath: m_ViewID.m_Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1728060776}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2058049353}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 2092387800}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 4893225}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 922184400}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 633354653}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 500437586}
+    - target: {fileID: 11400002, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
+      propertyPath: puffParticlePrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 414912778}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
   m_RootGameObject: {fileID: 526914223}
@@ -17155,11 +17191,11 @@ MonoBehaviour:
   spawnTime: 3
   enemyCounter: 10
   timeToActualSpawnEnemy: 2
-  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
   spawnPoints:
   - {fileID: 1576743070}
   - {fileID: 1658141500}
   - {fileID: 1853230606}
+  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
 --- !u!4 &1576743070
 Transform:
   m_ObjectHideFlags: 0
@@ -17531,7 +17567,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300002, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1655190566
 GameObject:
@@ -17576,11 +17612,11 @@ MonoBehaviour:
   spawnTime: 3
   enemyCounter: 10
   timeToActualSpawnEnemy: 2
-  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
   spawnPoints:
   - {fileID: 1655190567}
   - {fileID: 1780270715}
   - {fileID: 926959902}
+  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
 --- !u!1 &1658141499
 GameObject:
   m_ObjectHideFlags: 0
@@ -17651,11 +17687,11 @@ MonoBehaviour:
   spawnTime: 3
   enemyCounter: 10
   timeToActualSpawnEnemy: 2
-  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
   spawnPoints:
   - {fileID: 1661909341}
   - {fileID: 1878752219}
   - {fileID: 1186441537}
+  energyBlastPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 2}
 --- !u!1 &1683431244
 GameObject:
   m_ObjectHideFlags: 0
@@ -17705,7 +17741,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300006, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1683442776
 GameObject:
@@ -20120,7 +20156,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300016, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300016, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1878114209
 GameObject:
@@ -20305,7 +20341,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300008, guid: d705386c7cdf3409c8c4982815d22207, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 487b9e3281e0f944dac37a670516a539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1924875033
 GameObject:

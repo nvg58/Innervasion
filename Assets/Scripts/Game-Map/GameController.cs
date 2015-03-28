@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour {
 	public void GameOverShow()
 	{
 		animator.SetTrigger ("GameOver");
+		Invoke ("LoadNewScene", 2f);
 	}
 	
 	void UpdateScore ()
@@ -39,5 +40,11 @@ public class GameController : MonoBehaviour {
 	public void WinShow()
 	{
 		animator.SetTrigger ("Win");
+		Invoke ("LoadNewScene", 2f);
 	}
+
+	void LoadNewScene()
+	{
+		Application.LoadLevel ("SelectMapScene");
+		}
 }
