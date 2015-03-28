@@ -162,7 +162,7 @@ GameObject:
   - 222: {fileID: 22200010}
   - 114: {fileID: 11400018}
   m_Layer: 5
-  m_Name: Win
+  m_Name: Awesome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ GameObject:
   - 222: {fileID: 22200012}
   - 114: {fileID: 11400020}
   m_Layer: 5
-  m_Name: Win
+  m_Name: You2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
