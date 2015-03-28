@@ -87,10 +87,10 @@ public class OctopusControl : MonoBehaviour {
 
 		
 		void goAround(int dir){
-		Debug.Log("go aroud1 "+vectorLength);
+		//Debug.Log("go aroud1 "+vectorLength);
 			Vector3 Dir = findDirection(MH.position,transform.position,dir,vectorLength);
 			move (Dir);
-		Debug.Log("go aroud2 "+Dir);
+		//Debug.Log("go aroud2 "+Dir);
 		}
 		
 		void changeRound (int pos, int goal){

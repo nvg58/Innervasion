@@ -23,13 +23,12 @@ public class EnemyManager : MonoBehaviour {
 		ok = true;
 	}
 	void Update () {
-		Debug.Log("sppppppp");
+		transform.position = new Vector3 (MH.transform.position.x, MH.transform.position.y, 0);
 		if (ok) {
 			int x = Random.Range (1, 4);
 			if (GlobalValue.NumberOfCurrentEnemy < GlobalValue.MaxNumberOfEnemy - x) {
 					Invoke ("Spawn", 0.5f);
 					ok = false;
-				Debug.Log("sppppppp "+GlobalValue.NumberOfCurrentEnemy);
 			}
 		}
 	}
@@ -66,6 +65,7 @@ public class EnemyManager : MonoBehaviour {
 						EnemyType = 0;
 		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.											
 		Instantiate (EnemyPrefabs[EnemyType], spawnPoints [spawnPointIndex].position, rot);
+		Debug.Log (spawnPoints [spawnPointIndex].position);
 		// Finally destroy the spawning effect
 		Destroy (EnemySpawnEffectObject);
 		

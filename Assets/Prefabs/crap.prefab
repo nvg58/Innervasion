@@ -540,7 +540,7 @@ MonoBehaviour:
   MoveSpeed: 3
   vectorLength: .100000001
   changeRoundSpeed: .300000012
-  MaxDist: 10
+  MaxDist: 20
   MinDist: 0
   round:
   - .300000012

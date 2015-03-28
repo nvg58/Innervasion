@@ -24,7 +24,7 @@ public class EnemyOveoControl : MonoBehaviour
 				float dist = Vector3.Distance (transform.position, MH.position);
 				if (dist <= MaxDist) {						
 						animator.SetTrigger ("Attack");
-						transform.position = Vector3.MoveTowards(transform.position, MH.transform.position, Time.deltaTime * MoveSpeed);
+						transform.position = Vector3.MoveTowards (transform.position, MH.transform.position, Time.deltaTime * MoveSpeed);
 				} else {	
 						animator.SetTrigger ("Idle");
 						if (Time.time >= tChange) {
@@ -44,9 +44,7 @@ public class EnemyOveoControl : MonoBehaviour
 				if (objectHit.gameObject.tag == "MH") {	
 				(MH.GetComponent<HealthSystem> ()).ReduceHealth (1);
 				(this.GetComponent<HealthSystem> ()).ReduceHealth(3);
-					
-			//	GameObject explosion = Instantiate (explosionPrefab, this.transform.position, Quaternion.identity) as GameObject;
-			//	Destroy (this.gameObject);
+
 				}
 		}
 }
