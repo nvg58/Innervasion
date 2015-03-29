@@ -3,6 +3,7 @@ using System.Collections;
 
 public class WormManager : MonoBehaviour {
 
+	public float DisttanceMinForSpawn=40.0f;
 	public GameObject enemy;                	// The enemy prefab to be spawned.
 	public float timeToActualSpawnEnemy = 2.0f;	// How long between spawn effect and enemy
 	public GameObject energyBlastPrefab;
@@ -10,14 +11,20 @@ public class WormManager : MonoBehaviour {
 	GameObject MH;
 	private int spawnPointIndex=0;
 	private GameObject energyBlast;		
-	
+	private bool ok;
 	void Start ()
 	{
-		Instantiate (energyBlastPrefab, spawnPoints [0].position, spawnPoints [0].rotation);
-		Debug.Log (energyBlast == null);
-		// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
 		MH = GameObject.FindGameObjectWithTag ("MH");
-		Invoke ("Spawn", timeToActualSpawnEnemy);			
+		ok = true;
+	}
+
+	void Update (){
+		if (ok&&Vector3.Distance (transform.position, MH.transform.position) < DisttanceMinForSpawn) {
+			ok = false;
+			Instantiate (energyBlastPrefab, spawnPoints [0].position, spawnPoints [0].rotation);
+			// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
+			Invoke ("Spawn", timeToActualSpawnEnemy);	
+		}
 	}
 	
 	void Spawn ()
