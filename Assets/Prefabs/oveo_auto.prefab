@@ -243,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.790001, y: 157.759995, z: 0}
+  m_LocalPosition: {x: 196.759995, y: 209.300003, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 400016}
@@ -370,9 +370,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3207da70368d74cdd9309d2eecfcbea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
-  MaxDist: 10
-  explosionPrefab: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 2}
+  MoveSpeed: 1
+  vectorLength: .100000001
+  changeRoundSpeed: .100000001
+  attackSpeed: 3
+  MaxDist: 20
+  MinDist: 0
+  round:
+  - .300000012
+  - 5
+  - 6
+  - 7
+  - 8
+  roundPos: 4
+  roundMax: 4
+  roundMin: 1
+  length: 7
+  randomizationFactor: .100000001
+  startDelay: 2
+  timeToDoAttackEffect: .300000012
+  repeat: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
