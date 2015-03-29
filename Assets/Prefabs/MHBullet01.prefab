@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.19000006, y: 3.03999996, z: 0}
-  m_LocalScale: {x: .0299999993, y: .0299999993, z: 0}
+  m_LocalPosition: {x: 138.110001, y: 166.070007, z: 0}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   maxLifetime: 3
   speed: 6
   damage: 1
-  explosion: {fileID: 100002, guid: b59d6dbeba1b5d04db3db63f81fbf76c, type: 2}
+  explosion: {fileID: 100002, guid: 61eda7686a0966c4c82b3a44901467ca, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

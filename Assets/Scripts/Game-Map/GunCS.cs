@@ -98,10 +98,10 @@ private void FireBullet()
 
 			// Emit particles...
 				
-			if ((this.shotParticles != null) )
-				{
-				this.shotParticles.Play();
-				}
+//			if ((this.shotParticles != null) )
+//				{
+//				this.shotParticles.Play();
+//				}
 	
 			// Fire projectile.
 	

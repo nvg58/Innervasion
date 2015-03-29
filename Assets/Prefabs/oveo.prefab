@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  diePrefab: {fileID: 100002, guid: b59d6dbeba1b5d04db3db63f81fbf76c, type: 2}
+  diePrefab: {fileID: 100012, guid: f6935531d2fb7c54fa031492ffd2f048, type: 2}
   wormManager: {fileID: 100010, guid: bdbe39f8df4f4944aabf96c314c493af, type: 2}
   dieTime: 0
   maxHealth: 0
