@@ -29,7 +29,7 @@ public class GameController : Photon.MonoBehaviour {
 	public void GameOverShow()
 	{
 		animator.SetTrigger ("GameOver");
-		Invoke ("LoadNewScene", 2f);
+		Invoke ("LoadNewScene", 2f	);
 	}
 	
 	void UpdateScore ()
