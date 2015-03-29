@@ -109,6 +109,16 @@ public class EnemyOveoControl : MonoBehaviour
 			//gameObject.GetComponent<HealthSystem>().ReduceHealth(3);
 			MH.GetComponent<HealthSystem>().ReduceHealth(3);
 			Invoke("col",timeToDoAttackEffect); 
+			MoveSpeed = 0.0f;
+			vectorLength = 0.0f;
+		}
+	}
+
+	void OnCollisionExit2D( Collision2D col ) {
+		if (col.gameObject.name == "MH") {
+
+			MoveSpeed = 3.0f;
+			vectorLength = 1.0f;
 		}
 	}
 
