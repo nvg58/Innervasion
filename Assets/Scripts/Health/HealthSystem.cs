@@ -26,7 +26,7 @@ public class HealthSystem : MonoBehaviour
 		}
 	
 		public void ReduceHealth (float value)
-		{
+	{		Debug.Log (gameObject.name);
 				health = Mathf.Max (health - value, 0);
 		}
 	
@@ -53,7 +53,7 @@ public class HealthSystem : MonoBehaviour
 					}
 		
 
-					if (this.name == "EggOfEnemy" || this.name == "EggOfEnemy(Clone)")
+					if (this.name == "EggOfEnemy")
 							Instantiate (wormManager, transform.position, transform.rotation);
 					Invoke ("DestroyObject", dieTime);
 					dropArtifact ();

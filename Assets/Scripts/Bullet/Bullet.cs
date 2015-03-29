@@ -29,10 +29,15 @@ public class Bullet : MonoBehaviour
 		}
 
 		void OnTriggerEnter2D (Collider2D objectHit)
-		{
-				HealthSystem health = objectHit.transform.root.gameObject.GetComponent<HealthSystem>();
+		{		
+		//Debug.Log (objectHit.name+"bullet");
+				HealthSystem health;		
+				if (objectHit.name=="EggOfEnemy")
+				health = objectHit.GetComponent<HealthSystem>();
+				else  health = objectHit.transform.root.gameObject.GetComponent<HealthSystem>();
 				if (health){
 					health.ReduceHealth(damage);
+
 				}
 //				Debug.Log(explosion != null);
 				GameObject explo =  Instantiate(explosion, transform.position, transform.rotation) as GameObject;
