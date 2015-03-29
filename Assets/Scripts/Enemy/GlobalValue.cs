@@ -10,7 +10,7 @@ public class GlobalValue : MonoBehaviour {
 	void Start () {
 		MaxNumberOfEnemy = 8;
 		NumberOfCurrentEnemy = 0;
-		NumberOfCurrentHealPoint = 6;
+		NumberOfCurrentHealPoint = 1;
 	}
 	
 	// Update is called once per frame

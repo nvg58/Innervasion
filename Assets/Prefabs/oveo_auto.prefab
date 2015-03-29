@@ -402,7 +402,7 @@ MonoBehaviour:
   vectorLength: .100000001
   changeRoundSpeed: .100000001
   attackSpeed: 3
-  MaxDist: 20
+  MaxDist: 15
   MinDist: 0
   round:
   - .300000012
