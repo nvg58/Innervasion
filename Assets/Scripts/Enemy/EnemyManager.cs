@@ -65,7 +65,7 @@ public class EnemyManager : MonoBehaviour {
 						EnemyType = 0;
 		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.											
 		Instantiate (EnemyPrefabs[EnemyType], spawnPoints [spawnPointIndex].position, rot);
-		Debug.Log (spawnPoints [spawnPointIndex].position);
+	//	Debug.Log (spawnPoints [spawnPointIndex].position);
 		// Finally destroy the spawning effect
 		Destroy (EnemySpawnEffectObject);
 		

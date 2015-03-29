@@ -86,7 +86,7 @@ public class EnemyOveoControl : MonoBehaviour
 			tmp = findDirection (transform.position + tmp, transform.position, 0, attackSpeed);	
 
 		} else {
-			Debug.Log("Direct"+direct);
+//			Debug.Log("Direct"+direct);
 			tmp = findDirection (positionBeforeAttack, MH.position, 1, vectorLength);
 			tmp = findDirection (transform.position + tmp, transform.position, 0, attackSpeed);	
 		}
