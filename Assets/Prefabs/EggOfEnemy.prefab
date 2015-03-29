@@ -96,7 +96,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!95 &9500000
@@ -129,6 +129,7 @@ MonoBehaviour:
   diePrefab: {fileID: 100002, guid: b59d6dbeba1b5d04db3db63f81fbf76c, type: 2}
   wormManager: {fileID: 100010, guid: bdbe39f8df4f4944aabf96c314c493af, type: 2}
   dieTime: 0
+  maxHealth: 0
   Artifacts: []
   timeToGameOver: 1
   newScoreValue: 1
