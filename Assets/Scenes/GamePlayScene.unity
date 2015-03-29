@@ -2850,6 +2850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 2132567148}
   barel: {fileID: 2132567145}
+  shootClip: {fileID: 0}
 --- !u!61 &201983746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7482,7 +7483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef33ee0a9c9a55d439890918d3f6d860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 1000
   diePrefab: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 2}
   wormManager: {fileID: 0}
   dieTime: .5
@@ -10251,6 +10252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 124210153}
   barel: {fileID: 124210151}
+  shootClip: {fileID: 0}
 --- !u!61 &765057678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13287,6 +13289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1848168014}
   barel: {fileID: 1848168013}
+  shootClip: {fileID: 0}
 --- !u!61 &1050425745
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16370,6 +16373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 671408164}
   barel: {fileID: 671408162}
+  shootClip: {fileID: 0}
 --- !u!61 &1187936445
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21339,12 +21343,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b01fef8ac230440a06354d774aa1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMargin: 1
-  yMargin: 1
-  xSmooth: 8
-  ySmooth: 8
-  maxXAndY: {x: 0, y: 0}
-  minXAndY: {x: 0, y: 0}
+  MaxX: 226
+  MinX: 60
+  MaxY: 227
+  MinY: 55
+  cameraTarget: {fileID: 0}
+  cameraFollowX: 1
+  cameraFollowY: 1
+  cameraFollowHeight: 0
+  cameraHeight: 2.5
+  cameraWidth: 2.5
 --- !u!1 &1606948730
 GameObject:
   m_ObjectHideFlags: 0
@@ -24686,7 +24694,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
       propertyPath: health
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9381588b6cb5c4459d8da8ca39b6313, type: 2}
