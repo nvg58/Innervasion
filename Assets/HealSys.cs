@@ -9,7 +9,6 @@ public class HealSys : MonoBehaviour
 		Transform MH;
 		public GameObject healPrefab;
 		public static bool onHealFinished = false;
-		int index = 0;
 
 		// Use this for initialization
 		void Start ()
@@ -27,7 +26,6 @@ public class HealSys : MonoBehaviour
 										healPoints [i].transform.Find ("text").renderer.enabled = true;
 										
 										if (MHControl.healTouchedPoint && Heal.healingStatus) {
-												index = i;	
 												Animator animator = healPoints [i].GetComponent<Animator> ();
 												animator.SetTrigger ("Heal");
 												healPoints [i].transform.Find ("sacredGround").gameObject.SetActive (true);		
