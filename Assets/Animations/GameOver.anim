@@ -21,12 +21,12 @@ AnimationClip:
         value: {x: .512512267, y: 1, z: 1}
         inSlope: {x: .487487733, y: 0, z: 0}
         outSlope: {x: .487487733, y: 0, z: 0}
-        tangentMode: 8
+        tangentMode: 12
       - time: 1
         value: {x: 1, y: 1, z: 1}
         inSlope: {x: .487487733, y: 0, z: 0}
         outSlope: {x: .487487733, y: 0, z: 0}
-        tangentMode: 88
+        tangentMode: 706153216
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: GameOver
@@ -116,7 +116,7 @@ AnimationClip:
         outSlope: Infinity
         tangentMode: 31
       - time: 1
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
@@ -135,7 +135,7 @@ AnimationClip:
         outSlope: Infinity
         tangentMode: 31
       - time: 1
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
@@ -356,7 +356,7 @@ AnimationClip:
         outSlope: Infinity
         tangentMode: 31
       - time: 1
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
@@ -375,7 +375,7 @@ AnimationClip:
         outSlope: Infinity
         tangentMode: 31
       - time: 1
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
