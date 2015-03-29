@@ -9,6 +9,7 @@ public class HealSys : MonoBehaviour
 		Transform MH;
 		public GameObject healPrefab;
 		public static bool onHealFinished = false;
+		int index = 0;
 
 		// Use this for initialization
 		void Start ()
@@ -26,13 +27,13 @@ public class HealSys : MonoBehaviour
 										healPoints [i].transform.Find ("text").renderer.enabled = true;
 										
 										if (MHControl.healTouchedPoint && Heal.healingStatus) {
-												Animator animator = healPoints [i].GetComponent<Animator>();
+												index = i;	
+												Animator animator = healPoints [i].GetComponent<Animator> ();
 												animator.SetTrigger ("Heal");
-												healPoints [i].transform.Find ("HolyDefenseBase").gameObject.SetActive (true);												
-												Destroy (healPoints [i], 3f);
-												onHealFinished = true;
+												healPoints [i].transform.Find ("sacredGround").gameObject.SetActive (true);		
 
-						Debug.Log ("OWWW");
+												iTween.FadeTo (healPoints [i], iTween.Hash ("alpha", 0, "time", 3));												
+						               			Destroy (healPoints[i], 3f);
 										}
 								} else {
 										healPoints [i].transform.Find ("circle").renderer.enabled = false;
@@ -41,6 +42,4 @@ public class HealSys : MonoBehaviour
 						}
 				}
 		}
-
-
-}
+}						
