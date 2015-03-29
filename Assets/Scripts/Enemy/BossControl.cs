@@ -10,7 +10,7 @@ public class BossControl : MonoBehaviour {
 	public float MaxDist = 20.0f;
 	public float MinDist;
 	
-	private float[] round = new float[5]{7.5f,8.0f,9.0f,10.0f,11.0f};
+	private float[] round = new float[5]{9f,10.0f,11.0f,12.0f,14.0f};
 	public int roundPos = 3;
 	public int roundMax = 3;
 	public int roundMin = 0;
@@ -26,6 +26,9 @@ public class BossControl : MonoBehaviour {
 	public float timeCoolDownAttack;
 	public float timeToAttack;
 	bool canAttack = true;
+
+	public GameObject parPos;
+	public GameObject parPrefab;
 	void Start ()
 	{
 		MH = GameObject.FindGameObjectWithTag ("MH").transform;
@@ -45,7 +48,7 @@ public class BossControl : MonoBehaviour {
 			}
 			
 			if (isChangeRound == true) {
-				if (canAttack)randomRound = Random.Range(0,roundMax+1);
+				if (canAttack)randomRound = Random.Range(0,roundMax);
 				else randomRound = Random.Range(3,roundMax+1); 
 				isChangeRound = false;
 			}
@@ -79,6 +82,7 @@ public class BossControl : MonoBehaviour {
 
 	void reduceMHHP(){
 		MH.GetComponent<HealthSystem>().ReduceHealth(10);
+		Instantiate (parPrefab, parPos.transform.position, transform.rotation);
 	}
 	void nextAttack(){
 		canAttack = true;

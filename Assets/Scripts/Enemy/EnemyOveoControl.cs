@@ -17,6 +17,9 @@ public class EnemyOveoControl : MonoBehaviour
 	public int roundMin = 1;
 	bool isChangeRound = true;
 
+	public GameObject parPos;
+	public GameObject parPrefab;
+
 	Vector3 tmp;
 	
 	private float tChange = 0f; // force new direction in the first Update 
@@ -118,6 +121,7 @@ public class EnemyOveoControl : MonoBehaviour
 			Invoke("col",timeToDoAttackEffect); 
 			MoveSpeed = 0.0f;
 			vectorLength = 0.0f;
+			Instantiate (parPrefab, parPos.transform.position, parPos.transform.rotation);
 		}
 		
 	}
