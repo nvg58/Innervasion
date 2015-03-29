@@ -10,6 +10,23 @@ public class MHControl : MonoBehaviour
 		public ParticleSystem[] puffParticlePrefabs;
 		public float			shotInterval = 0.175f;
 		private float			lastShotTime;
+		Vector3 backupHealerPos;
+		public static bool healTouchedPoint = false;
+
+		void Start ()
+		{
+				backupHealerPos = transform.Find ("Healer").Find ("Control").localPosition;
+
+				transform.Find ("Healer").GetComponent<Animator> ().enabled = false;			
+		}
+
+		public void Update ()
+		{
+				if (HealSys.onHealFinished) {
+						transform.Find ("Healer").GetComponent<Animator> ().enabled = false;
+						transform.Find ("Healer").Find ("Control").localPosition = backupHealerPos;
+				}
+		}
 	
 		public void FixedUpdate ()
 		{
@@ -84,6 +101,23 @@ public class MHControl : MonoBehaviour
 								return t;
 				}
 				return null;
+		}
+
+		void OnTriggerStay2D (Collider2D other)
+		{
+				if (other.name == "healTouchPoint") {
+						transform.Find ("Healer").GetComponent<Animator> ().enabled = true;
+						healTouchedPoint = true;
+				}
+		}
+
+		void OnTriggerExit2D (Collider2D other)
+		{
+				if (other.name == "healTouchPoint") {				
+						transform.Find ("Healer").GetComponent<Animator> ().enabled = false;
+						transform.Find ("Healer").Find ("Control").localPosition = backupHealerPos;
+						healTouchedPoint = false;
+				}
 		}
 }
 
