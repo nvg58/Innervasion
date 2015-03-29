@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class GameController : Photon.MonoBehaviour {
 	
 	private int score;
 	public Text coinsLabel;
@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour {
 
 	void LoadNewScene()
 	{
+		PhotonNetwork.isMessageQueueRunning = false;
 		Application.LoadLevel ("SelectMapScene");
-		}
+	}
 }
