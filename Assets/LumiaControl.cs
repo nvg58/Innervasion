@@ -6,15 +6,11 @@ public class LumiaControl : MonoBehaviour
 		public static bool onTutGoCabin;
 		public static bool onTutShoot;
 		public static bool onTutStamina;
-	
 		Vector3 initMiloPos;
 		Vector3 initMHPos;
-	
 		GameObject Milo;
 		GameObject MH;
-	
-		Animator animator;	
-
+		Animator animator;
 		private Transform player;
 		// Use this for initialization
 		void Start ()
@@ -36,60 +32,62 @@ public class LumiaControl : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{		
-				transform.position = new Vector3 (player.transform.position.x - 10, player.transform.position.y, 10	);
+				transform.position = new Vector3 (player.transform.position.x - 10, player.transform.position.y, 10);
 				if (animator == null)
-					animator = gameObject.GetComponent<Animator> ();
+						animator = gameObject.GetComponent<Animator> ();
 		
-				if (Milo == null){
-					Milo = GameObject.Find ("Milo(Clone)");
-					Debug.Log(Milo == null);	
-					initMiloPos = Milo.transform.position;
+				if (Milo == null) {
+						Milo = GameObject.Find ("Milo(Clone)");
+						Debug.Log (Milo == null);	
+						initMiloPos = Milo.transform.position;
 			
 				}
 				if (Vector3.Distance (initMiloPos, Milo.transform.position) > 0.8f) {
 						animator.SetTrigger ("Awesome");
-						Invoke("DriveTut", 1.0f);
+						Invoke ("DriveTut", 0f);
 				}
 				if (Vector3.Distance (initMHPos, MH.transform.position) > 1f) {
-					animator.SetTrigger ("Awesome2");
-					Invoke("ShootTut", 1.0f);
+						animator.SetTrigger ("Awesome2");
+						Invoke ("ShootTut", 1.0f);
 				}
 				
-		          if (onTutShoot) {
-					animator.SetTrigger ("Awesome3");
-					Invoke("StaminaTut", 1.0f);
+				if (onTutShoot) {
+						animator.SetTrigger ("Awesome3");
+						Invoke ("StaminaTut", 1.0f);
 				}
 				if (onTutStamina) {
-					animator.SetTrigger ("Awesome4");
-					// Go to ready-scene after 1 second.
-					Invoke ("LoadNewScene", 1.0f);
+						animator.SetTrigger ("Awesome4");
+						// Go to ready-scene after 1 second.
+						Invoke ("LoadNewScene", 1.0f);
 				}
-	}
+		}
 	
-	void DriveTut() 
+		void DriveTut ()
 		{
-			animator.SetTrigger ("GoCabin");
-			if (onTutGoCabin) 
-			{
-				animator.SetTrigger ("Drive");
-			}
+//				animator.SetTrigger ("GoCabin");
+				if (onTutGoCabin) {
+						animator.SetTrigger ("Drive");
+				} else {
+						animator.SetTrigger ("GoCabin");
+				}
 		}
 
-		void ShootTut()
+		void ShootTut ()
 		{				
-			animator.SetTrigger ("Shoot");			
+				animator.SetTrigger ("Shoot");			
 		}
 
-		void StaminaTut()
+		void StaminaTut ()
 		{
-			animator.SetTrigger ("Stamina");
+				animator.SetTrigger ("Stamina");
 		}
 		
-		public void LoadNewScene(){
-			GameObject startPoint = GameObject.Find("StartPoint");
-			Generate gen = startPoint.GetComponent<Generate>();
-			gen.setFinish();
-			Network.isMessageQueueRunning = false;
-			Application.LoadLevel(Application.loadedLevel + 1);
+		public void LoadNewScene ()
+		{
+				GameObject startPoint = GameObject.Find ("StartPoint");
+				Generate gen = startPoint.GetComponent<Generate> ();
+				gen.setFinish ();
+				Network.isMessageQueueRunning = false;
+				Application.LoadLevel (Application.loadedLevel + 1);
 		}
 }
