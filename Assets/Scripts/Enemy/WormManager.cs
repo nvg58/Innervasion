@@ -21,7 +21,7 @@ public class WormManager : MonoBehaviour {
 	void Update (){
 		if (ok&&Vector3.Distance (transform.position, MH.transform.position) < DisttanceMinForSpawn) {
 			ok = false;
-			Instantiate (energyBlastPrefab, spawnPoints [0].position, spawnPoints [0].rotation);
+			energyBlast = Instantiate (energyBlastPrefab, spawnPoints [0].position, spawnPoints [0].rotation) as GameObject;
 			// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
 			Invoke ("Spawn", timeToActualSpawnEnemy);	
 		}

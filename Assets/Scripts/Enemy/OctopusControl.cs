@@ -81,7 +81,7 @@ public class OctopusControl : MonoBehaviour {
 			string name = "firePoint";
 			foreach (Transform t in transform) {
 				if (t.name == name)
-				Instantiate (bulletPrefab, t.position, transform.rotation);
+				 Instantiate (bulletPrefab, t.position, transform.rotation);
 			}
 		}
 
