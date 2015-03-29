@@ -28,10 +28,12 @@ public class CameraFollow : MonoBehaviour
 
 		void Update ()
 		{
-				if (isTut) {
-						transform.position = new Vector3 (player.transform.position.x - 6, player.transform.position.y, -1);	
-				} else {
-						transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, -1);
+				if (player != null) {
+						if (isTut) {
+								transform.position = new Vector3 (player.transform.position.x - 6, player.transform.position.y, -1);	
+						} else {
+								transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, -1);
+						}
 				}
 		}
 
