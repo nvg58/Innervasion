@@ -34,8 +34,6 @@ public class CameraFollow : MonoBehaviour
 
 		void Update ()
 		{	
-				
-					
 				if (isTut) {
 						transform.position = new Vector3 (player.transform.position.x - 6, player.transform.position.y, -1);	
 				} else {
@@ -86,6 +84,4 @@ public class CameraFollow : MonoBehaviour
 						}							
 				}
 		}
-	
-		
 }
