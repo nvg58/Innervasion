@@ -6,6 +6,8 @@ public class Shoot : MonoBehaviour {
 	private bool	isShooting;		// shooting input flag
 	public GameObject barel;
 	private Vector3 initialAngle;
+	public AudioClip shootClip;
+	private AudioSource source;
 	
 	// Use this for initialization
 	void Start (){
@@ -13,6 +15,8 @@ public class Shoot : MonoBehaviour {
 		if (initialAngle.z > 180)	
 			initialAngle.z = initialAngle.z - 360;
 		//Debug.Log(initialAngle);
+
+		source = GetComponent<AudioSource>();
 	}
 
 	// ---------------
@@ -55,6 +59,8 @@ public class Shoot : MonoBehaviour {
 					Vector3 eulerAngle = new Vector3(0, 0, initialAngle.z + angle);
 					Quaternion qr = Quaternion.Euler(eulerAngle);
 					barel.transform.localRotation = Quaternion.Lerp(barel.transform.localRotation, qr, Time.deltaTime*3);		    	    	
+
+					source.PlayOneShot(shootClip, 1f);
 
 					LumiaControl.onTutShoot = true;
 				}
