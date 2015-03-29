@@ -1,40 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CrabControl : MonoBehaviour {
-	
+public class BossControl : MonoBehaviour {
 	Transform MH;
-	public float MoveSpeed = 3.0f;
-	public float vectorLength = 0.3f;
+	public float MoveSpeed = 1.0f;
+	public float vectorLength = 0.1f;
 	public float changeRoundSpeed = 0.1f;
-	public float MaxDist = 10.0f;
+	public float attackSpeed = 3;
+	public float MaxDist = 20.0f;
 	public float MinDist;
 	
-	public float[] round = new float[5]{0.3f,5.0f,6.0f,7.0f,8.0f};
-	public int roundPos = 4;
-	public int roundMax = 4;
-	public int roundMin = 1;
+	private float[] round = new float[5]{7.5f,8.0f,9.0f,10.0f,11.0f};
+	public int roundPos = 3;
+	public int roundMax = 3;
+	public int roundMin = 0;
 	bool isChangeRound = true;
+	bool isAttack = false;
 	bool ok = true;
 	Vector3 tmp;
 	
 	private float tChange = 0f; // force new direction in the first Update 
 	private int randomRound;
 	private int randomDir;
-	
-	// fire
-	public	float length = 5f;
-	public	float randomizationFactor = 0.1f;
-	public	float startDelay = 1.5f;
-	public	bool repeat = true;
-	public GameObject bulletPrefab;
 	Animator animator;
-	
+	public float timeCoolDownAttack;
+	public float timeToAttack;
+	bool canAttack = true;
 	void Start ()
 	{
 		MH = GameObject.FindGameObjectWithTag ("MH").transform;
-		CoroutineTimer timer = new CoroutineTimer (length, randomizationFactor, startDelay, repeat);
-		timer.Start (gameObject, Shoot);
 		
 		MinDist = round[roundMax];
 		animator = gameObject.GetComponent<Animator> ();
@@ -42,55 +36,64 @@ public class CrabControl : MonoBehaviour {
 	
 	void Update ()
 	{		
-		float dist = Vector3.Distance (transform.position, MH.position);
-		if (dist > MaxDist)
-			return;
-		
-		if (Time.time >= tChange) {
-			randomDir = Random.Range (0, 2); // receive value of 0 or 1
-			// set a random interval between 0.5 and 1.5
-			tChange = Time.time + Random.Range (0.5f, 1.5f);
+		if (!isAttack) {
+			
+			if (Time.time >= tChange) {
+				randomDir = Random.Range (0, 2); // receive value of 0 or 1
+				// set a random interval between 0.5 and 1.5
+				tChange = Time.time + Random.Range (0.5f, 1.5f);
+			}
+			
+			if (isChangeRound == true) {
+				if (canAttack)randomRound = Random.Range(0,roundMax+1);
+				else randomRound = Random.Range(3,roundMax+1); 
+				isChangeRound = false;
+			}
+
+
+			changeRound (roundPos, randomRound);
+			goAround (randomDir);
 		}
-		
-		if (isChangeRound == true) {
-			randomRound = Random.Range(roundMin,roundMax+1); 
-			isChangeRound = false;
-		}
-		changeRound (roundPos, randomRound);
-		goAround (randomDir);
-	}
-	
-	
-	void Shoot ()
-	{
-		
-		if (Vector3.Distance (this.transform.position, MH.position) <= MaxDist) {
-			animator.SetTrigger("attack");
-			Invoke("fire",1f);									
-			Invoke("doIdle",2f);
+		else
+		{
+			if (ok)
+			{
+			ok = false;
+			animator.SetTrigger("Attack");
+			Debug.Log("Attack");
+			Invoke("doneAttack",timeToAttack);
+			Invoke ("reduceMHHP", 0.45f);
+			canAttack=false;
+			}
 		} 
 	}
-	
-	void doIdle(){
-		animator.SetTrigger("idle");
-		
+
+	void doneAttack(){
+		ok = true;
+		isAttack = false;
+		Debug.Log("Idle");
+		animator.SetTrigger("Idle");
+		Invoke ("nextAttack", timeCoolDownAttack);
+
 	}
-	
-	void fire ()
-	{
-		string name = "firePoint";
-		foreach (Transform t in transform) {
-			if (t.name == name)
-				Instantiate (bulletPrefab, t.position, transform.rotation);
+
+	void reduceMHHP(){
+		MH.GetComponent<HealthSystem>().ReduceHealth(10);
+	}
+	void nextAttack(){
+		canAttack = true;
+	}
+
+	void OnCollisionEnter2D( Collision2D col ) {
+		if (col.gameObject.name == "MH") {
+
 		}
 	}
 	
 	
 	void goAround(int dir){
-		//Debug.Log("go aroud1 "+vectorLength);
 		Vector3 Dir = findDirection(MH.position,transform.position,dir,vectorLength);
 		move (Dir);
-		//Debug.Log("go aroud2 "+Dir);
 	}
 	
 	void changeRound (int pos, int goal){
@@ -110,6 +113,7 @@ public class CrabControl : MonoBehaviour {
 			else{
 				isChangeRound = true;
 				roundPos = goal;
+
 			}
 		} 
 		else {
@@ -122,6 +126,7 @@ public class CrabControl : MonoBehaviour {
 			else{
 				isChangeRound = true;
 				roundPos = goal;
+				if (roundPos<=0) isAttack = true;
 			}
 		}
 	}
@@ -189,11 +194,9 @@ public class CrabControl : MonoBehaviour {
 			coorY = 0;
 			coorX = -dir*speed;
 		}
-//		Debug.Log ("speedop " + speed);
 		Vector3 res = new Vector3 (coorX, coorY, 0.0f); 
 		//Debug.Log ("res "+res + "b "+b+"a "+a+"dist " +Vector3.Distance (res,b));
 		return res;
 	}
-	
 	
 }

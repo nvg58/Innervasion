@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 538c39457b801534599350a58df4da47
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: finalBoss_0
+    21300002: finalBoss_1
+    21300004: finalBoss_2
+    21300006: finalBoss_3
+    21300008: finalBoss_4
+    21300010: finalBoss_5
+    21300012: finalBoss_6
+    21300014: finalBoss_7
+    21300016: finalBoss_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: finalBoss_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 395
+        width: 113
+        height: 113
+      alignment: 3
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 393
+        width: 114
+        height: 112
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_2
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 395
+        width: 118
+        height: 117
+      alignment: 4
+      pivot: {x: 0, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 284
+        width: 32
+        height: 56
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_4
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 8
+        width: 165
+        height: 281
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_5
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 224
+        width: 120
+        height: 121
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 168
+        width: 58
+        height: 68
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_7
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 44
+        width: 84
+        height: 108
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: finalBoss_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 7
+        width: 102
+        height: 58
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

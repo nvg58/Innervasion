@@ -96,7 +96,6 @@ public class OctopusControl : MonoBehaviour {
 		void changeRound (int pos, int goal){
 			if (pos == goal) {
 				isChangeRound = true;
-				Debug.Log("ok");
 				return;
 			}
 			Vector3 normal = findDirection (MH.position, transform.position, 1, 1);
