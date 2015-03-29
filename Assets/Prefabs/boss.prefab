@@ -580,7 +580,7 @@ MonoBehaviour:
   vectorLength: .200000003
   changeRoundSpeed: .200000003
   attackSpeed: 3
-  MaxDist: 20
+  MaxDist: 15
   MinDist: 0
   roundPos: 3
   roundMax: 3
@@ -588,7 +588,7 @@ MonoBehaviour:
   timeCoolDownAttack: .5
   timeToAttack: 1.5
   parPos: {fileID: 100034}
-  parPrefab: {fileID: 100006, guid: 665f1c293a6c6446687baaca4af8cb7b, type: 2}
+  parPrefab: {fileID: 100010, guid: 0f47113f1222b7b4a826d5f36a7bfdb5, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
