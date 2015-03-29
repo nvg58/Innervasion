@@ -52,7 +52,7 @@ public class Control : Photon.MonoBehaviour{
 	void onTriggerExitEvent (Collider2D col)
 	{
 		Debug.Log ("onTriggerExitEvent: " + col.gameObject.name);
-
+		if (col.gameObject.name == "Wheel") LumiaControl.onTutGoCabin = false;
 	}
 	
 	#endregion

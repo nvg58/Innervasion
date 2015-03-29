@@ -123,6 +123,7 @@ public class EnemyOveoControl : MonoBehaviour
 			vectorLength = 0.0f;
 			Instantiate (parPrefab, parPos.transform.position, parPos.transform.rotation);
 		}
+		
 	}
 
 	void OnCollisionExit2D( Collision2D col ) {
