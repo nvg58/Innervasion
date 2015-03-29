@@ -83,7 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 110495128}
   - 114: {fileID: 110495129}
-  - 148: {fileID: 110495130}
+  - 114: {fileID: 110495130}
   m_Layer: 0
   m_Name: StartPoint
   m_TagString: Untagged
@@ -114,22 +114,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81395fa44f9e8134fbbbf9deaa229454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miloPrefab: {fileID: 0}
-  otisPrefab: {fileID: 0}
-  gamepadPrefab: {fileID: 0}
+  miloPrefab: {fileID: 100002, guid: f2bf9bd4e0b224edd8730e8280e09026, type: 2}
+  otisPrefab: {fileID: 100002, guid: a7e0b17c0f10b2348943045093a98942, type: 2}
   hasFinishTut: 0
---- !u!148 &110495130
-NetworkView:
+--- !u!114 &110495130
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 110495127}
   m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 0}
-  m_ViewID:
-    m_ID: 1
-    m_Type: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 1
+  instantiationId: 1
+  isRuntimeInstantiated: 0
 --- !u!1 &394420695
 GameObject:
   m_ObjectHideFlags: 0
