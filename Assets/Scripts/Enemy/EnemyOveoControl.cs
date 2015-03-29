@@ -34,7 +34,7 @@ public class EnemyOveoControl : MonoBehaviour
 	bool isAttack = false;
 	bool isCollision = false;
 	int direct=1;
-
+	bool doneAttack=true;
 
 	void Start ()
 	{
@@ -64,7 +64,10 @@ public class EnemyOveoControl : MonoBehaviour
 						changeRound (roundPos, randomRound);
 						
 				} else
-						doAttack ();
+		
+		doAttack ();
+
+						
 	}
 
 	void Attack(){
@@ -74,8 +77,12 @@ public class EnemyOveoControl : MonoBehaviour
 	}
 
 	void doAttack(){
-		MoveSpeed = 3.0f;
-		vectorLength = 1.0f;
+		if (doneAttack) {
+			MoveSpeed = 3.0f;
+			vectorLength = 1.0f;
+			doneAttack = false;
+		}
+
 		tmp = new Vector3(0.0f,0.0f,0.0f);
 		if (isCollision == true) {
 			direct = -1;
@@ -116,14 +123,15 @@ public class EnemyOveoControl : MonoBehaviour
 
 	void OnCollisionExit2D( Collision2D col ) {
 		if (col.gameObject.name == "MH") {
-
-			MoveSpeed = 3.0f;
-			vectorLength = 1.0f;
+		
 		}
 	}
 
 	void col(){
 		isCollision = true;
+		doneAttack = true;
+		MoveSpeed = 3.0f;
+		vectorLength = 1.0f;
 	}
 	
 	void goAround(int dir){
