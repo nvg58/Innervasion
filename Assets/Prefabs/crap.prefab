@@ -555,7 +555,7 @@ MonoBehaviour:
   randomizationFactor: .100000001
   startDelay: 1.5
   repeat: 1
-  bulletPrefab: {fileID: 100002, guid: b0c90ce92a40e4194be3748c8db12c79, type: 2}
+  bulletPrefab: {fileID: 100000, guid: e5ef0da129f0c594b930fd4fc76a37ba, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -119,6 +119,7 @@ public class EnemyOveoControl : MonoBehaviour
 			MoveSpeed = 0.0f;
 			vectorLength = 0.0f;
 		}
+		
 	}
 
 	void OnCollisionExit2D( Collision2D col ) {
