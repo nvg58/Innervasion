@@ -8,9 +8,9 @@ public class GlobalValue : MonoBehaviour {
 	public static int NumberOfCurrentHealPoint;
 	// Use this for initialization
 	void Start () {
-		MaxNumberOfEnemy = 8;
+		MaxNumberOfEnemy = 6;
 		NumberOfCurrentEnemy = 0;
-		NumberOfCurrentHealPoint = 1;
+		NumberOfCurrentHealPoint = 6;
 	}
 	
 	// Update is called once per frame

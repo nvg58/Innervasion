@@ -13,6 +13,7 @@ public class HealSys : MonoBehaviour
 		public GameObject BossPrefab;
 		private bool isBossSpawned;
 		// Use this for initialization
+		int number = 6;
 		void Start ()
 		{
 				MH = GameObject.FindGameObjectWithTag ("MH").transform;
@@ -36,7 +37,8 @@ public class HealSys : MonoBehaviour
 												iTween.FadeTo (healPoints [i], iTween.Hash ("alpha", 0, "time", 3));												
 						               			Destroy (healPoints[i], 3f);
 												GlobalValue.NumberOfCurrentHealPoint--;
-												if (GlobalValue.NumberOfCurrentHealPoint==0&&!isBossSpawned)
+												number--;
+												if (number==0&&!isBossSpawned)
 												{
 													isBossSpawned = true;
 													Instantiate (BossPrefab, spawnPos.transform.position, spawnPos.transform.rotation);

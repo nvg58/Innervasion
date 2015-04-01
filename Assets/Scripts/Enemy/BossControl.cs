@@ -39,6 +39,10 @@ public class BossControl : MonoBehaviour {
 	
 	void Update ()
 	{		
+		float dist = Vector3.Distance (transform.position, MH.position);
+		if (dist > MaxDist)
+			return;
+
 		if (!isAttack) {
 			
 			if (Time.time >= tChange) {
